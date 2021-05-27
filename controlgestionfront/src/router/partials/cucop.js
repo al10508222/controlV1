@@ -4,6 +4,3 @@ export default [
   { path: 'cucop/:id/edit', component: () => import('components/cucop/Edit.vue') },
 
 ];
-
-
-
