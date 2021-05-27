@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Models;
+
+//use App\Models\Catalogs\CatModule;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Jenssegers\Mongodb\Eloquent\Model;
+
+class AuditLog extends Model
+{
+    use HasFactory;
+    protected $connection = 'mongodb';
+}

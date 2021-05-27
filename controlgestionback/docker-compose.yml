@@ -1,0 +1,42 @@
+version: "3.2"
+services:
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    tty: true
+    ports:
+      - "8000:80"
+      - "8443:443"
+    networks:
+      - bd_control
+    volumes:
+      - ./:/var/www
+      - ./docker/:/etc/nginx/conf.d
+  postgres:
+    image: 'postgres:latest'
+    volumes:
+      - './.docker/postgres:/var/lib/postgresql/data'
+    environment:
+      - POSTGRES_PASSWORD=pobgnj
+    ports:
+      - '15432:5432'
+    networks:
+      - bd_control
+  app:
+    build:
+      args:
+        user: proyecto
+        uid: 1000
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    image: bd_control
+    container_name: bd_control-app
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - bd_control
+
+networks:
+  bd_control:
+    driver: bridge
