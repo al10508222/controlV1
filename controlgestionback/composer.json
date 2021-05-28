@@ -23,7 +23,8 @@
         "orangehill/iseed": "^2.6",
         "simplesoftwareio/simple-qrcode": "~4",
         "spomky-labs/otphp": "^10.0",
-        "vladimir-yuldashev/laravel-queue-rabbitmq": "^11.0"
+        "vladimir-yuldashev/laravel-queue-rabbitmq": "^11.0",
+        "doctrine/dbal": "2.5.1"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

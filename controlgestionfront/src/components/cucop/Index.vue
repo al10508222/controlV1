@@ -1,23 +1,46 @@
 <template>
-    <div>
-        <q-card>
-            <q-card-section>
-                <div class="text-h6">
-                    <q-icon size="sm" name="far fa-calendar-alt"/> Catálogo CuCop
-                    <q-btn class="float-right" round size="sm" @click="$router.push('/cucop/create')"  outline color="primary" icon="fas fa-plus" v-if="canCreate"/>
-                </div>
-            </q-card-section>
-        </q-card>
-        <br>
-        <q-card style="width: 100%; max-width: 1400px;">
-            <q-card-section>
-                <q-separator />
-                <div>
-                    <div id="calendarFull"></div>
-                </div>
-            </q-card-section>
-        </q-card>
-        <FormComponent />
-    </div>
+  <div>
+    <q-card>
+      <q-card-section>
+        <div class="text-h6">
+          <q-icon size="sm" name="fas fa-users"/> Administración / Usuarios
+          <q-btn class="float-right" round size="sm" @click="$router.push('/admin/users/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('users-edit')"/>
+        </div>
+      </q-card-section>
+    </q-card>
+    <Table />
+  </div>
 </template>
 
+<script>
+
+import Table from './Table';
+
+export default {
+  components: {
+    Table
+  },
+  data() {
+    return {
+      editDialog: false,
+    };
+  },
+  methods: {
+  },
+  computed: {
+    catalogs: {
+      get() {
+        return this.$store.state.catalogs;
+      },
+      set(val) {
+        this.$store.commit('catalogs/setCatalogs', val)
+      }
+    },
+    users: {
+      get() {
+        return this.$store.state.user.users;
+      },
+    },
+  },
+};
+</script>

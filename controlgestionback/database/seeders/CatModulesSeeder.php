@@ -168,6 +168,10 @@ class CatModulesSeeder extends Seeder
             'name'     => 'Módulo de Horarios',
             'code'     => 'module_schedules'
         ]);
+        CatModule::create([
+            'id'       => 32,
+            'name'     => 'Módulo Catálogo CuCop',
+            'code'     => 'module_cucop'
+        ]);
     }
-
 }

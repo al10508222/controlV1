@@ -219,6 +219,11 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'schedules-create', 'name' => 'Crear horarios',    'description' => 'Creación de horarios',          'module_id' => '31'],
             ['key' => 'schedules-edit',   'name' => 'Edita horarios',    'description' => 'Edición de horarios',           'module_id' => '31'],
             ['key' => 'schedules-delete', 'name' => 'Eliminar horarios', 'description' => 'Eliminación de horarios',       'module_id' => '31'],
+            //====================== Catálogo CuCop =====================================
+            ['key' => 'cucop-view',   'name' => 'Ver Catálogo Cucop',      'description' => 'Acceso al listado de Catálogo Cucop', 'module_id' => '32'],
+            ['key' => 'cucop-create', 'name' => 'Crear Catálogo Cucop',    'description' => 'Creación de Catálogo Cucop',          'module_id' => '32'],
+            ['key' => 'cucop-edit',   'name' => 'Edita Catálogo Cucop',    'description' => 'Edición de Catálogo Cucop',           'module_id' => '32'],
+            ['key' => 'cucop-delete', 'name' => 'Eliminar Catálogo Cucop', 'description' => 'Eliminación de Catálogo Cucop',       'module_id' => '32'],
         ]);
 
     }
