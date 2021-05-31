@@ -162,10 +162,18 @@ class CucopController extends Controller
     {
         try {
             CucopModel::destroy($id);
-        } catch(\Exception | \Error $e) {
-            \Safe\error_log($e);
-            return response('',500);
+            return response()->json([
+                'success' => true,
+                'message' => 'OK' 
+             ], 200);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+				'success' => false,
+				'message' => 'Error'
+			]);
         }
+        
     }
 
     public function getCucopsBy(Request $request) {
