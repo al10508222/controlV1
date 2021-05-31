@@ -4,6 +4,7 @@
       <q-card-section>
         <div class="text-h6">
           <q-icon size="sm" name="fas fa-check"/> Catálogo CuCop
+          <q-btn class="float-right" round size="sm" @click="$router.push('/cucop/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('cucop-edit')"/>
         </div>
       </q-card-section>
     </q-card>

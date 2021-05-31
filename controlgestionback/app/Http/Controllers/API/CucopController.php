@@ -63,7 +63,7 @@ class CucopController extends Controller
 
             return response()->json([
 				'success' => true,
-				'message' => '',
+				'message' => 'Registro Almacenado correctamente',
 			], 200);
 
         } catch (\Exception $e) {

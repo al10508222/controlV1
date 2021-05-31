@@ -27,7 +27,7 @@ class CucopModel extends Model
         'nivel',
         'cabm',
         'unidad_medida',
-        'tipo_adquisicion',
+        'tipo_contratacion'
       ];
 
     public function scopeSearch($query, $search)
@@ -38,13 +38,13 @@ class CucopModel extends Model
             {
                 if (isset($search) && !empty($search)) {
                     $q->where('tipo', 'like', '%' . $search . '%');
-                    $q->where('clave_cucop', 'like', '%' . $search . '%');
-                    $q->where('partida_especifica', 'like', '%' . $search . '%');
-                    $q->where('descripcion', 'like', '%' . $search . '%');
-                    $q->where('nivel', 'like', '%' . $search . '%');
-                    $q->where('cabm', 'like', '%' . $search . '%');
-                    $q->where('unidad_medida', 'like', '%' . $search . '%');
-                    $q->where('tipo_adquisicion', 'like', '%' . $search . '%');
+                    $q->orWhere('clave_cucop', 'like', '%' . $search . '%');
+                    $q->orWhere('partida_especifica', 'like', '%' . $search . '%');
+                    $q->orWhere('descripcion', 'like', '%' . $search . '%');
+                    $q->orWhere('nivel', 'like', '%' . $search . '%');
+                    $q->orWhere('cabm', 'like', '%' . $search . '%');
+                    $q->orWhere('unidad_medida', 'like', '%' . $search . '%');
+                    $q->orWhere('tipo_contratacion', 'like', '%' . $search . '%');
                 }
             });
         });
