@@ -3,8 +3,7 @@
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          <q-icon size="sm" name="fas fa-users"/> Administración / Usuarios
-          <q-btn class="float-right" round size="sm" @click="$router.push('/admin/users/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('users-edit')"/>
+          <q-icon size="sm" name="fas fa-check"/> Catálogo CuCop
         </div>
       </q-card-section>
     </q-card>
@@ -36,11 +35,11 @@ export default {
         this.$store.commit('catalogs/setCatalogs', val)
       }
     },
-    users: {
-      get() {
-        return this.$store.state.user.users;
-      },
-    },
+    // cucops: {
+    //   get() {
+    //     return this.$store.state.user.cucops;
+    //   },
+    // },
   },
 };
 </script>

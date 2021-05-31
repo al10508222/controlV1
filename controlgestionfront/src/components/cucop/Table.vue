@@ -19,26 +19,18 @@
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td key="username" :props="props">
-            {{ props.row.username }}
+          <q-td key="tipo" :props="props">
+            {{ props.row.tipo }}
           </q-td>
-          <q-td key="email" :props="props">
-            {{ props.row.email }}
+          <q-td key="clave_cucop" :props="props">
+            {{ props.row.clave_cucop }}
           </q-td>
-          <q-td key="name" :props="props">
-            {{ props.row.name }}
-          </q-td>
-          <q-td key="last_name" :props="props">
-            {{ props.row.last_name }}
-          </q-td>
-          <q-td key="second_lastname" :props="props">
-            {{ props.row.second_lastname }}
+          <q-td key="descripcion" :props="props">
+            {{ props.row.descripcion }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editUser(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-              <q-btn round size="sm" @click="editUser(props.row.id)" color="primary" icon="fas fa-edit" v-if="!props.row.deleted_at && canEdit"/>
-              <q-btn round size="sm" @click="confirmDelete = true; deleteOption=props.row.id" color="negative" icon="fas fa-trash" v-if="!props.row.deleted_at && canDelete"/>
+              <q-btn round size="sm" @click="editCucop(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView"/>
             </q-btn-group>
           </q-td>
         </q-tr>
@@ -59,7 +51,7 @@
             </q-card-section>
             <q-card-actions align="right">
             <q-btn flat label="Cancel" color="primary" v-close-popup/>
-            <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteUser(deleteOption);"/>
+            <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteCucop(deleteOption);"/>
             </q-card-actions>
       </q-card>
     </q-dialog>
@@ -68,7 +60,7 @@
 
 <script>
 import { notifyError, notifySuccess } from 'src/utils/notify';
-import * as UserService from 'src/services/admin/UserService';
+import * as cucopservice from 'src/services/CucopServices';
 
 export default {
   components: {
@@ -88,26 +80,20 @@ export default {
       confirmDelete: false,
       pagination: {
         page: 1,
-        rowsPerPage: 5,
+        rowsPerPage: 25,
         rowsNumber: ''
       },
       search: '',
       separator: 'vertical',
       columns: [
         {
-          name: 'username', align: 'center', label: 'Usuario', field: 'username'
+          name: 'tipo', align: 'center', label: 'Tipo', field: 'tipo'
         },
         {
-          name: 'email', align: 'center', label: 'Correo electrónico', field: 'email'
+          name: 'clave_cucop', align: 'center', label: 'Clave CuCop', field: 'clave_cucop'
         },
         {
-          name: 'name', align: 'center', label: 'Nombre', field: 'name'
-        },
-        {
-          name: 'last_name', align: 'center', label: 'Primer apellido', field: 'last_name'
-        },
-        {
-          name: 'second_lastname', align: 'center', label: 'Segundo apellido', field: 'second_lastname'
+          name: 'descripcion', align: 'center', label: 'Descripcion', field: 'descripcion'
         },
         {
           name: 'actions', align: 'center', label: 'Acciones', field: 'id'
@@ -117,22 +103,22 @@ export default {
   },
   computed: {
     canEdit: {
-      get() { return this.canShow('users-edit') }
+      get() { return this.canShow('cucop-edit') }
     },
     canView: {
-      get() { return this.canShow('users-view') }
+      get() { return this.canShow('cucop-view') }
     },
     canDelete: {
-      get() { return this.canShow('users-delete') }
+      get() { return this.canShow('cucop-delete') }
     },
   },
   methods: {
-    editUser(id) {
-      this.$router.push(`/admin/users/${id}/edit`)
+    editCucop(id) {
+      this.$router.push(`/cucop/${id}/edit`)
     },
-    deleteUser(id) {
+    deleteCucop(id) {
       this.loading = true
-      UserService.destroy({ params: { id } }).then((data) => {
+      cucopservice.destroy({ params: { id } }).then((data) => {
         if (data.success) {
           notifySuccess()
           this.onRequest({
@@ -151,11 +137,11 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
-      UserService.index({ params: { page, rowsPerPage, search } }).then((users) => {
-        this.data = users.data
-        this.pagination.rowsPerPage = users.per_page
-        this.pagination.page = users.current_page
-        this.pagination.rowsNumber = users.total
+      cucopservice.index({ params: { page, rowsPerPage, search } }).then((cucops) => {
+        this.data = cucops.data
+        this.pagination.rowsPerPage = cucops.per_page
+        this.pagination.page = cucops.current_page
+        this.pagination.rowsNumber = cucops.total
         this.loading = false
       }).catch(() => {
         this.loading = false

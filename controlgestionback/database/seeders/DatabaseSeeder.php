@@ -101,6 +101,7 @@ class DatabaseSeeder extends Seeder
             LawVacationsConfigsTableSeeder::class,
             FiveYearBonusSeeder::class,
             FiveYearBonusConfigsTableSeeder::class,
+            CatCucopsTableSeeder::class,
         ]);
     }
 }
