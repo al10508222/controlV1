@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 
-class CatCucopTableSeeder extends Seeder
+class CatCucopsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
