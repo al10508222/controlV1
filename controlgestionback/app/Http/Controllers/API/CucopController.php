@@ -128,7 +128,7 @@ class CucopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CucopsFieldRequest $request, $id)
+    public function update(Request $request, $id)
     {
         try {
 
@@ -140,7 +140,7 @@ class CucopController extends Controller
 
             return response()->json([
 				'success' => true,
-				'message' => '',
+				'message' => 'Actualizado exitosamente',
 			], 200);
 
         } catch (\Exception $e) {

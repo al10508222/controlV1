@@ -22,7 +22,7 @@
               v-model="form.tipo"
               square
               outlined
-              label="Tipo"/>
+              label="Tipo" type="number"/>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
@@ -30,7 +30,15 @@
               v-model="form.clave_cucop"
               square
               outlined
-              label="Clave Cucop"/>
+              label="Clave CUCoP" type="number"/>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <q-input
+              :rules="[$rules.required($i18n.t('requiredInput'))]"
+              v-model="form.clave_cucop2"
+              square
+              outlined
+              label="Clave CUCoP +" type="number"/>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
@@ -70,7 +78,7 @@
               v-model="form.nivel"
               square
               outlined
-              label="Nivel"/>
+              label="Nivel" type="number"/>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
@@ -101,6 +109,7 @@ export default {
       form: {
         tipo: '',
         clave_cucop: '',
+        clave_cucop2: '',
         descripcion: '',
         partida_especifica: '',
         cabm: '',

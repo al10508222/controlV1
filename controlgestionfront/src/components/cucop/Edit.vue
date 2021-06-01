@@ -14,6 +14,9 @@
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
+            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
+              <q-input v-model="form.id" square outlined label="id"/>
+            </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
               <q-input v-model="form.tipo" square outlined label="Tipo"/>
             </div>
@@ -39,6 +42,7 @@
         </q-card-section>
         <q-card-actions align="right">
           <q-btn flat @click="$router.back()" label="Regresar" color="primary" v-close-popup />
+          <q-btn flat @click="update()" label="Guardar" color="primary" v-if="disabled"/>
         </q-card-actions>
       </div>
     </q-card>
@@ -48,6 +52,7 @@
 
 <script>
 import * as CucopService from 'src/services/CucopServices';
+import { notifySuccess, notifyError } from 'src/utils/notify';
 
 export default {
   data() {
@@ -74,7 +79,6 @@ export default {
       this.disabled = !this.canShow('Cucop')
       CucopService.edit(id).then((data) => {
         this.form = data
-        console.log(data)
         this.form.tipo = this.form.tipo.map((obj) => obj.id, []);
         this.$q.loading.hide();
       }).catch((err) => {
@@ -84,10 +88,15 @@ export default {
     });
   },
   methods: {
-    update() {},
-    change(val, tabId = '') {
-      this.form.cat_tabulator_id = tabId
-      this.filteredTabulators = this.catalogs.tabulators.filter((e) => val === e.cat_contract_type_id)
+    update() {
+      const form = { ...this.form };
+      const { id } = this.$route.params
+      CucopService.update(form, id).then(() => {
+        notifySuccess();
+        this.$router.push('../../cucop');
+      }).catch((err) => {
+        notifyError(err)
+      })
     },
   },
   computed: {
