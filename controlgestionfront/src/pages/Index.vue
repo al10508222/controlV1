@@ -27,7 +27,7 @@ export default {
         { title: 'Puestos', path: '/positions', permission: 'positions-view', description: 'Administra los puestos de trabajo disponibles en la institución' },
         { title: 'Dashboard', path: '/dashboard', permission: 'dashboard-view', description: 'Vista general del sistema' },
         { title: 'Calendario', path: '/calendar', permission: 'calendar-view', description: 'Accede a un calendario para planear eventos o programar actividades' },
-        { title: 'Cucop', path: '/cucop', permission: 'cucop-view', description: 'Catálogo CuCops' },
+        { title: 'Catálogo CuCop', path: '/cucop', permission: 'cucop-view', description: 'Detalle del Catálogo' },
         // { title: 'Proyectos', path: '/psp/projects' },
         // { title: 'Proveedores', path: '/psp/providers' },
         // { title: 'Memos de Contrato', path: '/psp/hiringMemos' },
