@@ -51,12 +51,12 @@ class CucopController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CucopsFieldRequest $request)
+    public function store(Request $request)
     {
         try {
 
             DB::beginTransaction();
-            $Cucop = new Cucop();
+            $Cucop = new CucopModel();
             $Cucop->fill($request->all());
             $Cucop->save();
             DB::commit();

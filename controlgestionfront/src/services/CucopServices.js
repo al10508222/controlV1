@@ -21,7 +21,7 @@ export const edit = (id) => {
 
 export const store = (payload) => {
   const URL = '/api/admin/cucop';
-  return axiosInstance.post(URL, payload).then((res) => res.message);
+  return axiosInstance.post(URL, payload).then((res) => res.data);
 };
 
 export const update = (payload, id) => {
@@ -36,6 +36,5 @@ export const getCode = () => {
 
 export const destroy = (data) => {
   const URL = `/api/admin/cucop/${data.params.id}`
-  console.log(axiosInstance.delete(URL).then((res) => res.data))
   return axiosInstance.delete(URL).then((res) => res.data);
 }
