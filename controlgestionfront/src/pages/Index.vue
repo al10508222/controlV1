@@ -23,7 +23,7 @@ export default {
       otp: true,
       links: [
         { title: 'Personas', path: '/employees', permission: 'employee-view', description: 'Administra las personas que laboran el la institución' },
-        { title: 'Movimientos', path: '/movements', permission: 'movements-view', description: 'test' },
+        { title: 'Movimientos', path: '/movements', permission: 'movements-view', description: 'Movimientos' },
         { title: 'Puestos', path: '/positions', permission: 'positions-view', description: 'Administra los puestos de trabajo disponibles en la institución' },
         { title: 'Dashboard', path: '/dashboard', permission: 'dashboard-view', description: 'Vista general del sistema' },
         { title: 'Calendario', path: '/calendar', permission: 'calendar-view', description: 'Accede a un calendario para planear eventos o programar actividades' },
