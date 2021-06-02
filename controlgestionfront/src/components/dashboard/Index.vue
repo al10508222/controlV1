@@ -1,7 +1,28 @@
 <template>
   <div>
     <div class="row q-pa-sm q-col-gutter-sm">
-      <div class="col-4">
+      <div class="col-12">
+        <q-card class="q-pa-sm" v-if="canShow('dashboard-view')">
+          <q-item class="q-pb-none q-pt-xs">
+            <q-item-section>
+              <q-item-label class="text-black-7" style="letter-spacing: 5px; font-weight: 1200; font-size: 30px">Bienvenido {{ user.name }} {{ user.last_name }}</q-item-label>
+              <q-item-label class="text-black-7" style="letter-spacing: 3px; font-weight: 400; font-size: 20px">Perfil: {{ user.profile }} </q-item-label>
+              <q-item-label class="text-black-7" style="letter-spacing: 3px; font-weight: 400; font-size: 20px">Correo: {{ user.email }} </q-item-label>
+              <q-item-label class="text-black-7 btn" style="letter-spacing: 3px; font-weight: 400; font-size: 14px; text-decoration: underline;"><a v-on:click='editUser(user.profile_id)'>Editar Perfil</a></q-item-label>
+            </q-item-section>
+
+            <q-item-section side>
+              <q-icon name="fas fa-user-tie" class="" size="200px"></q-icon>
+            </q-item-section>
+          </q-item>
+          <q-item class="q-py-xs" style="min-height: unset">
+            <q-item-section>
+              <q-linear-progress :value="1" class="q-mt-sm" />
+            </q-item-section>
+          </q-item>
+        </q-card>
+      </div>
+      <div class="col-6">
         <q-card class="q-pa-sm" v-if="canShow('dashboard-view')">
           <q-item class="q-pb-none q-pt-xs">
             <q-item-section>
@@ -20,7 +41,7 @@
           </q-item>
         </q-card>
       </div>
-      <div class="col-4" style="border-left: 1px solid #efefef;">
+      <div class="col-6" style="border-left: 1px solid #efefef;">
         <q-card class="q-pa-sm">
           <q-item class="q-pb-none q-pt-xs">
             <q-item-section>
@@ -30,24 +51,6 @@
 
             <q-item-section side>
               <q-icon name="fas fa-briefcase" class="" size="60px"></q-icon>
-            </q-item-section>
-          </q-item>
-          <q-item class="q-py-xs" style="min-height: unset">
-            <q-item-section>
-              <q-linear-progress :value="1" class="q-mt-sm" />
-            </q-item-section>
-          </q-item>
-        </q-card>
-      </div>
-      <div class="col-4" style="border-left: 1px solid #efefef;">
-        <q-card class="q-pa-sm">
-          <q-item class="q-pb-none q-pt-xs">
-            <q-item-section>
-              <q-item-label class="text-h4" style="font-weight: 100;letter-spacing: 3px;">{{ user.name }}</q-item-label>
-              <q-item-label class="text-grey-7" style="letter-spacing: 1px;"><a href="/admin/users/${id}/edit">Perfil de usuario</a></q-item-label>
-            </q-item-section>
-            <q-item-section side>
-              <q-icon name="fas fa-user-tie" class="" size="60px" @click="editUser()"></q-icon>
             </q-item-section>
           </q-item>
           <q-item class="q-py-xs" style="min-height: unset">
