@@ -123,7 +123,7 @@
                   <q-icon right name="fas fa-passport q-icon notranslate" />
                 </q-avatar>
               </q-item-section>
-              <q-item-section id="irCucop">Catalogo CuCop</q-item-section>
+              <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
             </q-item>
           </q-expansion-item>
         </q-list>

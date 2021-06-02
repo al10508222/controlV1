@@ -94,7 +94,7 @@ export default {
           name: 'clave_cucop', align: 'center', label: 'Clave CuCop', field: 'clave_cucop'
         },
         {
-          name: 'descripcion', align: 'left', label: 'Descripcion', field: 'descripcion'
+          name: 'descripcion', align: 'left', label: 'Descripción', field: 'descripcion'
         },
         {
           name: 'actions', align: 'center', label: 'Acciones', field: 'id'
