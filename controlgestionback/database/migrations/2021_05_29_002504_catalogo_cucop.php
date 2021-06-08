@@ -24,6 +24,7 @@ class CatalogoCucop extends Migration
             $table->string('cabm');
             $table->string('unidad_medida');
             $table->string('tipo_contratacion');
+            $table->timestamps();
         });
     }
 

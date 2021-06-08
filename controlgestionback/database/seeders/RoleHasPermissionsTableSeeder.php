@@ -2184,6 +2184,54 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'profile_id' => 1,
                 'permission_id' => 58,
             ),
+            361 => 
+            array (
+                'id' => 426,
+                'profile_id' => 1,
+                'permission_id' => 143,
+            ),
+            362 => 
+            array (
+                'id' => 427,
+                'profile_id' => 1,
+                'permission_id' => 144,
+            ),
+            363 => 
+            array (
+                'id' => 428,
+                'profile_id' => 1,
+                'permission_id' => 145,
+            ),
+            364 => 
+            array (
+                'id' => 429,
+                'profile_id' => 1,
+                'permission_id' => 146,
+            ),
+            365 => 
+            array (
+                'id' => 430,
+                'profile_id' => 1,
+                'permission_id' => 147,
+            ),
+            366 => 
+            array (
+                'id' => 431,
+                'profile_id' => 1,
+                'permission_id' => 148,
+            ),
+            367 => 
+            array (
+                'id' => 432,
+                'profile_id' => 1,
+                'permission_id' => 149,
+            ),
+            368 => 
+            array (
+                'id' => 433,
+                'profile_id' => 1,
+                'permission_id' => 150,
+            ),
         ));
 
         \DB::statement('ALTER SEQUENCE role_has_permissions_id_seq RESTART WITH 435');

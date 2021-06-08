@@ -224,6 +224,11 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'cucop-create', 'name' => 'Crear Catálogo Cucop',    'description' => 'Creación de Catálogo Cucop',          'module_id' => '32'],
             ['key' => 'cucop-edit',   'name' => 'Edita Catálogo Cucop',    'description' => 'Edición de Catálogo Cucop',           'module_id' => '32'],
             ['key' => 'cucop-delete', 'name' => 'Eliminar Catálogo Cucop', 'description' => 'Eliminación de Catálogo Cucop',       'module_id' => '32'],
+            //====================== Catálogo CLUES =====================================
+            ['key' => 'clues-view',   'name' => 'Ver Catálogo Clues',      'description' => 'Acceso al listado de Catálogo Clues', 'module_id' => '33'],
+            ['key' => 'clues-create', 'name' => 'Crear Catálogo Clues',    'description' => 'Creación de Catálogo Clues',          'module_id' => '33'],
+            ['key' => 'clues-edit',   'name' => 'Edita Catálogo Clues',    'description' => 'Edición de Catálogo Clues',           'module_id' => '33'],
+            ['key' => 'clues-delete', 'name' => 'Eliminar Catálogo Clues', 'description' => 'Eliminación de Catálogo Clues',       'module_id' => '33'],
         ]);
 
     }

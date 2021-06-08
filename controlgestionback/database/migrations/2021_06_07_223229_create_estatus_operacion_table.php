@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCatalogoCucop extends Migration
+class CreateEstatusOperacionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class AddCatalogoCucop extends Migration
      */
     public function up()
     {
-        Schema::table('catalogo_cucop', function(Blueprint $table){
+        Schema::create('estatus_operacion', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('estatus_operacion_nombre');  
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ class AddCatalogoCucop extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('estatus_operacion');
     }
 }

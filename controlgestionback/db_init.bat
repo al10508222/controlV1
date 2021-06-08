@@ -15,4 +15,4 @@ php artisan up
 echo ' ******** dumping any previous autoload configs *********** '
 composer dumpautoload
 
-
+php artisan db:seed --class=RoleHasPermissionsTableSeeder
