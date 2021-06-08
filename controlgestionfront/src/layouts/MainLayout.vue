@@ -125,13 +125,13 @@
               </q-item-section>
               <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
             </q-item>
-            <q-item v-if="canShow('clues-view')" clickable v-ripple  @click.native="$router.push('/clues').catch(err => {})">
+            <q-item v-if="canShow('vialidades-view')" clickable v-ripple  @click.native="$router.push('/vialidades').catch(err => {})">
               <q-item-section avatar>
                 <q-avatar>
                   <q-icon right name="fas fa-passport q-icon notranslate" />
                 </q-avatar>
               </q-item-section>
-              <q-item-section id="irCucop">Catálogo Clues</q-item-section>
+              <q-item-section id="irCucop">Tipo Vialidad</q-item-section>
             </q-item>
           </q-expansion-item>
         </q-list>

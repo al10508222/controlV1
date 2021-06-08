@@ -229,6 +229,11 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'clues-create', 'name' => 'Crear Catálogo Clues',    'description' => 'Creación de Catálogo Clues',          'module_id' => '33'],
             ['key' => 'clues-edit',   'name' => 'Edita Catálogo Clues',    'description' => 'Edición de Catálogo Clues',           'module_id' => '33'],
             ['key' => 'clues-delete', 'name' => 'Eliminar Catálogo Clues', 'description' => 'Eliminación de Catálogo Clues',       'module_id' => '33'],
+            //====================== Catálogo Vialidades =====================================
+            ['key' => 'vialidades-view',   'name' => 'Ver Catálogo Vialidades',      'description' => 'Acceso al listado de Catálogo Vialidades', 'module_id' => '34'],
+            ['key' => 'vialidades-create', 'name' => 'Crear Catálogo Vialidades',    'description' => 'Creación de Catálogo Vialidades',          'module_id' => '34'],
+            ['key' => 'vialidades-edit',   'name' => 'Edita Catálogo Vialidades',    'description' => 'Edición de Catálogo Vialidades',           'module_id' => '34'],
+            ['key' => 'vialidades-delete', 'name' => 'Eliminar Catálogo Vialidades', 'description' => 'Eliminación de Catálogo Vialidades',       'module_id' => '34'],
         ]);
 
     }

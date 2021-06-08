@@ -15,4 +15,11 @@ php artisan up
 echo ' ******** dumping any previous autoload configs *********** '
 composer dumpautoload
 
+
+#pasos
+
+php artisan migrate
+php artisan migrate:fresh --seed
+php artisan passport:install --force
 php artisan db:seed --class=RoleHasPermissionsTableSeeder
+php artisan db:seed --class=TipoVialidadSeeder

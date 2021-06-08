@@ -178,5 +178,10 @@ class CatModulesSeeder extends Seeder
             'name'     => 'Módulo Catálogo Clues',
             'code'     => 'module_clues'
         ]);
+        CatModule::create([
+            'id'       => 34,
+            'name'     => 'Módulo Catálogo Vialidades',
+            'code'     => 'module_vialidades'
+        ]);
     }
 }

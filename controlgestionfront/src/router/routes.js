@@ -6,7 +6,7 @@ import General from './partials/General';
 import Calendar from './partials/Calendar';
 import Cucop from './partials/cucop';
 import Clues from './partials/clues';
-
+import Vialidades from './partials/vialidades';
 // import Receipt from './partials/Receipt';
 
 const routes = [
@@ -23,6 +23,7 @@ const routes = [
       ...Calendar,
       ...Cucop,
       ...Clues,
+      ...Vialidades,
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {
