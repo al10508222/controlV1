@@ -19,74 +19,10 @@
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.tipo"
+              v-model="form.vialidad_nombre"
               square
               outlined
-              label="Tipo" type="number"/>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-4">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.clave_clues"
-              square
-              outlined
-              label="Clave clues" type="number"/>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-4">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.clave_clues2"
-              square
-              outlined
-              label="Clave clues +" type="number"/>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-4">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.descripcion"
-              square
-              outlined
-              label="Descripción"/>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-2">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.partida_especifica"
-              square
-              outlined
-              label="Partida específica"/>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-2">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.cabm"
-              square
-              outlined
-              label="C.A.B.M."/>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-2">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.unidad_medida"
-              square
-              outlined
-              label="Unidad de medida"/>
-          </div>
-            <div class="col-xs-12 col-sm-12 col-md-2">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.nivel"
-              square
-              outlined
-              label="Nivel" type="number"/>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-4">
-            <q-input
-              :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.tipo_contratacion"
-              square
-              outlined
-              label="Tipo de contratación"/>
+              label="Nombre de la Vialidad" type="text"/>
           </div>
         </div>
       </q-form>
@@ -101,26 +37,18 @@
 
 <script>
 import { notifySuccess } from 'src/utils/notify';
-import * as cluesServices from 'src/services/CluesServices';
+import * as VialidadesServices from 'src/services/VialidadesServices';
 
 export default {
   data() {
     return {
       form: {
-        tipo: '',
-        clave_clues: '',
-        clave_clues2: '',
-        descripcion: '',
-        partida_especifica: '',
-        cabm: '',
-        unidad_medida: '',
-        nivel: '',
-        tipo_contratacion: ''
+        vialidad_nombre: ''
       }
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true, clues_projects: true };
+    const catalogsConfiguration = { profiles: true, vialidades_projects: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();
@@ -131,9 +59,9 @@ export default {
       this.$refs.form.validate().then((valid) => {
         if (valid) {
           const form = { ...this.form };
-          cluesServices.store(form).then(() => {
+          VialidadesServices.store(form).then(() => {
             notifySuccess();
-            this.$router.push('/clues');
+            this.$router.push('/vialidades');
           }).catch((err) => {
             console.log(err)
           })
