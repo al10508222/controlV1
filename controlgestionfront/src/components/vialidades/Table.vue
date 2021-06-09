@@ -19,19 +19,17 @@
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td key="tipo" :props="props">
-            {{ props.row.tipo }}
+          <q-td key="id" :props="props">
+            {{ props.row.id }}
           </q-td>
-          <q-td key="clave_Vialidades" :props="props">
-            {{ props.row.clave_Vialidades }}
-          </q-td>
-          <q-td key="descripcion" :props="props">
-            {{ props.row.descripcion }}
+          <q-td key="vialidad_nombre" :props="props">
+            {{ props.row.vialidad_nombre }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editVialidades(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView"/>
-              <q-btn round size="sm" @click="confirmDelete = true; deleteOption=props.row.id" color="negative" icon="fas fa-trash" v-if="!props.row.deleted_at && canDelete"/>
+              <q-btn round size="sm" @click="editVialidades(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="editVialidades(props.row.id)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.id" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
         </q-tr>
@@ -61,7 +59,7 @@
 
 <script>
 import { notifyError, notifySuccess } from 'src/utils/notify';
-import * as VialidadesService from 'src/Services/VialidadesServices';
+import * as VialidadesService from 'src/services/VialidadesServices';
 
 export default {
   components: {
@@ -81,20 +79,17 @@ export default {
       confirmDelete: false,
       pagination: {
         page: 1,
-        rowsPerPage: 25,
+        rowsPerPage: 10,
         rowsNumber: ''
       },
       search: '',
       separator: 'vertical',
       columns: [
         {
-          name: 'tipo', align: 'center', label: 'Tipo', field: 'tipo'
+          name: 'id', align: 'center', label: 'ID', field: 'id'
         },
         {
-          name: 'clave_Vialidades', align: 'center', label: 'Clave Vialidades', field: 'clave_Vialidades'
-        },
-        {
-          name: 'descripcion', align: 'left', label: 'Descripción', field: 'descripcion'
+          name: 'vialidad_nombre', align: 'center', label: 'Nombre Vialidad', field: 'vialidad_nombre'
         },
         {
           name: 'actions', align: 'center', label: 'Acciones', field: 'id'
@@ -104,18 +99,18 @@ export default {
   },
   computed: {
     canEdit: {
-      get() { return this.canShow('Vialidades-edit') }
+      get() { return this.canShow('vialidades-edit') }
     },
     canView: {
-      get() { return this.canShow('Vialidades-view') }
+      get() { return this.canShow('vialidades-view') }
     },
     canDelete: {
-      get() { return this.canShow('Vialidades-delete') }
+      get() { return this.canShow('vialidades-delete') }
     },
   },
   methods: {
     editVialidades(id) {
-      this.$router.push(`/Vialidades/${id}/edit`)
+      this.$router.push(`/vialidades/${id}/edit`)
     },
     deleteVialidades(id) {
       this.loading = true
