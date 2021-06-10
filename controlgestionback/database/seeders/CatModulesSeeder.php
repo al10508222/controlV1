@@ -13,6 +13,7 @@ class CatModulesSeeder extends Seeder
      */
     public function run()
     {
+        \DB::statement('DELETE FROM public.cat_modules');
         CatModule::create([
             'id'       => 1,
             'name'     =>'Módulo Usuarios',
@@ -182,6 +183,21 @@ class CatModulesSeeder extends Seeder
             'id'       => 34,
             'name'     => 'Módulo Catálogo Vialidades',
             'code'     => 'module_vialidades'
+        ]);
+        CatModule::create([
+            'id'       => 35,
+            'name'     => 'Módulo Catálogo Entidades Federativas',
+            'code'     => 'module_entidades'
+        ]);
+        CatModule::create([
+            'id'       => 36,
+            'name'     => 'Módulo Catálogo Municipios',
+            'code'     => 'module_municipios'
+        ]);
+        CatModule::create([
+            'id'       => 37,
+            'name'     => 'Módulo Catálogo Localidades',
+            'code'     => 'module_localidades'
         ]);
     }
 }

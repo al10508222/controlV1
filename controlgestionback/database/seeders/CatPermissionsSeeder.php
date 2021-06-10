@@ -13,6 +13,7 @@ class CatPermissionsSeeder extends Seeder
      */
     public function run()
     {
+        \DB::statement('DELETE FROM public.cat_permissions');
         \DB::table('cat_permissions')->insert([
             //===================== USER (admin) ==========================
             ['key' =>'users-view', 'name' => 'Ver Usuarios', 'description' => 'Acceso a listado y detalle de usuarios Ver Usuarios (Todos los tipos)', 'module_id' => '1'],
@@ -234,6 +235,21 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'vialidades-create', 'name' => 'Crear Catálogo Vialidades',    'description' => 'Creación de Catálogo Vialidades',          'module_id' => '34'],
             ['key' => 'vialidades-edit',   'name' => 'Edita Catálogo Vialidades',    'description' => 'Edición de Catálogo Vialidades',           'module_id' => '34'],
             ['key' => 'vialidades-delete', 'name' => 'Eliminar Catálogo Vialidades', 'description' => 'Eliminación de Catálogo Vialidades',       'module_id' => '34'],
+            //====================== Catálogo entidades federativas =====================================
+            ['key' => 'entidades-view',   'name' => 'Ver Catálogo Entidades Federativas',      'description' => 'Acceso al listado de Catálogo Entidades Federativas', 'module_id' => '35'],
+            ['key' => 'entidades-create', 'name' => 'Crear Catálogo Entidades Federativas',    'description' => 'Creación de Catálogo Entidades Federativas',          'module_id' => '35'],
+            ['key' => 'entidades-edit',   'name' => 'Edita Catálogo Entidades Federativas',    'description' => 'Edición de Catálogo Entidades Federativas',           'module_id' => '35'],
+            ['key' => 'entidades-delete', 'name' => 'Eliminar Catálogo Entidades Federativas', 'description' => 'Eliminación de Catálogo Entidades Federativas',       'module_id' => '35'],
+            //====================== Catálogo entidades federativas =====================================
+            ['key' => 'municipios-view',   'name' => 'Ver Catálogo Municipios',      'description' => 'Acceso al listado de Catálogo Municipios', 'module_id' => '36'],
+            ['key' => 'municipios-create', 'name' => 'Crear Catálogo Municipios',    'description' => 'Creación de Catálogo Municipios',          'module_id' => '36'],
+            ['key' => 'municipios-edit',   'name' => 'Edita Catálogo Municipios',    'description' => 'Edición de Catálogo Municipios',           'module_id' => '36'],
+            ['key' => 'municipios-delete', 'name' => 'Eliminar Catálogo Municipios', 'description' => 'Eliminación de Catálogo Municipios',       'module_id' => '36'],
+            //====================== Catálogo entidades federativas =====================================
+            ['key' => 'localidades-view',   'name' => 'Ver Catálogo Localidades',      'description' => 'Acceso al listado de Catálogo Localidades', 'module_id' => '37'],
+            ['key' => 'localidades-create', 'name' => 'Crear Catálogo Localidades',    'description' => 'Creación de Catálogo Localidades',          'module_id' => '37'],
+            ['key' => 'localidades-edit',   'name' => 'Edita Catálogo Localidades',    'description' => 'Edición de Catálogo Localidades',           'module_id' => '37'],
+            ['key' => 'localidades-delete', 'name' => 'Eliminar Catálogo Localidades', 'description' => 'Eliminación de Catálogo Localidades',       'module_id' => '37'],
         ]);
 
     }

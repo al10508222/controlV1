@@ -18,8 +18,11 @@ composer dumpautoload
 
 #pasos
 
+TERMINAR DE LLENAR ARCHIVO EntidadesFederativasTableSeeder.php SIGUIENDO LA ESTRUCTURA (SE OBSERVADOR)
+
 php artisan migrate
 php artisan migrate:fresh --seed
 php artisan passport:install --force
 php artisan db:seed --class=RoleHasPermissionsTableSeeder
 php artisan db:seed --class=TipoVialidadSeeder
+php artisan db:seed --class=EntidadesFederativasTableSeeder

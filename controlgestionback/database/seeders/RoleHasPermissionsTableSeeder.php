@@ -2184,6 +2184,7 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'profile_id' => 1,
                 'permission_id' => 58,
             ),
+            //clues o cucop
             361 => 
             array (
                 'id' => 426,
@@ -2208,6 +2209,7 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'profile_id' => 1,
                 'permission_id' => 146,
             ),
+            //clues o cucop
             365 => 
             array (
                 'id' => 430,
@@ -2232,6 +2234,7 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'profile_id' => 1,
                 'permission_id' => 150,
             ),
+            //tipos de vialidad
             369 => 
             array (
                 'id' => 434,
@@ -2256,6 +2259,82 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'profile_id' => 1,
                 'permission_id' => 154,
             ),
+            //entidades federativas
+            373 => 
+            array (
+                'id' => 438,
+                'profile_id' => 1,
+                'permission_id' => 155,
+            ),
+            374 => 
+            array (
+                'id' => 439,
+                'profile_id' => 1,
+                'permission_id' => 156,
+            ),
+            375 => 
+            array (
+                'id' => 440,
+                'profile_id' => 1,
+                'permission_id' => 157,
+            ),
+            376 => 
+            array (
+                'id' => 441,
+                'profile_id' => 1,
+                'permission_id' => 158,
+            ),
+            //municipios
+            377 => 
+            array (
+                'id' => 442,
+                'profile_id' => 1,
+                'permission_id' => 159,
+            ),
+            378 => 
+            array (
+                'id' => 443,
+                'profile_id' => 1,
+                'permission_id' => 160,
+            ),
+            379 => 
+            array (
+                'id' => 444,
+                'profile_id' => 1,
+                'permission_id' => 161,
+            ),
+            380 => 
+            array (
+                'id' => 445,
+                'profile_id' => 1,
+                'permission_id' => 162,
+            ),
+            //localidades
+            381 => 
+            array (
+                'id' => 446,
+                'profile_id' => 1,
+                'permission_id' => 163,
+            ),
+            382 => 
+            array (
+                'id' => 447,
+                'profile_id' => 1,
+                'permission_id' => 164,
+            ),
+            383 => 
+            array (
+                'id' => 448,
+                'profile_id' => 1,
+                'permission_id' => 165,
+            ),
+            384 => 
+            array (
+                'id' => 449,
+                'profile_id' => 1,
+                'permission_id' => 166,
+            ),
+
         ));
 
         \DB::statement('ALTER SEQUENCE role_has_permissions_id_seq RESTART WITH 435');

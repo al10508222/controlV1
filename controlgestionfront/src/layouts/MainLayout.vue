@@ -117,22 +117,31 @@
               </q-item-section>
               <q-item-section id="irCalendario">Calendario de pagos</q-item-section>
             </q-item>
-            <q-item v-if="canShow('cucop-view')" clickable v-ripple  @click.native="$router.push('/cucop').catch(err => {})">
-              <q-item-section avatar>
-                <q-avatar>
-                  <q-icon right name="fas fa-passport q-icon notranslate" />
-                </q-avatar>
-              </q-item-section>
-              <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
-            </q-item>
-            <q-item v-if="canShow('vialidades-view')" clickable v-ripple  @click.native="$router.push('/vialidades').catch(err => {})">
-              <q-item-section avatar>
-                <q-avatar>
-                  <q-icon right name="fas fa-passport q-icon notranslate" />
-                </q-avatar>
-              </q-item-section>
-              <q-item-section id="irCucop">Tipo Vialidad</q-item-section>
-            </q-item>
+            <q-list padding class="menu-list">
+            <q-expansion-item
+              expand-separator
+              icon="perm_identity"
+              label="Catálogos"
+              caption="Otros"
+            >
+              <q-item v-if="canShow('cucop-view')" clickable v-ripple  @click.native="$router.push('/cucop').catch(err => {})">
+                <q-item-section avatar>
+                  <q-avatar>
+                    <q-icon right name="fas fa-passport q-icon notranslate" />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
+              </q-item>
+              <q-item v-if="canShow('vialidades-view')" clickable v-ripple  @click.native="$router.push('/vialidades').catch(err => {})">
+                <q-item-section avatar>
+                  <q-avatar>
+                    <q-icon right name="fas fa-passport q-icon notranslate" />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section id="irCucop">Tipo Vialidad</q-item-section>
+              </q-item>
+            </q-expansion-item>
+          </q-list>
           </q-expansion-item>
         </q-list>
       </q-scroll-area>
