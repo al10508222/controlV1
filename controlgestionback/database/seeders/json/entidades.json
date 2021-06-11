@@ -1,0 +1,177 @@
+[
+  {
+    "id": 0,
+    "entidad_nombre": "SIN ESPECIFICAR",
+    "entidad_nombre_corto": "SE"
+  },
+  {
+    "id": 1,
+    "entidad_nombre": "AGUASCALIENTES",
+    "entidad_nombre_corto": "AS"
+  },
+  {
+    "id": 2,
+    "entidad_nombre": "BAJA CALIFORNIA",
+    "entidad_nombre_corto": "BC"
+  },
+  {
+    "id": 3,
+    "entidad_nombre": "BAJA CALIFORNIA SUR",
+    "entidad_nombre_corto": "BS"
+  },
+  {
+    "id": 4,
+    "entidad_nombre": "CAMPECHE",
+    "entidad_nombre_corto": "CC"
+  },
+  {
+    "id": 7,
+    "entidad_nombre": "CHIAPAS",
+    "entidad_nombre_corto": "CS"
+  },
+  {
+    "id": 8,
+    "entidad_nombre": "CHIHUAHUA",
+    "entidad_nombre_corto": "CH"
+  },
+  {
+    "id": 5,
+    "entidad_nombre": "COAHUILA DE ZARAGOZA",
+    "entidad_nombre_corto": "CL"
+  },
+  {
+    "id": 6,
+    "entidad_nombre": "COLIMA",
+    "entidad_nombre_corto": "CM"
+  },
+  {
+    "id": 9,
+    "entidad_nombre": "DISTRITO FEDERAL",
+    "entidad_nombre_corto": "DF"
+  },
+  {
+    "id": 10,
+    "entidad_nombre": "DURANGO",
+    "entidad_nombre_corto": "DG"
+  },
+  {
+    "id": 15,
+    "entidad_nombre": "ESTADO DE MEXICO",
+    "entidad_nombre_corto": "MC"
+  },
+  {
+    "id": 11,
+    "entidad_nombre": "GUANAJUATO",
+    "entidad_nombre_corto": "GT"
+  },
+  {
+    "id": 12,
+    "entidad_nombre": "GUERRERO",
+    "entidad_nombre_corto": "GR"
+  },
+  {
+    "id": 13,
+    "entidad_nombre": "HIDALGO",
+    "entidad_nombre_corto": "HG"
+  },
+  {
+    "id": 14,
+    "entidad_nombre": "JALISCO",
+    "entidad_nombre_corto": "JC"
+  },
+  {
+    "id": 16,
+    "entidad_nombre": "MICHOACAN DE OCAMPO",
+    "entidad_nombre_corto": "MN"
+  },
+  {
+    "id": 17,
+    "entidad_nombre": "MORELOS",
+    "entidad_nombre_corto": "MS"
+  },
+  {
+    "id": 18,
+    "entidad_nombre": "NAYARIT",
+    "entidad_nombre_corto": "NT"
+  },
+  {
+    "id": 19,
+    "entidad_nombre": "NUEVO LEON",
+    "entidad_nombre_corto": "NL"
+  },
+  {
+    "id": 20,
+    "entidad_nombre": "OAXACA",
+    "entidad_nombre_corto": "OC"
+  },
+  {
+    "id": 21,
+    "entidad_nombre": "PUEBLA",
+    "entidad_nombre_corto": "PL"
+  },
+  {
+    "id": 22,
+    "entidad_nombre": "QUERETARO",
+    "entidad_nombre_corto": "QT"
+  },
+  {
+    "id": 23,
+    "entidad_nombre": "QUINTANA ROO",
+    "entidad_nombre_corto": "QR"
+  },
+  {
+    "id": 24,
+    "entidad_nombre": "SAN LUIS POTOSI",
+    "entidad_nombre_corto": "SP"
+  },
+  {
+    "id": 25,
+    "entidad_nombre": "SINALOA",
+    "entidad_nombre_corto": "SL"
+  },
+  {
+    "id": 26,
+    "entidad_nombre": "SONORA",
+    "entidad_nombre_corto": "SR"
+  },
+  {
+    "id": 27,
+    "entidad_nombre": "TABASCO",
+    "entidad_nombre_corto": "TC"
+  },
+  {
+    "id": 28,
+    "entidad_nombre": "TAMAULIPAS",
+    "entidad_nombre_corto": "TS"
+  },
+  {
+    "id": 29,
+    "entidad_nombre": "TLAXCALA",
+    "entidad_nombre_corto": "TL"
+  },
+  {
+    "id": 30,
+    "entidad_nombre": "VERACRUZ DE IGNACIO DE LA LLAVE",
+    "entidad_nombre_corto": "VZ"
+  },
+  {
+    "id": 31,
+    "entidad_nombre": "YUCATAN",
+    "entidad_nombre_corto": "YN"
+  },
+  {
+    "id": 32,
+    "entidad_nombre": "ZACATECAS",
+    "entidad_nombre_corto": "ZS"
+  },
+  {
+    "id": 33,
+    "entidad_nombre": "NACIDO EN EL EXTRANJERO",
+    "entidad_nombre_corto": "NE"
+  },
+  {
+    "id": 34,
+    "entidad_nombre": "ERROR",
+    "entidad_nombre_corto": "ER"
+  }
+]

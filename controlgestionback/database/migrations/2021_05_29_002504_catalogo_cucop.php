@@ -19,7 +19,7 @@ class CatalogoCucop extends Migration
             $table->string('clave_cucop');
             $table->string('partida_especifica');
             $table->string('clave_cucop2');
-            $table->string('descripcion');
+            $table->string('descripcion', 1000);
             $table->integer('nivel');
             $table->string('cabm');
             $table->string('unidad_medida');

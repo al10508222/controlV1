@@ -140,6 +140,14 @@
                 </q-item-section>
                 <q-item-section id="irCucop">Tipo Vialidad</q-item-section>
               </q-item>
+              <q-item v-if="canShow('entidades-view')" clickable v-ripple  @click.native="$router.push('/entidades').catch(err => {})">
+                <q-item-section avatar>
+                  <q-avatar>
+                    <q-icon right name="fas fa-passport q-icon notranslate" />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section id="irCucop">Entidades Federativas</q-item-section>
+              </q-item>
             </q-expansion-item>
           </q-list>
           </q-expansion-item>

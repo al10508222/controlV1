@@ -22,13 +22,13 @@
           <q-td key="id" :props="props">
             {{ props.row.id }}
           </q-td>
-          <q-td key="vialidad_nombre" :props="props">
-            {{ props.row.vialidad_nombre }}
+          <q-td key="entidades_nombre" :props="props">
+            {{ props.row.entidades_nombre }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editVialidades(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-              <q-btn round size="sm" @click="editVialidades(props.row.id)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="editEntidades(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="editEntidades(props.row.id)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
               <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.id" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
@@ -50,7 +50,7 @@
             </q-card-section>
             <q-card-actions align="right">
             <q-btn flat label="Cancel" color="primary" v-close-popup/>
-            <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteVialidades(deleteOption);"/>
+            <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteEntidades(deleteOption);"/>
             </q-card-actions>
       </q-card>
     </q-dialog>
@@ -59,7 +59,7 @@
 
 <script>
 import { notifyError, notifySuccess } from 'src/utils/notify';
-import * as VialidadesService from 'src/services/VialidadesServices';
+import * as EntidadesService from 'src/services/EntidadesServides';
 
 export default {
   components: {
@@ -89,7 +89,7 @@ export default {
           name: 'id', align: 'center', label: 'ID', field: 'id'
         },
         {
-          name: 'vialidad_nombre', align: 'center', label: 'Nombre Vialidad', field: 'vialidad_nombre'
+          name: 'entidades_nombre', align: 'center', label: 'Nombre Entidad', field: 'entidades_nombre'
         },
         {
           name: 'actions', align: 'center', label: 'Acciones', field: 'id'
@@ -99,22 +99,22 @@ export default {
   },
   computed: {
     canEdit: {
-      get() { return this.canShow('vialidades-edit') }
+      get() { return this.canShow('entidades-edit') }
     },
     canView: {
-      get() { return this.canShow('vialidades-view') }
+      get() { return this.canShow('entidades-view') }
     },
     canDelete: {
-      get() { return this.canShow('vialidades-delete') }
+      get() { return this.canShow('entidades-delete') }
     },
   },
   methods: {
-    editVialidades(id) {
-      this.$router.push(`/vialidades/${id}/edit`)
+    editEntidades(id) {
+      this.$router.push(`/entidades/${id}/edit`)
     },
-    deleteVialidades(id) {
+    deleteEntidades(id) {
       this.loading = true
-      VialidadesService.destroy({ params: { id } }).then((data) => {
+      EntidadesService.destroy({ params: { id } }).then((data) => {
         console.log(data)
         if (data.success) {
           notifySuccess()
@@ -134,11 +134,11 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
-      VialidadesService.index({ params: { page, rowsPerPage, search } }).then((Vialidadess) => {
-        this.data = Vialidadess.data
-        this.pagination.rowsPerPage = Vialidadess.per_page
-        this.pagination.page = Vialidadess.current_page
-        this.pagination.rowsNumber = Vialidadess.total
+      EntidadesService.index({ params: { page, rowsPerPage, search } }).then((Entidades) => {
+        this.data = Entidades.data
+        this.pagination.rowsPerPage = Entidades.per_page
+        this.pagination.page = Entidades.current_page
+        this.pagination.rowsNumber = Entidades.total
         this.loading = false
       }).catch(() => {
         this.loading = false
