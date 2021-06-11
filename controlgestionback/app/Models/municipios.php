@@ -24,6 +24,11 @@ class municipios extends Model
         'municipio_nombre'
       ];
 
+    public function Entidad(){
+        return $this->hasMany(entidades::class);
+        // return $this->belongsTo(entidades::class);
+    }  
+
     public function scopeSearch($query, $search)
     {
         return $query->when(! empty ($search), function ($query) use ($search) {

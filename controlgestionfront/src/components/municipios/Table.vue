@@ -146,11 +146,11 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
-      MunicipiosService.index({ params: { page, rowsPerPage, search } }).then((Municipios) => {
-        this.data = Municipios.data
-        this.pagination.rowsPerPage = Municipios.per_page
-        this.pagination.page = Municipios.current_page
-        this.pagination.rowsNumber = Municipios.total
+      MunicipiosService.index({ params: { page, rowsPerPage, search } }).then((municipios) => {
+        this.data = municipios[0].data
+        this.pagination.rowsPerPage = municipios[0].per_page
+        this.pagination.page = municipios[0].current_page
+        this.pagination.rowsNumber = municipios[0].total
         this.loading = false
       }).catch(() => {
         this.loading = false

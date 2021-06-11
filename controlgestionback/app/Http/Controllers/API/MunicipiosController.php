@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MunicipiosFieldRequest;
 use Illuminate\Http\Request;
 use App\Models\municipios;
+use App\Models\entidades;
+
 use App\Models\Catalogs\CatTabulator;
 use Illuminate\Support\Facades\DB;
 
@@ -22,10 +24,24 @@ class MunicipiosController extends Controller
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
             $Municipios = municipios::search($search)->orderBy('id','asc')->paginate($rowsPerPage);
+
+            $datos = array(); 
+
+            $datos[] = $Municipios; 
+
+            foreach ($Municipios as $i => $value) {
+                $entidades = entidades::find($value->entidad_id);
+                $entidades->Entidad;
+                $datos['data'][$i] = $value; 
+                $datos['data'][$i]['entidad_nombre'] = $entidades->entidad_nombre; 
+            }
+
             return response()->json([
                 'success' => true,
-                'municipios' => 1,
+                'municipios' => $datos
 			]);
+
+
         }catch (\Exception $e) {
             DB::rollback();
 			return response()->json([
@@ -174,39 +190,5 @@ class MunicipiosController extends Controller
 			]);
         }
         
-    }
-
-    public function getMunicipiosBy(Request $request) {
-        try {
-            // TODO: Perform this query to convert it to a wherehas to avoid pluck
-            error_log("getMunicipiosBy@MunicipiosController");
-
-            $data = $request->all();
-            // Gets the id of all tabulators wich hiring type id is given
-            $tabulators = CatTabulator::where('cat_contract_type_id',
-                $request->input('cat_contract_type_id'))->pluck('id');
-
-            $Municipios = municipios::select('id', 'name')
-                ->where('cat_unit_id', $request->input('cat_unit_id'))
-                ->where('is_available', true)
-                ->whereIn('cat_tabulator_id', $tabulators);
-                
-            if ($request->input('employee_Municipios') !== null) {
-                $Municipios = $Municipios->whereNotIn('id', $request->input('employee_Municipios'));
-            }
-
-            $Municipios = $Municipios->get();
-            
-            return response()->json([
-                'success' => true,
-                'message' => '',
-                'municipios' => $Municipios
-            ], 200);
-        } catch (\Exception $e) {
-            return response()->json([
-				'success' => false,
-				'message' => 'Ha ocurrido un error'
-			]);
-        }
     }
 }
