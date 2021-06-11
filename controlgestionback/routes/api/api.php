@@ -54,6 +54,7 @@ use App\Http\Controllers\API\Admin\Catalogs\CatVacationsTypeController;
 use App\Http\Controllers\API\Psp\DashboardController;
 use App\Http\Controllers\API\CucopController;
 use App\Http\Controllers\API\VialidadesController;
+use App\Http\Controllers\API\EntidadesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -132,6 +133,7 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('isr-config', IsrConfigController::class);
         Route::resource('cucop', CucopController::class);
         Route::resource('vialidades', VialidadesController::class);
+        Route::resource('entidades', EntidadesController::class);
 
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
         Route::resource('employment-subsidies-config', EmploymentSubsidiesConfigController::class);

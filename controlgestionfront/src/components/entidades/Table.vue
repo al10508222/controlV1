@@ -22,8 +22,11 @@
           <q-td key="id" :props="props">
             {{ props.row.id }}
           </q-td>
-          <q-td key="entidades_nombre" :props="props">
-            {{ props.row.entidades_nombre }}
+          <q-td key="entidad_nombre" :props="props">
+            {{ props.row.entidad_nombre }}
+          </q-td>
+          <q-td key="entidad_nombre_corto" :props="props">
+            {{ props.row.entidad_nombre_corto }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
@@ -89,7 +92,10 @@ export default {
           name: 'id', align: 'center', label: 'ID', field: 'id'
         },
         {
-          name: 'entidades_nombre', align: 'center', label: 'Nombre Entidad', field: 'entidades_nombre'
+          name: 'entidad_nombre', align: 'center', label: 'Nombre Entidad', field: 'entidad_nombre'
+        },
+        {
+          name: 'entidad_nombre_corto', align: 'center', label: 'Nombre Corto Entidad', field: 'entidad_nombre_corto'
         },
         {
           name: 'actions', align: 'center', label: 'Acciones', field: 'id'

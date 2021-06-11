@@ -1,13 +1,13 @@
 <template>
 <div>
-  <q-form ref="VialidadessForm" @submit.prevent="() => {}">
+  <q-form ref="EntidadesForm" @submit.prevent="() => {}">
     <q-card style="width: 100%">
       <q-item>
         <q-item-section avatar>
             <q-icon size="md" name="fas fa-briefcase"/>
         </q-item-section>
         <q-item-section>
-          <q-item-label>Editar Vialidad</q-item-label>
+          <q-item-label>Editar Entidad Federativa</q-item-label>
         </q-item-section>
       </q-item>
       <q-separator />
@@ -18,7 +18,10 @@
               <q-input v-model="form.id" square outlined label="id"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <q-input v-model="form.vialidad_nombre" square outlined label="Nombre Vialidad"/>
+              <q-input v-model="form.entidad_nombre" square outlined label="Nombre Entidad"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.entidad_nombre_corto" square outlined label="Nombre Corto de Entidad"/>
             </div>
           </div>
         </q-card-section>
@@ -33,7 +36,7 @@
 </template>
 
 <script>
-import * as VialidadesService from 'src/services/VialidadesServices';
+import * as EntidadesService from 'src/services/EntidadesServides';
 import { notifySuccess, notifyError } from 'src/utils/notify';
 
 export default {
@@ -41,7 +44,8 @@ export default {
     return {
       disabled: true,
       form: {
-        vialidad_nombre: '',
+        entidad_nombre: '',
+        entidad_nombre_corto: '',
         id: ''
       },
       filteredTabulators: []
@@ -52,8 +56,8 @@ export default {
     const { id } = this.$route.params
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
-      this.disabled = !this.canShow('vialidades')
-      VialidadesService.edit(id).then((data) => {
+      this.disabled = !this.canShow('entidades')
+      EntidadesService.edit(id).then((data) => {
         this.form = data
         this.form.tipo = this.form.tipo.map((obj) => obj.id, []);
         this.$q.loading.hide();
@@ -67,9 +71,9 @@ export default {
     update() {
       const form = { ...this.form };
       const { id } = this.$route.params
-      VialidadesService.update(form, id).then(() => {
+      EntidadesService.update(form, id).then(() => {
         notifySuccess();
-        this.$router.push('../../vialidades');
+        this.$router.push('../../entidades');
       }).catch((err) => {
         notifyError(err)
       })

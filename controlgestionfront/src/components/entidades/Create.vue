@@ -19,10 +19,18 @@
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.vialidad_nombre"
+              v-model="form.entidad_nombre"
               square
               outlined
-              label="Nombre de la Vialidad" type="text"/>
+              label="Nombre de la Entidad Federativa" type="text"/>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <q-input
+              :rules="[$rules.required($i18n.t('requiredInput'))]"
+              v-model="form.entidad_nombre_corto"
+              square
+              outlined
+              label="Nombre Corto de la Entidad Federativa" type="text"/>
           </div>
         </div>
       </q-form>
@@ -37,18 +45,19 @@
 
 <script>
 import { notifySuccess } from 'src/utils/notify';
-import * as VialidadesService from 'src/services/VialidadesServices';
+import * as EntidadesService from 'src/services/EntidadesServides';
 
 export default {
   data() {
     return {
       form: {
-        vialidad_nombre: ''
+        entidad_nombre: '',
+        entidad_nombre_corto: ''
       }
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true, vialidades_projects: true };
+    const catalogsConfiguration = { profiles: true, entidades_projects: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();
@@ -59,9 +68,9 @@ export default {
       this.$refs.form.validate().then((valid) => {
         if (valid) {
           const form = { ...this.form };
-          VialidadesService.store(form).then(() => {
+          EntidadesService.store(form).then(() => {
             notifySuccess();
-            this.$router.push('/vialidades');
+            this.$router.push('/entidades');
           }).catch((err) => {
             console.log(err)
           })
