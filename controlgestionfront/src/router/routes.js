@@ -8,6 +8,7 @@ import Cucop from './partials/cucop';
 import Clues from './partials/clues';
 import Vialidades from './partials/vialidades';
 import Entidades from './partials/entidades';
+import Municipios from './partials/municipios';
 
 const routes = [
   {
@@ -24,7 +25,8 @@ const routes = [
       ...Cucop,
       ...Clues,
       ...Vialidades,
-      ...Entidades
+      ...Entidades,
+      ...Municipios
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {

@@ -22,3 +22,10 @@ sudo docker exec -it bd_control-app /bin/bash
 php artisan migrate
 php artisan migrate:fresh --seed
 php artisan passport:install --force
+
+//estas ya, ya que fueron integradas
+php artisan db:seed --class=RoleHasPermissionsTableSeeder
+php artisan db:seed --class=TipoVialidadSeeder
+php artisan db:seed --class=EntidadesFederativasTableSeeder
+php artisan db:seed --class=MunicipiosTableSeeder
+php artisan db:seed --class=LocalidadesTableSeeder

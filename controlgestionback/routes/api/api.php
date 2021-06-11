@@ -52,9 +52,13 @@ use App\Http\Controllers\FiveYearBonusController;
 use App\Http\Controllers\API\EmployeeVacationController;
 use App\Http\Controllers\API\Admin\Catalogs\CatVacationsTypeController;
 use App\Http\Controllers\API\Psp\DashboardController;
+//[GMM - 2021-06-01]
 use App\Http\Controllers\API\CucopController;
 use App\Http\Controllers\API\VialidadesController;
 use App\Http\Controllers\API\EntidadesController;
+use App\Http\Controllers\API\MunicipiosController;
+use App\Http\Controllers\API\LocalidadesController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -134,6 +138,8 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('cucop', CucopController::class);
         Route::resource('vialidades', VialidadesController::class);
         Route::resource('entidades', EntidadesController::class);
+        Route::resource('municipios', MunicipiosController::class);
+        Route::resource('localidades', LocalidadesController::class);
 
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
         Route::resource('employment-subsidies-config', EmploymentSubsidiesConfigController::class);
