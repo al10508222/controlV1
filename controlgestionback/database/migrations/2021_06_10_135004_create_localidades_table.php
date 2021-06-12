@@ -21,8 +21,8 @@ class CreateLocalidadesTable extends Migration
             $table->string('localidad_nombre');  
             $table->string('cp');  
             $table->timestamps();
-            $table->foreign('entidad_id')->references('id')->on('entidades');
-            $table->foreign('municipio_id')->references('id')->on('municipios');
+            $table->foreign('entidad_id')->references('id')->on('entidades')->onDelete('cascade');;
+            $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('cascade');;
         });
     }
 

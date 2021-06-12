@@ -1,13 +1,13 @@
 <template>
 <div>
-  <q-form ref="EntidadesForm" @submit.prevent="() => {}">
+  <q-form ref="MunicipiosForm" @submit.prevent="() => {}">
     <q-card style="width: 100%">
       <q-item>
         <q-item-section avatar>
             <q-icon size="md" name="fas fa-briefcase"/>
         </q-item-section>
         <q-item-section>
-          <q-item-label>Editar Entidad Federativa</q-item-label>
+          <q-item-label>Editar Municipio</q-item-label>
         </q-item-section>
       </q-item>
       <q-separator />
@@ -18,10 +18,13 @@
               <q-input v-model="form.id" square outlined label="id"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <q-input v-model="form.entidad_nombre" square outlined label="Nombre Entidad"/>
+              <q-select outlined v-model="model" :options="options" label="Filled" />
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <q-input v-model="form.entidad_nombre_corto" square outlined label="Nombre Corto de Entidad"/>
+              <q-input v-model="form.municipio_nombre" square outlined label="Nombre Municipio"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.consecutivo" square outlined label="# Municipio"/>
             </div>
           </div>
         </q-card-section>
@@ -36,7 +39,7 @@
 </template>
 
 <script>
-import * as EntidadesService from 'src/services/EntidadesServides';
+import * as MunicipiosService from 'src/services/MunicipiosServices';
 import { notifySuccess, notifyError } from 'src/utils/notify';
 
 export default {
@@ -44,11 +47,14 @@ export default {
     return {
       disabled: true,
       form: {
-        entidad_nombre: '',
-        entidad_nombre_corto: '',
-        id: ''
+        entidad_id: '',
+        municipio_nombre: '',
+        id: '',
+        consecutivo: ''
       },
-      filteredTabulators: []
+      filteredTabulators: [],
+      model: null,
+      options: []
     };
   },
   created() {
@@ -56,13 +62,12 @@ export default {
     const { id } = this.$route.params
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
-      this.disabled = !this.canShow('entidades')
-      EntidadesService.edit(id).then((data) => {
+      this.disabled = !this.canShow('Municipios')
+      MunicipiosService.edit(id).then((data) => {
         this.form = data
-        this.form.tipo = this.form.tipo.map((obj) => obj.id, []);
+        this.form.id = this.form.id.map((obj) => obj.id, []);
         this.$q.loading.hide();
-      }).catch((err) => {
-        console.log(err)
+      }).catch(() => {
         this.$q.loading.hide();
       })
     });
@@ -71,9 +76,9 @@ export default {
     update() {
       const form = { ...this.form };
       const { id } = this.$route.params
-      EntidadesService.update(form, id).then(() => {
+      MunicipiosService.update(form, id).then(() => {
         notifySuccess();
-        this.$router.push('../../entidades');
+        this.$router.push('../../municipios');
       }).catch((err) => {
         notifyError(err)
       })
@@ -91,7 +96,3 @@ export default {
   },
 };
 </script>
-
-<style>
-
-</style>

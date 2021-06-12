@@ -23,7 +23,7 @@ php artisan migrate
 php artisan migrate:fresh --seed
 php artisan passport:install --force
 
-//estas ya, ya que fueron integradas
+//estas ya no, ya que fueron integradas
 php artisan db:seed --class=RoleHasPermissionsTableSeeder
 php artisan db:seed --class=TipoVialidadSeeder
 php artisan db:seed --class=EntidadesFederativasTableSeeder

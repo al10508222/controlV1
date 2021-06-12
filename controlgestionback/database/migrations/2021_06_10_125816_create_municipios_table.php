@@ -19,7 +19,7 @@ class CreateMunicipiosTable extends Migration
             $table->Integer('consecutivo');  
             $table->string('municipio_nombre');  
             $table->timestamps();
-            $table->foreign('entidad_id')->references('id')->on('entidades');
+            $table->foreign('entidad_id')->references('id')->on('entidades')->onDelete('cascade');;
         });
     }
 

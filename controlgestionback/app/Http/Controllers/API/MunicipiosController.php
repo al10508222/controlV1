@@ -124,9 +124,21 @@ class MunicipiosController extends Controller
     {
         try {
             $Municipios = municipios::where('id',$id)->first();
+
+            $entidades = entidades::find($Municipios->entidad_id);
+            $entidades->Entidad;
+
+            $datos = array(); 
+
+            $datos['id'] = $Municipios->id; 
+            $datos['entidad_id'] = $Municipios->entidad_id; 
+            $datos['entidad_nombre'] = $entidades->entidad_nombre; 
+            $datos['municipio_nombre'] = $Municipios->municipio_nombre; 
+            $datos['consecutivo'] = $Municipios->consecutivo; 
+
             return response()->json([
                 'success' => true,
-                'municipios' => $Municipios,
+                'municipios' => $datos,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
