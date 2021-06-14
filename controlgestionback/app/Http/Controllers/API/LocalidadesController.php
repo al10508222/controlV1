@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\VialidadesFieldRequest;
+use App\Http\Requests\localidadesFieldRequest;
 use Illuminate\Http\Request;
-use App\Models\VialidadesModel;
+use App\Models\localidades;
 use App\Models\Catalogs\CatTabulator;
 use Illuminate\Support\Facades\DB;
 
-class VialidadesController extends Controller
+class localidadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +21,10 @@ class VialidadesController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $Vialidades = VialidadesModel::search($search)->orderBy('id','desc')->paginate($rowsPerPage);
+            $localidades = localidades::search($search)->orderBy('id','asc')->paginate($rowsPerPage);
             return response()->json([
                 'success' => true,
-                'vialidades' => $Vialidades,
+                'localidades' => $localidades,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -56,9 +56,9 @@ class VialidadesController extends Controller
         try {
 
             DB::beginTransaction();
-            $Vialidades = new VialidadesModel();
-            $Vialidades->fill($request->all());
-            $Vialidades->save();
+            $localidades = new localidades();
+            $localidades->fill($request->all());
+            $localidades->save();
             DB::commit();
 
             return response()->json([
@@ -84,10 +84,10 @@ class VialidadesController extends Controller
     public function show($id)
     {
         try {
-            $Vialidades = VialidadesModel::where('id',$id)->first();
+            $localidades = localidades::where('id',$id)->first();
             return response()->json([
                 'success' => true,
-                'vialidades' => $Vialidades,
+                'localidades' => $localidades,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -107,10 +107,10 @@ class VialidadesController extends Controller
     public function edit($id)
     {
         try {
-            $Vialidades = VialidadesModel::where('id',$id)->first();
+            $localidades = localidades::where('id',$id)->first();
             return response()->json([
                 'success' => true,
-                'vialidades' => $Vialidades,
+                'localidades' => $localidades,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -133,9 +133,9 @@ class VialidadesController extends Controller
         try {
 
             DB::beginTransaction();
-            $Vialidades = VialidadesModel::find($id);
-            $Vialidades->fill($request->all());
-            $Vialidades->save();
+            $localidades = localidades::find($id);
+            $localidades->fill($request->all());
+            $localidades->save();
             DB::commit();
 
             return response()->json([
@@ -161,7 +161,7 @@ class VialidadesController extends Controller
     public function destroy($id)
     {
         try {
-            VialidadesModel::destroy($id);
+            localidades::destroy($id);
             return response()->json([
                 'success' => true,
                 'message' => 'OK' 
@@ -176,56 +176,25 @@ class VialidadesController extends Controller
         
     }
 
-    public function getVialidadesBy(Request $request) {
-        try {
-            // TODO: Perform this query to convert it to a wherehas to avoid pluck
-            error_log("getVialidadesBy@VialidadesController");
+    
 
-            $data = $request->all();
-            // Gets the id of all tabulators wich hiring type id is given
-            $tabulators = CatTabulator::where('cat_contract_type_id',
-                $request->input('cat_contract_type_id'))->pluck('id');
-
-            $Vialidades = VialidadesModel::select('id', 'name')
-                ->where('cat_unit_id', $request->input('cat_unit_id'))
-                ->where('is_available', true)
-                ->whereIn('cat_tabulator_id', $tabulators);
-                
-            if ($request->input('employee_Vialidades') !== null) {
-                $Vialidades = $Vialidades->whereNotIn('id', $request->input('employee_Vialidades'));
-            }
-
-            $Vialidades = $Vialidades->get();
-            
-            return response()->json([
-                'success' => true,
-                'message' => '',
-                'Vialidades' => $Vialidades
-            ], 200);
-        } catch (\Exception $e) {
-            return response()->json([
-				'success' => false,
-				'message' => 'Ha ocurrido un error'
-			]);
-        }
-    }
 
     //otros metodos
 
-    public function ShowVialidadesAll(Request $request)
+    public function ShowLocalidadesAll(Request $request)
     {
         try {
-            $Vialidades = VialidadesModel::all(); 
+            $localidades = localidades::all(); 
 
             $datos = array(); 
 
-            foreach ($Vialidades as $i => $value) {
+            foreach ($localidades as $i => $value) {
                 $datos['data'][$i] = $value; 
             }
 
             return response()->json([
                 'success' => true,
-                'vialidades' => $datos
+                'localidades' => $datos
 			]);
         }catch (\Exception $e) {
             DB::rollback();

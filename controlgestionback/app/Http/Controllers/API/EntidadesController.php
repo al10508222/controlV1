@@ -209,4 +209,31 @@ class EntidadesController extends Controller
 			]);
         }
     }
+
+
+    //otros metodos
+
+    public function ShowEntidadesAll(Request $request)
+    {
+        try {
+            $Entidades = entidades::all(); 
+
+            $datos = array(); 
+
+            foreach ($Entidades as $i => $value) {
+                $datos['data'][$i] = $value; 
+            }
+
+            return response()->json([
+                'success' => true,
+                'entidades_federativas' => $datos
+			]);
+        }catch (\Exception $e) {
+            DB::rollback();
+			return response()->json([
+				'success' => false,
+				'message' => $e->getMessage()
+			]);
+        }
+    }
 }

@@ -204,6 +204,12 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::post('municipiosAll', [MunicipiosController::class, 'ShowMunicipiosAll']);
 
+    Route::post('vialidadesAll', [VialidadesController::class, 'ShowVialidadesAll']);
+
+    Route::post('entidadesAll', [EntidadesController::class, 'ShowEntidadesAll']);
+
+    Route::post('localidadesAll', [LocalidadesController::class, 'ShowLocalidadesAll']);
+
 
 });
 Route::group(['prefix' => 'files'], function () {
