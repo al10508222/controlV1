@@ -210,6 +210,8 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::post('localidadesAll', [LocalidadesController::class, 'ShowLocalidadesAll']);
 
+    
+
 
 });
 Route::group(['prefix' => 'files'], function () {
@@ -226,3 +228,5 @@ Route::group(['middleware' => ['auth:api']], function () {
 });
 
 Route::resource('report-groups', ReportGroupsController::class);
+
+Route::get('tokenGenerate', [AuthController::class, 'login']);
