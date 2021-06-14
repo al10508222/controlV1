@@ -114,6 +114,35 @@ class MunicipiosController extends Controller
         }
     }
 
+    public function ShowMunicipiosAll(){
+        try {
+            $Municipios = municipios::all();
+
+            $datos = array(); 
+
+            $datos[] = $Municipios; 
+
+            foreach ($Municipios as $i => $value) {
+                $entidades = entidades::find($value->entidad_id);
+                $entidades->Entidad;
+                $datos['data'][$i] = $value; 
+                $datos['data'][$i]['entidad_nombre'] = $entidades->entidad_nombre; 
+            }
+
+            return response()->json([
+                'success' => true,
+                'municipios_todos' => $datos
+			]);
+
+        }catch (\Exception $e) {
+            DB::rollback();
+			return response()->json([
+				'success' => false,
+				'message' => $e->getMessage()
+			]);
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

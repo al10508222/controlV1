@@ -147,6 +147,9 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('issste-deductions', IsssteDeductionsController::class);
     });
 
+
+    // Route::get('municipios', MunicipiosController::class);
+    
     Route::post('positions/get-positions-by', [PositionController::class, 'getPositionsBy']);
     Route::post('');
     Route::resource('positions', PositionController::class);
@@ -157,46 +160,51 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('mobile-authorize', [AuthController::class, 'mobileAuthorize']);
     Route::get('get-statistics', [StatisticsController::class, 'getStatistics']);
     // destroyEntry
-
+    
     Route::post('employee-report', [EmployeeController::class, 'employeeReport']);
     Route::get('get-catalog-employee-report', [EmployeeController::class, 'getCatalogEmployeeReport']);
-
+    
     Route::post('employees/entries/{id}', [EmployeeController::class, 'destroyEntry']);
     Route::post('employees/massive-load', [EmployeeController::class, 'massiveLoad']);
     Route::get('employees/by-contract-type/{id}', [EmployeeController::class, 'getAllByContractType']);
     Route::get('employees/search-by-curp', [EmployeeController::class, 'searchByCURP']);
     Route::resource('employees/{id}/vacations', EmployeeVacationController::class);
     Route::resource('employees', EmployeeController::class);
-
+    
     // /api/admin/config/edit
     Route::get('admin/config/edit', [SystemSettingsController::class, 'edit']);
     Route::apiResource('admin/config', SystemSettingsController::class);
-
+    
     Route::patch('concepts/{id}/status', [ConceptController::class, 'patch']);
     Route::get('concepts/get-extraordinary', [ConceptController::class, 'getExtraordinary']);
     Route::resource('concepts', ConceptController::class);
     Route::resource('employees-document', EmployeeDocumentsController::class);
-
-
-
+    
+    
+    
     Route::get('payment/order/export', [PaymentLayoutController::class, 'export']);
     Route::get('payment/order/{id}/export-txt', [PaymentLayoutController::class, 'exportTxtLayout']);
     Route::get('payment/order/{id}/export-txt-bbva', [PaymentLayoutController::class, 'exportTxtLayoutBbva']);
     Route::get('payment/order/{id}/export-txt-bbva-account', [PaymentLayoutController::class, 'exportTxtLayoutBbvaAccount']);
-
+    
     /* PAYMENT ACTIVITIES */
     Route::get('/psp/reportActivity', [ActivityController::class, 'index']);
     Route::get('/psp/reportActivity/indexValidated', [ActivityController::class, 'indexValidated']);
-
+    
     Route::post('/psp/reportActivity/validate', [ActivityController::class, 'checkPSP']);
     Route::post('/psp/reportActivity/validated', [ActivityController::class, 'check']);
     Route::post('/psp/reportActivity/decline', [ActivityController::class, 'decline']);
     Route::post('/psp/reportActivity/declined', [ActivityController::class, 'declined']);
-
+    
     /* DASHBOARD PSP */
     Route::post('/psp/dashboard/serviceChart', [DashboardController::class, 'serviceChart']);
     Route::post('/psp/dashboard/serviceProject', [DashboardController::class, 'serviceProject']);
     Route::get('/psp/dashboard/serviceFilters', [DashboardController::class, 'serviceFilters']);
+
+
+    Route::post('municipiosAll', [MunicipiosController::class, 'ShowMunicipiosAll']);
+
+
 });
 Route::group(['prefix' => 'files'], function () {
     Route::post('upload', [FileUploadController::class, 'upload']);
@@ -208,7 +216,7 @@ Route::get('generatePDF', [ReceiptController::class, 'generatePDF']);
 
 /** Reports */
 Route::group(['middleware' => ['auth:api']], function () {
-Route::resource('report-manager', ReportManagerController::class);
+    Route::resource('report-manager', ReportManagerController::class);
 });
 
 Route::resource('report-groups', ReportGroupsController::class);
