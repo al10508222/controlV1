@@ -210,6 +210,8 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::post('localidadesAll', [LocalidadesController::class, 'ShowLocalidadesAll']);
 
+    Route::post('cucopsAll', [CucopController::class, 'ShowCucopsAll']);
+
     
 
 

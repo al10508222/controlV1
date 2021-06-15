@@ -209,4 +209,30 @@ class CucopController extends Controller
 			]);
         }
     }
+    //otros metodos
+
+    public function ShowCucopsAll(Request $request)
+    {
+        try {
+            $Cucop = CucopModel::all(); 
+
+            $datos = array(); 
+
+            foreach ($Cucop as $i => $value) {
+                $datos['data'][$i] = $value; 
+            }
+
+            return response()->json([
+                'success' => true,
+                'cucops' => $datos
+            ]);
+        }catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
 }
