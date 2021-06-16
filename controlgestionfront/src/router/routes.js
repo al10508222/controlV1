@@ -9,6 +9,7 @@ import Clues from './partials/clues';
 import Vialidades from './partials/vialidades';
 import Entidades from './partials/entidades';
 import Municipios from './partials/municipios';
+import Localidades from './partials/localidades';
 
 const routes = [
   {
@@ -26,7 +27,8 @@ const routes = [
       ...Clues,
       ...Vialidades,
       ...Entidades,
-      ...Municipios
+      ...Municipios,
+      ...Localidades
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {

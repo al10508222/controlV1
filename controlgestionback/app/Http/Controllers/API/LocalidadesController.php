@@ -18,21 +18,7 @@ class localidadesController extends Controller
      */
     public function index(Request $request)
     {
-        try {
-            $rowsPerPage = $request->rowsPerPage;
-            $search = $request->input('search');
-            $localidades = localidades::search($search)->orderBy('id','asc')->paginate($rowsPerPage);
-            return response()->json([
-                'success' => true,
-                'localidades' => $localidades,
-			]);
-        }catch (\Exception $e) {
-            DB::rollback();
-			return response()->json([
-				'success' => false,
-				'message' => $e->getMessage()
-			]);
-        }
+        //sincarga de nada
     }
 
     /**
