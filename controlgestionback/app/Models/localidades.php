@@ -20,10 +20,13 @@ class localidades extends Model
     protected $fillable = [
         'id',
         'entidad_id',
+        'entidad_nombre',
+        'entidad_nombre_corto',
         'municipio_id',
-        'consecutivo',
+        'municipio_nombre',
+        'localidad_id',
         'localidad_nombre',
-        'cp'
+        'ambito'
       ];
 
     public function scopeSearch($query, $search)
@@ -34,11 +37,9 @@ class localidades extends Model
             {
                 if (isset($search) && !empty($search)) {
                     $q->where('entidad_id', 'like', '%' . $search . '%');
-                    $q->orWhere('municipio_id', 'like', '%' . $search . '%');
-                    $q->orWhere('consecutivo', 'like', '%' . $search . '%');
+                    $q->orWhere('municipio_nombre', 'like', '%' . $search . '%');
+                    $q->orWhere('entidad_nombre', 'like', '%' . $search . '%');
                     $q->orWhere('localidad_nombre', 'like', '%' . $search . '%');
-                    $q->orWhere('cp', 'like', '%' . $search . '%');
-
                 }
             });
         });
