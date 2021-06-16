@@ -16,13 +16,16 @@ class CreateLocalidadesTable extends Migration
         Schema::create('localidades', function (Blueprint $table) {
             $table->increments('id');
             $table->Integer('entidad_id');
+            $table->string('entidad_nombre');  
+            $table->string('entidad_nombre_corto');  
             $table->Integer('municipio_id');
-            $table->Integer('consecutivo');  
+            $table->string('municipio_nombre');
+            $table->Integer('localidad_id');  
             $table->string('localidad_nombre');  
-            $table->string('cp');  
-            $table->timestamps();
+            $table->string('ambito');  
             $table->foreign('entidad_id')->references('id')->on('entidades')->onDelete('cascade');;
             $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('cascade');;
+            $table->timestamps();
         });
     }
 

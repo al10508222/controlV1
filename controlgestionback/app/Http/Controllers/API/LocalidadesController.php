@@ -181,10 +181,16 @@ class localidadesController extends Controller
 
     //otros metodos
 
-    public function ShowLocalidadesAll(Request $request)
+    public function ShowLocalidadesByFilter(Request $request)
     {
         try {
-            $localidades = localidades::all(); 
+            $params = [
+                'entidad_id' => $request->input('entidad_id'),
+                'municipio_id' => $request->input('municipio_id'),
+            ];
+            
+            $localidades = DB::select('SELECT * FROM localidades WHERE entidad_id = :entidad_id AND municipio_id = :municipio_id', ['entidad_id' => $request->input('entidad_id'), 'municipio_id' => $request->input('municipio_id')]);
+            // $localidades = localidades::all(); 
 
             $datos = array(); 
 
