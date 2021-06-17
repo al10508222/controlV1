@@ -9,7 +9,7 @@ use App\Models\localidades;
 use App\Models\Catalogs\CatTabulator;
 use Illuminate\Support\Facades\DB;
 
-class localidadesController extends Controller
+class LocalidadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,21 @@ class localidadesController extends Controller
      */
     public function index(Request $request)
     {
-        //sincarga de nada
+        try {
+            $rowsPerPage = $request->rowsPerPage;
+            $search = $request->input('search');
+            $localidades = localidades::search($search)->orderBy('id','asc')->paginate($rowsPerPage);
+            return response()->json([
+                'success' => true,
+                'localidades' => $localidades,
+			]);
+        }catch (\Exception $e) {
+            DB::rollback();
+			return response()->json([
+				'success' => false,
+				'message' => $e->getMessage()
+			]);
+        }
     }
 
     /**
@@ -176,8 +190,6 @@ class localidadesController extends Controller
             ];
             
             $localidades = DB::select('SELECT * FROM localidades WHERE entidad_id = :entidad_id AND municipio_id = :municipio_id', ['entidad_id' => $request->input('entidad_id'), 'municipio_id' => $request->input('municipio_id')]);
-            // $localidades = localidades::all(); 
-
             $datos = array(); 
 
             foreach ($localidades as $i => $value) {

@@ -5,7 +5,7 @@
         <q-icon size="md" name="fas fa-check"/>
     </q-item-section>
     <q-item-section>
-      <q-item-label>Agregar Nuevo Registro</q-item-label>
+      <q-item-label>Agregar Nuevo Registro (NOTA: AQUI TENGO QUE JALAR LOS CATALOGOS DE 'ENTIDADES' Y 'MUNICIPIOS' PARA PODER DAR DE ALTA UNA NUEVA ENTIDAD)</q-item-label>
       <q-item-label caption>
         Ingrese las siguientes valores
       </q-item-label>
