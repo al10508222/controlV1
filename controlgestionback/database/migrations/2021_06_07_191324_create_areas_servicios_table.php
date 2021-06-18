@@ -13,11 +13,11 @@ class CreateAreasServiciosTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas_servicios', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre_servicio');  
-            $table->timestamps();
-        });
+        // Schema::create('areas_servicios', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('nombre_servicio');  
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateAreasServiciosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas_servicios');
+        // Schema::dropIfExists('areas_servicios');
     }
 }

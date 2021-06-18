@@ -20,19 +20,16 @@ class localidades extends Model
     protected $fillable = [
         'id',
         'entidad_id',
-        'entidad_nombre',
-        'entidad_nombre_corto',
         'municipio_id',
-        'municipio_nombre',
         'localidad_id',
         'localidad_nombre',
-        'ambito',
         'cp'
     ];
 
     public function entidades(){
         return $this->hasOne('App\Models\entidades','id','entidad_id');
     }
+    
     
     public function scopeSearch($query, $search)
     {

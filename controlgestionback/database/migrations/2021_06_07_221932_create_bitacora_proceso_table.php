@@ -13,15 +13,15 @@ class CreateBitacoraProcesoTable extends Migration
      */
     public function up()
     {
-        Schema::create('bitacora_proceso', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('proceso_nombre');  
-            $table->string('proceso_mensaje');  
-            $table->string('proceso_sql_code');  
-            $table->string('proceso_sql_error');  
-            $table->date('proceso_fecha');  
-            $table->timestamps();
-        });
+        // Schema::create('bitacora_proceso', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('proceso_nombre');  
+        //     $table->string('proceso_mensaje');  
+        //     $table->string('proceso_sql_code');  
+        //     $table->string('proceso_sql_error');  
+        //     $table->date('proceso_fecha');  
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -31,6 +31,6 @@ class CreateBitacoraProcesoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bitacora_proceso');
+        // Schema::dropIfExists('bitacora_proceso');
     }
 }

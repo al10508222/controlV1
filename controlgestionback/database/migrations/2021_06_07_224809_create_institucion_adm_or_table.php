@@ -13,11 +13,11 @@ class CreateInstitucionAdmOrTable extends Migration
      */
     public function up()
     {
-        Schema::create('institucion_adm_or', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('institucion_adm_nombre');  
-            $table->timestamps();
-        });
+        // Schema::create('institucion_adm_or', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('institucion_adm_nombre');  
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateInstitucionAdmOrTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('institucion_adm_or');
+        // Schema::dropIfExists('institucion_adm_or');
     }
 }

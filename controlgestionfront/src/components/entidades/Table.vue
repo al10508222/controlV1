@@ -19,19 +19,19 @@
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td key="id" :props="props">
-            {{ props.row.id }}
+          <q-td key="ENTIDADFEDERATIVAID" :props="props">
+            {{ props.row.ENTIDADFEDERATIVAID }}
           </q-td>
-          <q-td key="entidad_nombre" :props="props">
-            {{ props.row.entidad_nombre }}
+          <q-td key="ENTIDADFEDERATIVANOMBRE" :props="props">
+            {{ props.row.ENTIDADFEDERATIVANOMBRE }}
           </q-td>
-          <q-td key="entidad_nombre_corto" :props="props">
-            {{ props.row.entidad_nombre_corto }}
+          <q-td key="ENTIDADFEDERATIVAABREVIACION" :props="props">
+            {{ props.row.ENTIDADFEDERATIVAABREVIACION }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editEntidades(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-              <q-btn round size="sm" @click="editEntidades(props.row.id)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
               <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.id" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
@@ -89,16 +89,16 @@ export default {
       separator: 'vertical',
       columns: [
         {
-          name: 'id', align: 'center', label: 'ID', field: 'id'
+          name: 'ENTIDADFEDERATIVAID', align: 'center', label: 'ID', field: 'ENTIDADFEDERATIVAID'
         },
         {
-          name: 'entidad_nombre', align: 'center', label: 'Nombre Entidad', field: 'entidad_nombre'
+          name: 'ENTIDADFEDERATIVANOMBRE', align: 'center', label: 'Nombre Entidad', field: 'ENTIDADFEDERATIVANOMBRE'
         },
         {
-          name: 'entidad_nombre_corto', align: 'center', label: 'Nombre Corto Entidad', field: 'entidad_nombre_corto'
+          name: 'ENTIDADFEDERATIVAABREVIACION', align: 'center', label: 'Nombre Corto Entidad', field: 'ENTIDADFEDERATIVAABREVIACION'
         },
         {
-          name: 'actions', align: 'center', label: 'Acciones', field: 'id'
+          name: 'actions', align: 'center', label: 'Acciones', field: 'ENTIDADFEDERATIVAID'
         },
       ],
     };
@@ -118,9 +118,9 @@ export default {
     editEntidades(id) {
       this.$router.push(`/entidades/${id}/edit`)
     },
-    deleteEntidades(id) {
+    deleteEntidades(ENTIDADFEDERATIVAID) {
       this.loading = true
-      EntidadesService.destroy({ params: { id } }).then((data) => {
+      EntidadesService.destroy({ params: { ENTIDADFEDERATIVAID } }).then((data) => {
         console.log(data)
         if (data.success) {
           notifySuccess()

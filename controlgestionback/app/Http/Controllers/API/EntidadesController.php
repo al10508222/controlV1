@@ -21,7 +21,7 @@ class EntidadesController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $Entidades = entidades::search($search)->orderBy('id','asc')->paginate($rowsPerPage);
+            $Entidades = entidades::search($search)->orderBy('ENTIDADFEDERATIVAID','asc')->paginate($rowsPerPage);
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -84,7 +84,7 @@ class EntidadesController extends Controller
     public function show($id)
     {
         try {
-            $Entidades = entidades::where('id',$id)->first();
+            $Entidades = entidades::where('ENTIDADFEDERATIVAID',$id)->first();
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -107,7 +107,7 @@ class EntidadesController extends Controller
     public function edit($id)
     {
         try {
-            $Entidades = entidades::where('id',$id)->first();
+            $Entidades = entidades::where('ENTIDADFEDERATIVAID',$id)->first();
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -174,40 +174,6 @@ class EntidadesController extends Controller
 			]);
         }
         
-    }
-
-    public function getEntidadesBy(Request $request) {
-        try {
-            // TODO: Perform this query to convert it to a wherehas to avoid pluck
-            error_log("getEntidadesBy@EntidadesController");
-
-            $data = $request->all();
-            // Gets the id of all tabulators wich hiring type id is given
-            $tabulators = CatTabulator::where('cat_contract_type_id',
-                $request->input('cat_contract_type_id'))->pluck('id');
-
-            $Entidades = entidades::select('id', 'name')
-                ->where('cat_unit_id', $request->input('cat_unit_id'))
-                ->where('is_available', true)
-                ->whereIn('cat_tabulator_id', $tabulators);
-                
-            if ($request->input('employee_Entidades') !== null) {
-                $Entidades = $Entidades->whereNotIn('id', $request->input('employee_Entidades'));
-            }
-
-            $Entidades = $Entidades->get();
-            
-            return response()->json([
-                'success' => true,
-                'message' => '',
-                'entidades' => $Entidades
-            ], 200);
-        } catch (\Exception $e) {
-            return response()->json([
-				'success' => false,
-				'message' => 'Ha ocurrido un error'
-			]);
-        }
     }
 
 

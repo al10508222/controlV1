@@ -13,11 +13,11 @@ class CreateEstatusOperacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('estatus_operacion', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('estatus_operacion_nombre');  
-            $table->timestamps();
-        });
+        // Schema::create('estatus_operacion', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('estatus_operacion_nombre');  
+        //     $table->timestamps();
+        // });
     }
 
     /**

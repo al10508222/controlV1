@@ -26,6 +26,7 @@ export const store = (payload) => {
 
 export const update = (payload, id) => {
   const URL = `/api/admin/entidades/${id}`;
+  console.log(axiosInstance.put(URL, payload).then((res) => res.data))
   return axiosInstance.put(URL, payload).then((res) => res.data);
 };
 

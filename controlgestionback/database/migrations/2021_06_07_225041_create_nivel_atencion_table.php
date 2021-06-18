@@ -13,11 +13,11 @@ class CreateNivelAtencionTable extends Migration
      */
     public function up()
     {
-        Schema::create('nivel_atencion', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nivel_atencion_nombre');  
-            $table->timestamps();
-        });
+        // Schema::create('nivel_atencion', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('nivel_atencion_nombre');  
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateNivelAtencionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nivel_atencion');
+        // Schema::dropIfExists('nivel_atencion');
     }
 }

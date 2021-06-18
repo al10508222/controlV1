@@ -13,11 +13,11 @@ class CreateTipoAsentamientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_asentamiento', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('asentamiento_nombre');  
-            $table->timestamps();
-        });
+        // Schema::create('tipo_asentamiento', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('asentamiento_nombre');  
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateTipoAsentamientoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_asentamiento');
+        // Schema::dropIfExists('tipo_asentamiento');
     }
 }

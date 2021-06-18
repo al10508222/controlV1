@@ -18,9 +18,9 @@ class entidades extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'entidad_nombre',
-        'entidad_nombre_corto'
+        'ENTIDADFEDERATIVAID',
+        'ENTIDADFEDERATIVANOMBRE',
+        'ENTIDADFEDERATIVAABREVIACION'
       ];
 
     public function scopeSearch($query, $search)
@@ -30,8 +30,8 @@ class entidades extends Model
             return $query->where(function($q) use ($search)
             {
                 if (isset($search) && !empty($search)) {
-                    $q->where('entidad_nombre', 'like', '%' . $search . '%');
-                    $q->orWhere('entidad_nombre_corto', 'like', '%' . $search . '%');
+                    $q->where('ENTIDADFEDERATIVANOMBRE', 'like', '%' . $search . '%');
+                    $q->orWhere('ENTIDADFEDERATIVAABREVIACION', 'like', '%' . $search . '%');
                 }
             });
         });

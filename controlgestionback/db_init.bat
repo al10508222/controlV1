@@ -43,3 +43,7 @@ echo 'memory_limit=2G' > /usr/local/etc/php/conf.d/memory-limit.ini
 php artisan migrate
 php artisan migrate:fresh --seed
 php artisan passport:install --force
+
+
+#ENTRAR A BASE DE DATOS 
+psql -U postgres -h 127.0.0.1 -p 15432

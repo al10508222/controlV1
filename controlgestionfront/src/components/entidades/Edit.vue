@@ -15,13 +15,13 @@
         <q-card-section>
           <div class="row q-col-gutter-sm">
             <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.id" square outlined label="id"/>
+              <q-input v-model="form.ENTIDADFEDERATIVAID" square outlined label="ID"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <q-input v-model="form.entidad_nombre" square outlined label="Nombre Entidad"/>
+              <q-input v-model="form.ENTIDADFEDERATIVANOMBRE" square outlined label="Nombre Entidad"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <q-input v-model="form.entidad_nombre_corto" square outlined label="Nombre Corto de Entidad"/>
+              <q-input v-model="form.ENTIDADFEDERATIVAABREVIACION" square outlined label="Nombre Corto de Entidad"/>
             </div>
           </div>
         </q-card-section>
@@ -44,22 +44,22 @@ export default {
     return {
       disabled: true,
       form: {
-        entidad_nombre: '',
-        entidad_nombre_corto: '',
-        id: ''
+        ENTIDADFEDERATIVAID: '',
+        ENTIDADFEDERATIVANOMBRE: '',
+        ENTIDADFEDERATIVAABREVIACION: ''
       },
       filteredTabulators: []
     };
   },
   created() {
     const catalogsConfiguration = { profiles: true };
-    const { id } = this.$route.params
+    const { ENTIDADFEDERATIVAID } = this.$route.params
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.disabled = !this.canShow('entidades')
-      EntidadesService.edit(id).then((data) => {
+      EntidadesService.edit(ENTIDADFEDERATIVAID).then((data) => {
+        console.log(data)
         this.form = data
-        this.form.tipo = this.form.tipo.map((obj) => obj.id, []);
         this.$q.loading.hide();
       }).catch((err) => {
         console.log(err)
@@ -70,8 +70,9 @@ export default {
   methods: {
     update() {
       const form = { ...this.form };
-      const { id } = this.$route.params
-      EntidadesService.update(form, id).then(() => {
+      const { ENTIDADFEDERATIVAID } = this.form.params
+      EntidadesService.update(form, ENTIDADFEDERATIVAID).then(() => {
+        console.log(this.$route.params)
         notifySuccess();
         this.$router.push('../../entidades');
       }).catch((err) => {

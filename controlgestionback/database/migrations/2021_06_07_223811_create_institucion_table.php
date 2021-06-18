@@ -13,12 +13,12 @@ class CreateInstitucionTable extends Migration
      */
     public function up()
     {
-        Schema::create('institucion', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('instutucion_nombre');  
-            $table->bigInteger('instutucion_id_corto');  
-            $table->timestamps();
-        });
+        // Schema::create('institucion', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('instutucion_nombre');  
+        //     $table->bigInteger('instutucion_id_corto');  
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateInstitucionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('institucion');
+        // Schema::dropIfExists('institucion');
     }
 }

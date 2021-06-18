@@ -23,14 +23,12 @@ class EntidadesFederativasTableSeeder extends Seeder
              \DB::table('entidades')->insert(
                 [
                     [
-                        'id'               => $item->id,
-                        'entidad_nombre'   => $item->entidad_nombre,
-                        'entidad_nombre_corto'   => $item->entidad_nombre_corto
+                        'ENTIDADFEDERATIVAID'           => $item->id,
+                        'ENTIDADFEDERATIVANOMBRE'       => $item->entidad_nombre,
+                        'ENTIDADFEDERATIVAABREVIACION'  => $item->entidad_nombre_corto
                     ]
                 ]
             );
         }
-        
-        \DB::statement('ALTER SEQUENCE public.entidades_id_seq RESTART WITH 36');
     }
 }

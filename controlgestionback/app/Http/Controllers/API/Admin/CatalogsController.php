@@ -238,10 +238,10 @@ class CatalogsController extends Controller
 
             //[GMM]
             if($request->has('entidades') && $request->input('entidades') == true) {
-                $catalogs['entidades'] = entidades::select(['id', 'entidad_nombre', 'entidad_nombre_corto'])->get();
+                $catalogs['entidades'] = entidades::select(['ENTIDADFEDERATIVAID', 'ENTIDADFEDERATIVANOMBRE', 'ENTIDADFEDERATIVAABREVIACION'])->get();
             }
             if($request->has('municipios') && $request->input('municipios') == true) {
-                $catalogs['municipios'] = municipios::select(['id', 'municipio_nombre', 'entidad_id'])
+                $catalogs['municipios'] = municipios::select(['MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])
                     ->get();
             }
 

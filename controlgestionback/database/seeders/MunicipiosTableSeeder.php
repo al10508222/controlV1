@@ -23,15 +23,12 @@ class MunicipiosTableSeeder extends Seeder
              \DB::table('municipios')->insert(
                 [
                     [
-                        'id'           => $item->id,
-                        'entidad_id'   => $item->entidad_id,
-                        'consecutivo'   => $item->consecutivo,
-                        'municipio_nombre'   => $item->municipio_nombre
+                        'MUNICIPIOID'           => $item->id,
+                        'ENTIDADFEDERATIVAID'   => $item->entidad_id,
+                        'MUNICIPIONOMBRE'   => $item->municipio_nombre
                     ]
                 ]
             );
         }
-        
-        \DB::statement('ALTER SEQUENCE public.municipios_id_seq RESTART WITH 2491');
     }
 }

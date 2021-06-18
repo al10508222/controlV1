@@ -13,11 +13,11 @@ class CreateEstablecimientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('establecimiento', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('establecimiento_nombre');  
-            $table->timestamps();
-        });
+        // Schema::create('establecimiento', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->string('establecimiento_nombre');  
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateEstablecimientoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('establecimiento');
+        // Schema::dropIfExists('establecimiento');
     }
 }
