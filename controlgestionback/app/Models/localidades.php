@@ -26,9 +26,14 @@ class localidades extends Model
         'municipio_nombre',
         'localidad_id',
         'localidad_nombre',
-        'ambito'
-      ];
+        'ambito',
+        'cp'
+    ];
 
+    public function entidades(){
+        return $this->hasOne('App\Models\entidades','id','entidad_id');
+    }
+    
     public function scopeSearch($query, $search)
     {
         return $query->when(! empty ($search), function ($query) use ($search) {

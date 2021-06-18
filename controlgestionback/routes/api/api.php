@@ -122,6 +122,8 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('contracts', CatContractTypeController::class);
             Route::resource('tabulators', TabulatorController::class);
             Route::resource('vacations-types', CatVacationsTypeController::class);
+            Route::resource('entidades', EntidadesController::class);
+            Route::resource('municipios', MunicipiosController::class);
 
         });
 

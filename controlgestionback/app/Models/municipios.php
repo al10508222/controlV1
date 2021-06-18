@@ -22,12 +22,7 @@ class municipios extends Model
         'entidad_id',
         'consecutivo',
         'municipio_nombre'
-      ];
-
-    public function Entidad(){
-        return $this->hasMany(entidades::class);
-        // return $this->belongsTo(entidades::class);
-    }  
+    ];
 
     public function scopeSearch($query, $search)
     {

@@ -52,6 +52,9 @@ use App\Models\Employee;
 use App\Models\HiringMemo;
 use App\Models\Catalogs\CatPaymentStatuses;
 use App\Models\Catalogs\CatSpecificBudgetItem;
+use App\Models\entidades;
+use App\Models\municipios;
+
 
 class CatalogsController extends Controller
 {
@@ -231,6 +234,15 @@ class CatalogsController extends Controller
             }
             if($request->has('vacations_types') && $request->input('vacations_types') == true) {
                 $catalogs['vacations_types'] = CatVacationsType::select(['id', 'name'])->orderBy('name', 'asc')->get();
+            }
+
+            //[GMM]
+            if($request->has('entidades') && $request->input('entidades') == true) {
+                $catalogs['entidades'] = entidades::select(['id', 'entidad_nombre', 'entidad_nombre_corto'])->get();
+            }
+            if($request->has('municipios') && $request->input('municipios') == true) {
+                $catalogs['municipios'] = municipios::select(['id', 'municipio_nombre', 'entidad_id'])
+                    ->get();
             }
 
 
