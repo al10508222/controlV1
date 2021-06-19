@@ -14,14 +14,14 @@
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
-            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.ENTIDADFEDERATIVAID" square outlined label="ID"/>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.entidadfederativaid" square outlined label="ID"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <q-input v-model="form.ENTIDADFEDERATIVANOMBRE" square outlined label="Nombre Entidad"/>
+              <q-input v-model="form.entidadfederativanombre" square outlined label="Nombre Entidad"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
-              <q-input v-model="form.ENTIDADFEDERATIVAABREVIACION" square outlined label="Nombre Corto de Entidad"/>
+              <q-input v-model="form.entidadfederativaabreviacion" square outlined label="Nombre Corto de Entidad"/>
             </div>
           </div>
         </q-card-section>
@@ -44,11 +44,10 @@ export default {
     return {
       disabled: true,
       form: {
-        ENTIDADFEDERATIVAID: '',
-        ENTIDADFEDERATIVANOMBRE: '',
-        ENTIDADFEDERATIVAABREVIACION: ''
-      },
-      filteredTabulators: []
+        entidadfederativaid: '',
+        entidadfederativanombre: '',
+        entidadfederativaabreviacion: ''
+      }
     };
   },
   created() {
@@ -70,7 +69,7 @@ export default {
     update() {
       const form = { ...this.form };
       const { id } = this.$route.params
-      console.log(this.$route)
+      console.log(this.$route.params)
       EntidadesService.update(form, id).then((data) => {
         console.log(data)
         notifySuccess();

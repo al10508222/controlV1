@@ -11,6 +11,8 @@ class entidades extends Model
     // use HasFactory, SoftDeletes;
     
     protected $table="entidades";
+    protected $primaryKey = 'entidadfederativaid';
+
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +20,9 @@ class entidades extends Model
      * @var array
      */
     protected $fillable = [
-        'ENTIDADFEDERATIVAID',
-        'ENTIDADFEDERATIVANOMBRE',
-        'ENTIDADFEDERATIVAABREVIACION'
+        'entidadfederativaid',
+        'entidadfederativanombre',
+        'entidadfederativaabreviacion'
       ];
 
     public function scopeSearch($query, $search)
@@ -30,9 +32,9 @@ class entidades extends Model
             return $query->where(function($q) use ($search)
             {
                 if (isset($search) && !empty($search)) {
-                    $q->where('ENTIDADFEDERATIVANOMBRE', 'like', '%' . $search . '%');
-                    $q->orWhere('ENTIDADFEDERATIVAABREVIACION', 'like', '%' . $search . '%');
-                    $q->orWhere('ENTIDADFEDERATIVAID', 'like', '%' . $search . '%');
+                    $q->where('entidadfederativanombre', 'like', '%' . $search . '%');
+                    $q->orWhere('entidadfederativaabreviacion', 'like', '%' . $search . '%');
+                    $q->orWhere('entidadfederativaid', 'like', '%' . $search . '%');
                 }
             });
         });

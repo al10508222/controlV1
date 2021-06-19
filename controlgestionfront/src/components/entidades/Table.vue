@@ -19,20 +19,20 @@
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td key="ENTIDADFEDERATIVAID" :props="props">
-            {{ props.row.ENTIDADFEDERATIVAID }}
+          <q-td key="entidadfederativaid" :props="props">
+            {{ props.row.entidadfederativaid }}
           </q-td>
-          <q-td key="ENTIDADFEDERATIVANOMBRE" :props="props">
-            {{ props.row.ENTIDADFEDERATIVANOMBRE }}
+          <q-td key="entidadfederativanombre" :props="props">
+            {{ props.row.entidadfederativanombre }}
           </q-td>
-          <q-td key="ENTIDADFEDERATIVAABREVIACION" :props="props">
-            {{ props.row.ENTIDADFEDERATIVAABREVIACION }}
+          <q-td key="entidadfederativaabreviacion" :props="props">
+            {{ props.row.entidadfederativaabreviacion }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-              <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
-              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.ENTIDADFEDERATIVAID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
+              <q-btn round size="sm" @click="editEntidades(props.row.entidadfederativaid)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="editEntidades(props.row.entidadfederativaid)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.entidadfederativaid" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
         </q-tr>
@@ -89,16 +89,16 @@ export default {
       separator: 'vertical',
       columns: [
         {
-          name: 'ENTIDADFEDERATIVAID', align: 'center', label: 'ID', field: 'ENTIDADFEDERATIVAID'
+          name: 'entidadfederativaid', align: 'center', label: 'ID', field: 'entidadfederativaid'
         },
         {
-          name: 'ENTIDADFEDERATIVANOMBRE', align: 'center', label: 'Nombre Entidad', field: 'ENTIDADFEDERATIVANOMBRE'
+          name: 'entidadfederativanombre', align: 'center', label: 'Nombre Entidad', field: 'entidadfederativanombre'
         },
         {
-          name: 'ENTIDADFEDERATIVAABREVIACION', align: 'center', label: 'Nombre Corto Entidad', field: 'ENTIDADFEDERATIVAABREVIACION'
+          name: 'entidadfederativaabreviacion', align: 'center', label: 'Nombre Corto Entidad', field: 'entidadfederativaabreviacion'
         },
         {
-          name: 'actions', align: 'center', label: 'Acciones', field: 'ENTIDADFEDERATIVAID'
+          name: 'actions', align: 'center', label: 'Acciones', field: 'entidadfederativaid'
         },
       ],
     };
@@ -115,8 +115,8 @@ export default {
     },
   },
   methods: {
-    editEntidades(ENTIDADFEDERATIVAID) {
-      this.$router.push(`/entidades/${ENTIDADFEDERATIVAID}/edit`)
+    editEntidades(id) {
+      this.$router.push(`/entidades/${id}/edit`)
     },
     deleteEntidades(id) {
       this.loading = true

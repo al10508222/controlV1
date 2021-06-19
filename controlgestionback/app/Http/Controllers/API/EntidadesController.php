@@ -20,7 +20,7 @@ class EntidadesController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $Entidades = entidades::search($search)->orderBy('ENTIDADFEDERATIVAID','asc')->paginate($rowsPerPage);
+            $Entidades = entidades::search($search)->orderBy('entidadfederativaid','asc')->paginate($rowsPerPage);
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -83,7 +83,7 @@ class EntidadesController extends Controller
     public function show($id)
     {
         try {
-            $Entidades = entidades::where('ENTIDADFEDERATIVAID',$id)->first();
+            $Entidades = entidades::where('entidadfederativaid',$id)->first();
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -106,7 +106,7 @@ class EntidadesController extends Controller
     public function edit($id)
     {
         try {
-            $Entidades = entidades::where('ENTIDADFEDERATIVAID',$id)->first();
+            $Entidades = entidades::where('entidadfederativaid',$id)->first();
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -133,13 +133,14 @@ class EntidadesController extends Controller
 
             DB::beginTransaction();
             $Entidades = entidades::find($id);
-            $Entidades->fill($request->all());
+            // $Entidades = entidades::where('entidadfederativaid', '=', $id)->firstOrFail();
+            $Entidades->entidadfederativanombre = $request->entidadfederativanombre;
             $Entidades->save();
             DB::commit();
 
             return response()->json([
 				'success' => true,
-				'message' => 'Actualizado exitosamente',
+				'message' => '200'
 			], 200);
 
         } catch (\Exception $e) {
@@ -160,7 +161,7 @@ class EntidadesController extends Controller
     public function destroy($id)
     {
         try {
-            entidades::where('ENTIDADFEDERATIVAID',$id)->delete();
+            entidades::where('entidadfederativaid',$id)->delete();
             return response()->json([
                 'success' => true,
                 'message' => 'OK' 

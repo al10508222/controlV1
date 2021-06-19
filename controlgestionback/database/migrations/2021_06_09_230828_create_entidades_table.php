@@ -14,9 +14,9 @@ class CreateEntidadesTable extends Migration
     public function up()
     {
         Schema::create('entidades', function (Blueprint $table) {
-            $table->increments('ENTIDADFEDERATIVAID');
-            $table->string('ENTIDADFEDERATIVANOMBRE');  
-            $table->string('ENTIDADFEDERATIVAABREVIACION');  
+            $table->id('entidadfederativaid');
+            $table->string('entidadfederativanombre');  
+            $table->string('entidadfederativaabreviacion');  
             $table->timestamps();
         });
     }

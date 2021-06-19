@@ -5,20 +5,11 @@ import * as UserService from 'src/services/admin/UserService';
 export function getUsers(context, payload) {
   UserService.index(payload).then((users) => {
     context.commit('setUsers', users)
-  }).catch((err) => {
-    alert(err)
   })
 }
-
 export function getCode(context, payload) {
-  return UserService.getCode(payload).then((res) => {
-    console.log(res);
-    return res.code
-  }).catch((err) => {
-    alert(err)
-  })
+  return UserService.getCode(payload).then();
 }
-
 export function login(context, credentials) {
   const endPoint = '/api/login';
   return axiosInstance.post(endPoint, credentials)
