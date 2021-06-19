@@ -52,13 +52,12 @@ export default {
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true };
-    const { ENTIDADFEDERATIVAID } = this.$route.params
+    const catalogsConfiguration = { profiles: true, entidades: true };
+    const { id } = this.$route.params
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.disabled = !this.canShow('entidades')
-      EntidadesService.edit(ENTIDADFEDERATIVAID).then((data) => {
-        console.log(data)
+      EntidadesService.edit(id).then((data) => {
         this.form = data
         this.$q.loading.hide();
       }).catch((err) => {
@@ -70,9 +69,10 @@ export default {
   methods: {
     update() {
       const form = { ...this.form };
-      const { ENTIDADFEDERATIVAID } = this.form.params
-      EntidadesService.update(form, ENTIDADFEDERATIVAID).then(() => {
-        console.log(this.$route.params)
+      const { id } = this.$route.params
+      console.log(this.$route)
+      EntidadesService.update(form, id).then((data) => {
+        console.log(data)
         notifySuccess();
         this.$router.push('../../entidades');
       }).catch((err) => {

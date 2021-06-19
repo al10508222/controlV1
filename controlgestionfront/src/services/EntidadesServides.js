@@ -16,6 +16,7 @@ export const index = (payload) => {
 
 export const edit = (id) => {
   const URL = `/api/admin/entidades/${id}/edit`;
+  console.log(axiosInstance.get(URL).then((res) => res.data.entidades))
   return axiosInstance.get(URL).then((res) => res.data.entidades);
 };
 
@@ -26,7 +27,6 @@ export const store = (payload) => {
 
 export const update = (payload, id) => {
   const URL = `/api/admin/entidades/${id}`;
-  console.log(axiosInstance.put(URL, payload).then((res) => res.data))
   return axiosInstance.put(URL, payload).then((res) => res.data);
 };
 

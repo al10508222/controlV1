@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
             FiveYearBonusSeeder::class,
             FiveYearBonusConfigsTableSeeder::class,
             // CatCucopsTableSeeder::class,
-            TipoVialidadSeeder::class,
+            // TipoVialidadSeeder::class,
             EntidadesFederativasTableSeeder::class,
             MunicipiosTableSeeder::class,
             // LocalidadesTableSeeder::class

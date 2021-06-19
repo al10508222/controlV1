@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EntidadesFieldRequest;
 use Illuminate\Http\Request;
 use App\Models\entidades;
-use App\Models\Catalogs\CatTabulator;
 use Illuminate\Support\Facades\DB;
 
 class EntidadesController extends Controller
@@ -161,7 +160,7 @@ class EntidadesController extends Controller
     public function destroy($id)
     {
         try {
-            entidades::destroy($id);
+            entidades::where('ENTIDADFEDERATIVAID',$id)->delete();
             return response()->json([
                 'success' => true,
                 'message' => 'OK' 
@@ -170,7 +169,7 @@ class EntidadesController extends Controller
             DB::rollback();
             return response()->json([
 				'success' => false,
-				'message' => 'Error'
+				'message' => $e->getMessage()
 			]);
         }
         

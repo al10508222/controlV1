@@ -32,7 +32,7 @@
             <q-btn-group>
               <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
               <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
-              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.id" color="negative" icon="fas fa-trash" v-if="canDelete"/>
+              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.ENTIDADFEDERATIVAID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
         </q-tr>
@@ -115,13 +115,12 @@ export default {
     },
   },
   methods: {
-    editEntidades(id) {
-      this.$router.push(`/entidades/${id}/edit`)
+    editEntidades(ENTIDADFEDERATIVAID) {
+      this.$router.push(`/entidades/${ENTIDADFEDERATIVAID}/edit`)
     },
-    deleteEntidades(ENTIDADFEDERATIVAID) {
+    deleteEntidades(id) {
       this.loading = true
-      EntidadesService.destroy({ params: { ENTIDADFEDERATIVAID } }).then((data) => {
-        console.log(data)
+      EntidadesService.destroy({ params: { id } }).then((data) => {
         if (data.success) {
           notifySuccess()
           this.onRequest({

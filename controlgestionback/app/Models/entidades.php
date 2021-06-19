@@ -32,6 +32,7 @@ class entidades extends Model
                 if (isset($search) && !empty($search)) {
                     $q->where('ENTIDADFEDERATIVANOMBRE', 'like', '%' . $search . '%');
                     $q->orWhere('ENTIDADFEDERATIVAABREVIACION', 'like', '%' . $search . '%');
+                    $q->orWhere('ENTIDADFEDERATIVAID', 'like', '%' . $search . '%');
                 }
             });
         });

@@ -19,7 +19,7 @@
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.entidad_nombre"
+              v-model="form.ENTIDADFEDERATIVANOMBRE"
               square
               outlined
               label="Nombre de la Entidad Federativa" type="text"/>
@@ -27,7 +27,7 @@
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.entidad_nombre_corto"
+              v-model="form.ENTIDADFEDERATIVAABREVIACION"
               square
               outlined
               label="Nombre Corto de la Entidad Federativa" type="text"/>
@@ -51,8 +51,8 @@ export default {
   data() {
     return {
       form: {
-        entidad_nombre: '',
-        entidad_nombre_corto: ''
+        ENTIDADFEDERATIVANOMBRE: '',
+        ENTIDADFEDERATIVAABREVIACION: ''
       }
     };
   },
