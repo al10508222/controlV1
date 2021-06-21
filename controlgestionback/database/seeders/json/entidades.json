@@ -1,10 +1,5 @@
 [
   {
-    "id": 0,
-    "entidad_nombre": "SIN ESPECIFICAR",
-    "entidad_nombre_corto": "SE"
-  },
-  {
     "id": 1,
     "entidad_nombre": "AGUASCALIENTES",
     "entidad_nombre_corto": "AS"
@@ -173,5 +168,10 @@
     "id": 34,
     "entidad_nombre": "ERROR",
     "entidad_nombre_corto": "ER"
+  },
+  {
+    "id": 0,
+    "entidad_nombre": "SIN ESPECIFICAR",
+    "entidad_nombre_corto": "SE"
   }
 ]

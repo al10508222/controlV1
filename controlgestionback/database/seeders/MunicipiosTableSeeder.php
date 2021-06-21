@@ -23,7 +23,6 @@ class MunicipiosTableSeeder extends Seeder
              \DB::table('municipios')->insert(
                 [
                     [
-                        'MUNICIPIOID'           => $item->id,
                         'ENTIDADFEDERATIVAID'   => $item->entidad_id,
                         'MUNICIPIONOMBRE'   => $item->municipio_nombre
                     ]

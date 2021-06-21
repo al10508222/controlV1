@@ -20,35 +20,35 @@ class MunicipiosController extends Controller
      */
     public function index(Request $request)
     {
-        try {
-            $rowsPerPage = $request->rowsPerPage;
-            $search = $request->input('search');
-            $Municipios = municipios::search($search)->orderBy('id','asc')->paginate($rowsPerPage);
+        // try {
+        //     $rowsPerPage = $request->rowsPerPage;
+        //     $search = $request->input('search');
+        //     $Municipios = municipios::search($search)->orderBy('MUNICIPIOID','asc')->paginate($rowsPerPage);
 
-            $datos = array(); 
+        //     $datos = array(); 
 
-            $datos[] = $Municipios; 
+        //     $datos[] = $Municipios; 
 
-            foreach ($Municipios as $i => $value) {
-                $entidades = entidades::find($value->entidad_id);
-                $entidades->Entidad;
-                $datos['data'][$i] = $value; 
-                $datos['data'][$i]['entidad_nombre'] = $entidades->entidad_nombre; 
-            }
+        //     foreach ($Municipios as $i => $value) {
+        //         $entidades = entidades::find($value->entidad_id);
+        //         $entidades->Entidad;
+        //         $datos['data'][$i] = $value; 
+        //         $datos['data'][$i]['ENTIDADFEDERATIVANOMBRE'] = $entidades->ENTIDADFEDERATIVANOMBRE; 
+        //     }
 
-            return response()->json([
-                'success' => true,
-                'municipios' => $datos
-			]);
+        //     return response()->json([
+        //         'success' => true,
+        //         'municipios' => $datos
+		// 	]);
 
 
-        }catch (\Exception $e) {
-            DB::rollback();
-			return response()->json([
-				'success' => false,
-				'message' => $e->getMessage()
-			]);
-        }
+        // }catch (\Exception $e) {
+        //     DB::rollback();
+		// 	return response()->json([
+		// 		'success' => false,
+		// 		'message' => $e->getMessage()
+		// 	]);
+        // }
     }
 
     /**

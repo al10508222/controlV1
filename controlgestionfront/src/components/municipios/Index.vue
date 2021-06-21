@@ -22,10 +22,25 @@ export default {
   },
   data() {
     return {
-      editDialog: false,
+      form: {
+        ENTIDADFEDERATIVAID: '',
+        ENTIDADFEDERATIVANOMBRE: ''
+      },
+      filteredEntidades: [],
+      ENTIDADFEDERATIVAID: ''
     };
   },
+  created() {
+    const catalogsConfiguration = { entidades: true };
+    this.$q.loading.show();
+    this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
+      this.$q.loading.hide();
+    });
+  },
   methods: {
+    change(val) {
+      this.filteredEntidades = this.catalogs.entidades.filter((e) => val === e.ENTIDADFEDERATIVAID)
+    },
   },
   computed: {
     catalogs: {

@@ -11,6 +11,7 @@ class municipios extends Model
     // use HasFactory, SoftDeletes;
     
     protected $table="municipios";
+    protected $primaryKey = 'MUNICIPIOID';
 
     /**
      * The attributes that are mass assignable.
@@ -18,10 +19,9 @@ class municipios extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'entidad_id',
-        'consecutivo',
-        'municipio_nombre'
+        'MUNICIPIOID',
+        'ENTIDADFEDERATIVAID',
+        'MUNICIPIONOMBRE'
     ];
 
     public function scopeSearch($query, $search)
@@ -31,9 +31,8 @@ class municipios extends Model
             return $query->where(function($q) use ($search)
             {
                 if (isset($search) && !empty($search)) {
-                    $q->where('entidad_id', 'like', '%' . $search . '%');
-                    $q->orWhere('consecutivo', 'like', '%' . $search . '%');
-                    $q->orWhere('municipio_nombre', 'like', '%' . $search . '%');
+                    $q->where('ENTIDADFEDERATIVAID', 'like', '%' . $search . '%');
+                    $q->orWhere('MUNICIPIONOMBRE', 'like', '%' . $search . '%');
                 }
             });
         });

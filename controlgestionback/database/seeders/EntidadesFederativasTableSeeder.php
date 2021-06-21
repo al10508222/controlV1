@@ -23,9 +23,8 @@ class EntidadesFederativasTableSeeder extends Seeder
              \DB::table('entidades')->insert(
                 [
                     [
-                        'entidadfederativaid'           => $item->id,
-                        'entidadfederativanombre'       => $item->entidad_nombre,
-                        'entidadfederativaabreviacion'  => $item->entidad_nombre_corto
+                        'ENTIDADFEDERATIVANOMBRE'       => $item->entidad_nombre,
+                        'ENTIDADFEDERATIVAABREVIACION'  => $item->entidad_nombre_corto
                     ]
                 ]
             );

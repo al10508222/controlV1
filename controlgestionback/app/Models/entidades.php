@@ -11,7 +11,7 @@ class entidades extends Model
     // use HasFactory, SoftDeletes;
     
     protected $table="entidades";
-    protected $primaryKey = 'entidadfederativaid';
+    protected $primaryKey = 'ENTIDADFEDERATIVAID';
 
 
     /**
@@ -20,9 +20,9 @@ class entidades extends Model
      * @var array
      */
     protected $fillable = [
-        'entidadfederativaid',
-        'entidadfederativanombre',
-        'entidadfederativaabreviacion'
+        'ENTIDADFEDERATIVAID',
+        'ENTIDADFEDERATIVANOMBRE',
+        'ENTIDADFEDERATIVAABREVIACION'
       ];
 
     public function scopeSearch($query, $search)
@@ -32,9 +32,9 @@ class entidades extends Model
             return $query->where(function($q) use ($search)
             {
                 if (isset($search) && !empty($search)) {
-                    $q->where('entidadfederativanombre', 'like', '%' . $search . '%');
-                    $q->orWhere('entidadfederativaabreviacion', 'like', '%' . $search . '%');
-                    $q->orWhere('entidadfederativaid', 'like', '%' . $search . '%');
+                    $q->where('ENTIDADFEDERATIVANOMBRE', 'like', '%' . $search . '%');
+                    $q->orWhere('ENTIDADFEDERATIVAABREVIACION', 'like', '%' . $search . '%');
+                    $q->orWhere('ENTIDADFEDERATIVAID', 'like', '%' . $search . '%');
                 }
             });
         });

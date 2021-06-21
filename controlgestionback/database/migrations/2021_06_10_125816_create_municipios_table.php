@@ -13,13 +13,13 @@ class CreateMunicipiosTable extends Migration
      */
     public function up()
     {
-        // Schema::create('municipios', function (Blueprint $table) {
-        //     $table->increments('MUNICIPIOID');
-        //     $table->Integer('ENTIDADFEDERATIVAID'); 
-        //     $table->string('MUNICIPIONOMBRE');  
-        //     $table->timestamps();
-        //     $table->foreign('ENTIDADFEDERATIVAID')->references('ENTIDADFEDERATIVAID')->on('entidades')->onDelete('cascade');;
-        // });
+        Schema::create('municipios', function (Blueprint $table) {
+            $table->increments('MUNICIPIOID');
+            $table->Integer('ENTIDADFEDERATIVAID'); 
+            $table->string('MUNICIPIONOMBRE');  
+            $table->timestamps();
+            $table->foreign('ENTIDADFEDERATIVAID')->references('ENTIDADFEDERATIVAID')->on('entidades')->onDelete('cascade');;
+        });
     }
 
     /**
@@ -29,6 +29,6 @@ class CreateMunicipiosTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('municipios');
+        Schema::dropIfExists('municipios');
     }
 }

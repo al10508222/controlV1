@@ -57,7 +57,7 @@ export default {
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true, entidades_projects: true };
+    const catalogsConfiguration = { profiles: true, entidades: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();

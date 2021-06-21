@@ -10,32 +10,28 @@
       @request="onRequest"
       :filter="search"
     >
-     <template v-slot:top-right>
+      <template v-slot:top-row>
         <q-input borderless dense debounce="400" v-model="search" placeholder="Buscar">
           <template v-slot:append>
             <q-icon name="search" />
           </template>
         </q-input>
+        <q-select clearable outlined v-model="form.entidad_nombre" option-value="id" option-label="entidad_nombre" map-options emit-value :options="catalogs.entidades" label="Entidad Federativa" @input="change" :rules="[$rules.required($t('requiredInput'))]">
+        </q-select>
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td key="id" :props="props">
-            {{ props.row.id }}
+          <q-td key="MUNICIPIOID" :props="props">
+            {{ props.row.MUNICIPIOID }}
           </q-td>
-          <q-td key="entidad_nombre" :props="props">
-            {{ props.row.entidad_nombre }}
-          </q-td>
-          <q-td key="consecutivo" :props="props">
-            {{ props.row.consecutivo }}
-          </q-td>
-          <q-td key="municipio_nombre" :props="props">
-            {{ props.row.municipio_nombre }}
+          <q-td key="MUNICIPIONOMBRE" :props="props">
+            {{ props.row.MUNICIPIONOMBRE }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editMunicipios(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-              <q-btn round size="sm" @click="editMunicipios(props.row.id)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
-              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.id" color="negative" icon="fas fa-trash" v-if="canDelete"/>
+              <q-btn round size="sm" @click="editMunicipios(props.row.MUNICIPIOID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="editMunicipios(props.row.MUNICIPIOID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.MUNICIPIOID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
         </q-tr>
@@ -92,22 +88,29 @@ export default {
       separator: 'vertical',
       columns: [
         {
-          name: 'id', align: 'center', label: 'ID', field: 'id'
+          name: 'MUNICIPIOID', align: 'center', label: 'MUNICIPIOID', field: 'MUNICIPIOID'
         },
         {
-          name: 'entidad_nombre', align: 'center', label: 'Nombre Entidad', field: 'entidad_nombre'
+          name: 'MUNICIPIONOMBRE', align: 'center', label: 'Nombre Municipio', field: 'MUNICIPIONOMBRE'
         },
         {
-          name: 'consecutivo', align: 'center', label: '# Municipio', field: 'consecutivo'
-        },
-        {
-          name: 'municipio_nombre', align: 'center', label: 'Nombre Municipio', field: 'municipio_nombre'
-        },
-        {
-          name: 'actions', align: 'center', label: 'Acciones', field: 'id'
+          name: 'actions', align: 'center', label: 'Acciones', field: 'MUNICIPIOID'
         },
       ],
+      form: {
+        ENTIDADFEDERATIVAID: '',
+        ENTIDADFEDERATIVANOMBRE: ''
+      },
+      filteredEntidades: [],
+      ENTIDADFEDERATIVAID: ''
     };
+  },
+  created() {
+    const catalogsConfiguration = { entidades: true };
+    this.$q.loading.show();
+    this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
+      this.$q.loading.hide();
+    });
   },
   computed: {
     canEdit: {
@@ -119,14 +122,22 @@ export default {
     canDelete: {
       get() { return this.canShow('municipios-delete') }
     },
+    catalogs: {
+      get() {
+        return this.$store.state.catalogs;
+      },
+      set(val) {
+        this.$store.commit('catalogs/setCatalogs', val)
+      }
+    },
   },
   methods: {
-    editMunicipios(id) {
-      this.$router.push(`/municipios/${id}/edit`)
+    editMunicipios(MUNICIPIOID) {
+      this.$router.push(`/municipios/${MUNICIPIOID}/edit`)
     },
-    deleteMunicipios(id) {
+    deleteMunicipios(MUNICIPIOID) {
       this.loading = true
-      MunicipiosService.destroy({ params: { id } }).then((data) => {
+      MunicipiosService.destroy({ params: { MUNICIPIOID } }).then((data) => {
         console.log(data)
         if (data.success) {
           notifySuccess()
@@ -155,6 +166,9 @@ export default {
       }).catch(() => {
         this.loading = false
       })
+    },
+    change(val) {
+      this.filteredEntidades = this.catalogs.entidades.filter((e) => val === e.ENTIDADFEDERATIVAID)
     },
   },
 };

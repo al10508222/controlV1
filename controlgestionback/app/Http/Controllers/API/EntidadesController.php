@@ -20,7 +20,7 @@ class EntidadesController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $Entidades = entidades::search($search)->orderBy('entidadfederativaid','asc')->paginate($rowsPerPage);
+            $Entidades = entidades::search($search)->orderBy('ENTIDADFEDERATIVAID','asc')->paginate($rowsPerPage);
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -83,7 +83,7 @@ class EntidadesController extends Controller
     public function show($id)
     {
         try {
-            $Entidades = entidades::where('entidadfederativaid',$id)->first();
+            $Entidades = entidades::where('ENTIDADFEDERATIVAID',$id)->first();
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -106,7 +106,7 @@ class EntidadesController extends Controller
     public function edit($id)
     {
         try {
-            $Entidades = entidades::where('entidadfederativaid',$id)->first();
+            $Entidades = entidades::where('ENTIDADFEDERATIVAID',$id)->first();
             return response()->json([
                 'success' => true,
                 'entidades' => $Entidades,
@@ -133,8 +133,7 @@ class EntidadesController extends Controller
 
             DB::beginTransaction();
             $Entidades = entidades::find($id);
-            // $Entidades = entidades::where('entidadfederativaid', '=', $id)->firstOrFail();
-            $Entidades->entidadfederativanombre = $request->entidadfederativanombre;
+            $Entidades->fill($request->all());
             $Entidades->save();
             DB::commit();
 
@@ -161,7 +160,7 @@ class EntidadesController extends Controller
     public function destroy($id)
     {
         try {
-            entidades::where('entidadfederativaid',$id)->delete();
+            entidades::destroy($id);
             return response()->json([
                 'success' => true,
                 'message' => 'OK' 

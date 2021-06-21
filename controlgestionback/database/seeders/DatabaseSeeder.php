@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             // CatCucopsTableSeeder::class,
             // TipoVialidadSeeder::class,
             EntidadesFederativasTableSeeder::class,
-            // MunicipiosTableSeeder::class,
+            MunicipiosTableSeeder::class,
             // LocalidadesTableSeeder::class
         ]);
     }
