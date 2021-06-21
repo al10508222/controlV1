@@ -14,11 +14,12 @@ class CreateLocalidadesTable extends Migration
     public function up()
     {
         Schema::create('localidades', function (Blueprint $table) {
-            $table->increments('LOCALIDADID');
+            $table->increments('ID');
             $table->Integer('ENTIDADFEDERATIVAID');
             $table->Integer('MUNICIPIOID');
+            $table->Integer('LOCALIDADID');
             $table->string('LOCALIDADNOMBRE');  
-            $table->string('LOCALIDADCODIGOPOSTAL');  
+            $table->string('LOCALIDADCODIGOPOSTAL')->nullable();  
             $table->string('LOCALIDADAMBITO');
             $table->string('LOCALIDADLATITUD');  
             $table->string('LOCALIDADLOINGITUD');  

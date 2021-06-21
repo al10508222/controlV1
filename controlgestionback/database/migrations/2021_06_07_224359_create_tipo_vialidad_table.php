@@ -13,11 +13,11 @@ class CreateTipoVialidadTable extends Migration
      */
     public function up()
     {
-        // Schema::create('tipo_vialidad', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->string('vialidad_nombre');  
-        //     $table->timestamps();
-        // });
+        Schema::create('tipo_vialidad', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('vialidad_nombre');  
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateTipoVialidadTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('tipo_vialidad');
+        Schema::dropIfExists('tipo_vialidad');
     }
 }

@@ -23,19 +23,20 @@ class LocalidadesTableSeeder extends Seeder
              \DB::table('localidades')->insert(
                 [
                     [
-                        'entidad_id'   => $item->entidad_id,
-                        'entidad_nombre'   => $item->entidad_nombre,
-                        'entidad_nombre_corto'   => $item->entidad_nombre_corto,
-                        'municipio_id'   => $item->municipio_id,
-                        'municipio_nombre'   => $item->municipio_nombre,
-                        'localidad_id'   => $item->localidad_id,
-                        'localidad_nombre'   => $item->localidad_nombre,
-                        'ambito'   => $item->ambito
+                        'ENTIDADFEDERATIVAID'   => $item->ENTIDADFEDERATIVAID,
+                        'MUNICIPIOID'   => $item->MUNICIPIOID,
+                        'LOCALIDADID'   => $item->LOCALIDADID,
+                        'LOCALIDADNOMBRE'   => $item->LOCALIDADNOMBRE,
+                        'LOCALIDADCODIGOPOSTAL'   => NULL,
+                        'LOCALIDADAMBITO'   => $item->LOCALIDADAMBITO,
+                        'LOCALIDADLATITUD'   => $item->LOCALIDADLATITUD,
+                        'LOCALIDADLOINGITUD'   => $item->LOCALIDADLOINGITUD,
+                        'LOCALIDADLATITUDDEC'   => $item->LOCALIDADLATITUDDEC,
+                        'LOCALIDADLOINGITUDDEC'   => $item->LOCALIDADLOINGITUDDEC,
+                        'LOCALIDADALTITUD'   => $item->LOCALIDADALTITUD
                     ]
                 ]
             );
         }
-        
-        \DB::statement('ALTER SEQUENCE public.localidades_id_seq RESTART WITH 300685');
     }
 }

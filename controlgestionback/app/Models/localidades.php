@@ -11,6 +11,7 @@ class localidades extends Model
     // use HasFactory, SoftDeletes;
     
     protected $table="localidades";
+    protected $primaryKey = 'LOCALIDADID';
 
     /**
      * The attributes that are mass assignable.
@@ -18,18 +19,22 @@ class localidades extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'entidad_id',
-        'municipio_id',
-        'localidad_id',
-        'localidad_nombre',
-        'cp'
+        'ENTIDADFEDERATIVAID',
+        'MUNICIPIOID',
+        'LOCALIDADID',
+        'LOCALIDADNOMBRE',
+        'LOCALIDADCODIGOPOSTAL',
+        'LOCALIDADAMBITO',
+        'LOCALIDADLATITUD',
+        'LOCALIDADLOINGITUD',
+        'LOCALIDADLATITUDDEC',
+        'LOCALIDADLOINGITUDDEC',
+        'LOCALIDADALTITUD'
     ];
 
     public function entidades(){
         return $this->hasOne('App\Models\entidades','id','entidad_id');
     }
-    
     
     public function scopeSearch($query, $search)
     {
@@ -38,10 +43,10 @@ class localidades extends Model
             return $query->where(function($q) use ($search)
             {
                 if (isset($search) && !empty($search)) {
-                    $q->where('entidad_id', 'like', '%' . $search . '%');
-                    $q->orWhere('municipio_nombre', 'like', '%' . $search . '%');
-                    $q->orWhere('entidad_nombre', 'like', '%' . $search . '%');
-                    $q->orWhere('localidad_nombre', 'like', '%' . $search . '%');
+                    $q->where('LOCALIDADNOMBRE', 'like', '%' . $search . '%');
+                    $q->orWhere('LOCALIDADCODIGOPOSTAL', 'like', '%' . $search . '%');
+                    $q->orWhere('LOCALIDADAMBITO', 'like', '%' . $search . '%');
+                    $q->orWhere('LOCALIDADID', 'like', '%' . $search . '%');
                 }
             });
         });
