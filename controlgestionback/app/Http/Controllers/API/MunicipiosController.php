@@ -20,35 +20,24 @@ class MunicipiosController extends Controller
      */
     public function index(Request $request)
     {
-        // try {
-        //     $rowsPerPage = $request->rowsPerPage;
-        //     $search = $request->input('search');
-        //     $Municipios = municipios::search($search)->orderBy('MUNICIPIOID','asc')->paginate($rowsPerPage);
+        try {
+            $rowsPerPage = $request->rowsPerPage;
+            $search = $request->input('search');
+            $Municipios = municipios::search($search)->orderBy('MUNICIPIOID','asc')->paginate($rowsPerPage);
 
-        //     $datos = array(); 
-
-        //     $datos[] = $Municipios; 
-
-        //     foreach ($Municipios as $i => $value) {
-        //         $entidades = entidades::find($value->entidad_id);
-        //         $entidades->Entidad;
-        //         $datos['data'][$i] = $value; 
-        //         $datos['data'][$i]['ENTIDADFEDERATIVANOMBRE'] = $entidades->ENTIDADFEDERATIVANOMBRE; 
-        //     }
-
-        //     return response()->json([
-        //         'success' => true,
-        //         'municipios' => $datos
-		// 	]);
+            return response()->json([
+                'success' => true,
+                'municipios' => $Municipios
+			]);
 
 
-        // }catch (\Exception $e) {
-        //     DB::rollback();
-		// 	return response()->json([
-		// 		'success' => false,
-		// 		'message' => $e->getMessage()
-		// 	]);
-        // }
+        }catch (\Exception $e) {
+            DB::rollback();
+			return response()->json([
+				'success' => false,
+				'message' => $e->getMessage()
+			]);
+        }
     }
 
     /**
@@ -100,7 +89,7 @@ class MunicipiosController extends Controller
     public function show($id)
     {
         try {
-            $Municipios = municipios::where('id',$id)->first();
+            $Municipios = municipios::where('MUNICIPIOID',$id)->first();
             return response()->json([
                 'success' => true,
                 'municipios' => $Municipios,
@@ -152,22 +141,11 @@ class MunicipiosController extends Controller
     public function edit($id)
     {
         try {
-            $Municipios = municipios::where('id',$id)->first();
-
-            $entidades = entidades::find($Municipios->entidad_id);
-            $entidades->Entidad;
-
-            $datos = array(); 
-
-            $datos['id'] = $Municipios->id; 
-            $datos['entidad_id'] = $Municipios->entidad_id; 
-            $datos['entidad_nombre'] = $entidades->entidad_nombre; 
-            $datos['municipio_nombre'] = $Municipios->municipio_nombre; 
-            $datos['consecutivo'] = $Municipios->consecutivo; 
+            $Municipios = municipios::where('MUNICIPIOID',$id)->first();
 
             return response()->json([
                 'success' => true,
-                'municipios' => $datos,
+                'municipios' => $Municipios,
 			]);
         }catch (\Exception $e) {
             DB::rollback();

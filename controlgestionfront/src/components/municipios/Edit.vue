@@ -15,16 +15,10 @@
         <q-card-section>
           <div class="row q-col-gutter-sm">
             <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.id" square outlined label="id"/>
+              <q-input v-model="form.MUNICIPIOID" square outlined label="MUNICIPIOID"/>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
-              <q-input v-model="form.entidad_nombre" square outlined label="Nombre Entidad Federativa (No modificable)"/>
-            </div>
-            <div class="col-xs-5 col-sm-5 col-md-5">
-              <q-input v-model="form.municipio_nombre" square outlined label="Nombre Municipio"/>
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2">
-              <q-input v-model="form.consecutivo" square outlined label="# Municipio"/>
+              <q-input v-model="form.MUNICIPIONOMBRE" square outlined label="Nombre Municipio"/>
             </div>
           </div>
         </q-card-section>
@@ -47,14 +41,9 @@ export default {
     return {
       disabled: true,
       form: {
-        entidad_id: '',
-        municipio_nombre: '',
-        id: '',
-        consecutivo: ''
-      },
-      filteredTabulators: [],
-      model: null,
-      options: []
+        MUNICIPIOID: '',
+        MUNICIPIONOMBRE: ''
+      }
     };
   },
   created() {

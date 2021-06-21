@@ -240,9 +240,9 @@ class CatalogsController extends Controller
             if($request->has('entidades') && $request->input('entidades') == true) {
                 $catalogs['entidades'] = entidades::select(['ENTIDADFEDERATIVAID', 'ENTIDADFEDERATIVANOMBRE', 'ENTIDADFEDERATIVAABREVIACION'])->get();
             }
-            // if($request->has('municipios') && $request->input('municipios') == true) {
-            //     $catalogs['municipios'] = municipios::select(['MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->get();
-            // }
+            if($request->has('municipios') && $request->input('municipios') == true) {
+                $catalogs['municipios'] = municipios::select(['MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->get();
+            }
 
 
             return $this->genResponse(200,  ['catalogs' => $catalogs] );

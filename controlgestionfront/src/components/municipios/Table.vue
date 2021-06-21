@@ -2,7 +2,7 @@
   <div>
     <br/>
     <q-table
-      :data="data"
+      :data="filteredMunicipios"
       :columns="columns"
       separator="vertical"
       :pagination.sync="pagination"
@@ -10,13 +10,13 @@
       @request="onRequest"
       :filter="search"
     >
-      <template v-slot:top-row>
+      <template v-slot:top>
         <q-input borderless dense debounce="400" v-model="search" placeholder="Buscar">
           <template v-slot:append>
             <q-icon name="search" />
           </template>
         </q-input>
-        <q-select clearable outlined v-model="form.entidad_nombre" option-value="id" option-label="entidad_nombre" map-options emit-value :options="catalogs.entidades" label="Entidad Federativa" @input="change" :rules="[$rules.required($t('requiredInput'))]">
+        <q-select clearable outlined v-model="form.ENTIDADFEDERATIVANOMBRE" option-value="ENTIDADFEDERATIVAID" option-label="ENTIDADFEDERATIVANOMBRE" map-options emit-value :options="catalogs.entidades" label="Entidad Federativa" @input="change" :rules="[$rules.required($t('requiredInput'))]">
         </q-select>
       </template>
       <template v-slot:body="props">
@@ -70,7 +70,7 @@ export default {
     // get initial data from server (1st page)
     this.onRequest({
       pagination: this.pagination,
-      filter: undefined
+      filter: this.filteredMunicipios
     })
   },
   data() {
@@ -88,7 +88,7 @@ export default {
       separator: 'vertical',
       columns: [
         {
-          name: 'MUNICIPIOID', align: 'center', label: 'MUNICIPIOID', field: 'MUNICIPIOID'
+          name: 'MUNICIPIOID', align: 'center', label: 'ID', field: 'MUNICIPIOID'
         },
         {
           name: 'MUNICIPIONOMBRE', align: 'center', label: 'Nombre Municipio', field: 'MUNICIPIONOMBRE'
@@ -101,12 +101,12 @@ export default {
         ENTIDADFEDERATIVAID: '',
         ENTIDADFEDERATIVANOMBRE: ''
       },
-      filteredEntidades: [],
-      ENTIDADFEDERATIVAID: ''
+      filteredMunicipios: [],
+      MUNICIPIOID: ''
     };
   },
   created() {
-    const catalogsConfiguration = { entidades: true };
+    const catalogsConfiguration = { entidades: true, municipios: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();
@@ -158,6 +158,7 @@ export default {
       const { search } = this
       this.loading = true
       MunicipiosService.index({ params: { page, rowsPerPage, search } }).then((municipios) => {
+        console.log(municipios)
         this.data = municipios[0].data
         this.pagination.rowsPerPage = municipios[0].per_page
         this.pagination.page = municipios[0].current_page
@@ -168,7 +169,7 @@ export default {
       })
     },
     change(val) {
-      this.filteredEntidades = this.catalogs.entidades.filter((e) => val === e.ENTIDADFEDERATIVAID)
+      this.filteredMunicipios = this.catalogs.municipios.filter((e) => val === e.ENTIDADFEDERATIVAID)
     },
   },
 };
