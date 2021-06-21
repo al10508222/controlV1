@@ -13,19 +13,19 @@ class CatalogoCucop extends Migration
      */
     public function up()
     {
-        // Schema::create('catalogo_cucop', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->integer('tipo');
-        //     $table->string('clave_cucop');
-        //     $table->string('partida_especifica');
-        //     $table->string('clave_cucop2');
-        //     $table->string('descripcion', 1000);
-        //     $table->integer('nivel');
-        //     $table->string('cabm');
-        //     $table->string('unidad_medida');
-        //     $table->string('tipo_contratacion');
-        //     $table->timestamps();
-        // });
+        Schema::create('catalogo_cucop', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('tipo');
+            $table->string('clave_cucop');
+            $table->string('partida_especifica');
+            $table->string('clave_cucop2');
+            $table->string('descripcion', 1000);
+            $table->integer('nivel');
+            $table->string('cabm');
+            $table->string('unidad_medida');
+            $table->string('tipo_contratacion');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -35,6 +35,6 @@ class CatalogoCucop extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('catalogo_cucop');
+        Schema::dropIfExists('catalogo_cucop');
     }
 }

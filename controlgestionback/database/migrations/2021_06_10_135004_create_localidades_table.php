@@ -13,20 +13,22 @@ class CreateLocalidadesTable extends Migration
      */
     public function up()
     {
-        // Schema::create('localidades', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->Integer('entidad_id');
-        //     $table->string('entidad_nombre');  
-        //     $table->string('entidad_nombre_corto');  
-        //     $table->Integer('municipio_id');
-        //     $table->string('municipio_nombre');
-        //     $table->Integer('localidad_id');  
-        //     $table->string('localidad_nombre');  
-        //     $table->string('ambito');  
-        //     $table->foreign('entidad_id')->references('id')->on('entidades')->onDelete('cascade');;
-        //     $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('cascade');;
-        //     $table->timestamps();
-        // });
+        Schema::create('localidades', function (Blueprint $table) {
+            $table->increments('LOCALIDADID');
+            $table->Integer('ENTIDADFEDERATIVAID');
+            $table->Integer('MUNICIPIOID');
+            $table->string('LOCALIDADNOMBRE');  
+            $table->string('LOCALIDADCODIGOPOSTAL');  
+            $table->string('LOCALIDADAMBITO');
+            $table->string('LOCALIDADLATITUD');  
+            $table->string('LOCALIDADLOINGITUD');  
+            $table->string('LOCALIDADLATITUDDEC');  
+            $table->string('LOCALIDADLOINGITUDDEC');  
+            $table->string('LOCALIDADALTITUD');  
+            $table->foreign('ENTIDADFEDERATIVAID')->references('ENTIDADFEDERATIVAID')->on('entidades')->onDelete('cascade');
+            $table->foreign('MUNICIPIOID')->references('MUNICIPIOID')->on('municipios')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -36,6 +38,6 @@ class CreateLocalidadesTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('localidades');
+        Schema::dropIfExists('localidades');
     }
 }
