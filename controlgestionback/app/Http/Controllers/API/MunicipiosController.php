@@ -23,7 +23,7 @@ class MunicipiosController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $Municipios = municipios::search($search)->orderBy('MUNICIPIOID','asc')->paginate($rowsPerPage);
+            $Municipios = municipios::search($search)->orderBy('ENTIDADFEDERATIVAID', 'asc')->paginate($rowsPerPage);
 
             return response()->json([
                 'success' => true,
@@ -205,7 +205,7 @@ class MunicipiosController extends Controller
             DB::rollback();
             return response()->json([
 				'success' => false,
-				'message' => 'Error'
+				'message' => $e->getMessage()
 			]);
         }
         

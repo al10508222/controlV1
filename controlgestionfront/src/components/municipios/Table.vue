@@ -16,7 +16,8 @@
             <q-icon name="search" />
           </template>
         </q-input>
-        <q-select clearable outlined v-model="form.ENTIDADFEDERATIVANOMBRE" option-value="ENTIDADFEDERATIVAID" option-label="ENTIDADFEDERATIVANOMBRE" map-options emit-value :options="catalogs.entidades" label="Entidad Federativa" @input="change" :rules="[$rules.required($t('requiredInput'))]">
+        <q-select v-model="form.ENTIDADFEDERATIVAID" option-value="ENTIDADFEDERATIVAID" option-label="ENTIDADFEDERATIVANOMBRE" map-options emit-value :options="catalogs.entidades" @input="change" :rules="[$rules.required($t('requiredInput'))]">
+          <span>Entidad Federativa</span>
         </q-select>
       </template>
       <template v-slot:body="props">
@@ -70,18 +71,18 @@ export default {
     // get initial data from server (1st page)
     this.onRequest({
       pagination: this.pagination,
-      filter: this.filteredMunicipios
+      filter: undefined
     })
   },
   data() {
     return {
-      data: [],
+      filteredMunicipios: [],
       loading: false,
       deleteOption: '',
       confirmDelete: false,
       pagination: {
         page: 1,
-        rowsPerPage: 10,
+        rowsPerPage: 200,
         rowsNumber: ''
       },
       search: '',
@@ -101,8 +102,7 @@ export default {
         ENTIDADFEDERATIVAID: '',
         ENTIDADFEDERATIVANOMBRE: ''
       },
-      filteredMunicipios: [],
-      MUNICIPIOID: ''
+      MUNICIPIOID: '',
     };
   },
   created() {
@@ -135,10 +135,9 @@ export default {
     editMunicipios(MUNICIPIOID) {
       this.$router.push(`/municipios/${MUNICIPIOID}/edit`)
     },
-    deleteMunicipios(MUNICIPIOID) {
+    deleteMunicipios(id) {
       this.loading = true
-      MunicipiosService.destroy({ params: { MUNICIPIOID } }).then((data) => {
-        console.log(data)
+      MunicipiosService.destroy({ params: { id } }).then((data) => {
         if (data.success) {
           notifySuccess()
           this.onRequest({
@@ -158,11 +157,10 @@ export default {
       const { search } = this
       this.loading = true
       MunicipiosService.index({ params: { page, rowsPerPage, search } }).then((municipios) => {
-        console.log(municipios)
-        this.data = municipios[0].data
-        this.pagination.rowsPerPage = municipios[0].per_page
-        this.pagination.page = municipios[0].current_page
-        this.pagination.rowsNumber = municipios[0].total
+        this.filteredMunicipios = municipios.data
+        this.pagination.rowsPerPage = municipios.per_page
+        this.pagination.page = municipios.current_page
+        this.pagination.rowsNumber = municipios.total
         this.loading = false
       }).catch(() => {
         this.loading = false
