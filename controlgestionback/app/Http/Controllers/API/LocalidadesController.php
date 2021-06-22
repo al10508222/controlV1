@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\localidadesFieldRequest;
 use Illuminate\Http\Request;
 use App\Models\localidades;
-use App\Models\Catalogs\CatTabulator;
 use Illuminate\Support\Facades\DB;
 
 class LocalidadesController extends Controller
@@ -21,7 +20,7 @@ class LocalidadesController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $localidades = localidades::search($search)->orderBy('LOCALIDADNOMBRE','asc')->paginate($rowsPerPage);
+            $localidades = localidades::search($search)->orderBy('ID','asc')->paginate($rowsPerPage);
             return response()->json([
                 'success' => true,
                 'localidades' => $localidades,

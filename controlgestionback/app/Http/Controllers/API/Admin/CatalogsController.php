@@ -243,10 +243,13 @@ class CatalogsController extends Controller
                 $catalogs['entidades'] = entidades::select(['ENTIDADFEDERATIVAID', 'ENTIDADFEDERATIVANOMBRE', 'ENTIDADFEDERATIVAABREVIACION'])->orderBy('ENTIDADFEDERATIVANOMBRE', 'asc')->get();
             }
             if($request->has('municipios') && $request->input('municipios') == true) {
-                $catalogs['municipios'] = municipios::select(['MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->orderBy('MUNICIPIONOMBRE', 'asc')->get();
+                $catalogs['municipios'] = municipios::select(['ID', 'MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->orderBy('MUNICIPIONOMBRE', 'asc')->get();
             }
             if($request->has('localidades') && $request->input('localidades') == true) {
-                $catalogs['localidades'] = localidades::select(['ID', 'LOCALIDADID', 'LOCALIDADNOMBRE'])->orderBy('LOCALIDADNOMBRE', 'asc')->get();
+                $catalogs['localidades'] = localidades::select(['ID', 'LOCALIDADID', 'LOCALIDADNOMBRE', 'MUNICIPIOID', 'ENTIDADFEDERATIVAID'])
+                                            ->where('ENTIDADFEDERATIVAID', $request->input('entidad_id'))
+                                            ->where('MUNICIPIOID', $request->input('municipio_id'))
+                                            ->orderBy('LOCALIDADNOMBRE','asc')->get();
             }
 
 
@@ -277,4 +280,5 @@ class CatalogsController extends Controller
             ], 400);
         }
     }
+
 }

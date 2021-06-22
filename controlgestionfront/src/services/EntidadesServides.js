@@ -16,7 +16,6 @@ export const index = (payload) => {
 
 export const edit = (id) => {
   const URL = `/api/admin/entidades/${id}/edit`;
-  console.log(axiosInstance.get(URL).then((res) => res.data.entidades))
   return axiosInstance.get(URL).then((res) => res.data.entidades);
 };
 

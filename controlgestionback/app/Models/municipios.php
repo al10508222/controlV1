@@ -11,7 +11,7 @@ class municipios extends Model
     // use HasFactory, SoftDeletes;
     
     protected $table="municipios";
-    protected $primaryKey = 'MUNICIPIOID';
+    protected $primaryKey = 'ID';
 
     /**
      * The attributes that are mass assignable.

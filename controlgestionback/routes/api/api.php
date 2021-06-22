@@ -125,6 +125,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('entidades', EntidadesController::class);
             Route::resource('municipios', MunicipiosController::class);
             Route::resource('localidades', LocalidadesController::class);
+            Route::get('get-locations/{entidad}/{municipio}', [CatalogsController::class, 'getLocationsByCountry']);
 
         });
 

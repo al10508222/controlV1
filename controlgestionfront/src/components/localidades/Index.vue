@@ -35,12 +35,7 @@ export default {
       set(val) {
         this.$store.commit('catalogs/setCatalogs', val)
       }
-    },
-    users: {
-      get() {
-        return this.$store.state.user.users;
-      },
-    },
+    }
   },
 };
 </script>

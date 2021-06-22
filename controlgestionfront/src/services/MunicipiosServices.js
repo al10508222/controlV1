@@ -11,7 +11,6 @@ import { axiosInstance } from 'boot/axios'
 
 export const index = (payload) => {
   const URL = '/api/admin/municipios';
-  console.log(axiosInstance.get(URL, payload).then((res) => res.data.municipios))
   return axiosInstance.get(URL, payload).then((res) => res.data.municipios);
 };
 
