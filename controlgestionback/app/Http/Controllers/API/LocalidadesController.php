@@ -21,7 +21,7 @@ class LocalidadesController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $localidades = localidades::search($search)->orderBy('id','asc')->paginate($rowsPerPage);
+            $localidades = localidades::search($search)->orderBy('LOCALIDADNOMBRE','asc')->paginate($rowsPerPage);
             return response()->json([
                 'success' => true,
                 'localidades' => $localidades,
@@ -84,7 +84,7 @@ class LocalidadesController extends Controller
     public function show($id)
     {
         try {
-            $localidades = localidades::where('id',$id)->first();
+            $localidades = localidades::where('ID',$id)->first();
             return response()->json([
                 'success' => true,
                 'localidades' => $localidades,
@@ -107,7 +107,7 @@ class LocalidadesController extends Controller
     public function edit($id)
     {
         try {
-            $localidades = localidades::where('id',$id)->first();
+            $localidades = localidades::where('ID',$id)->first();
             return response()->json([
                 'success' => true,
                 'localidades' => $localidades,
@@ -184,12 +184,12 @@ class LocalidadesController extends Controller
     public function ShowLocalidadesByFilter(Request $request)
     {
         try {
-            $params = [
-                'entidad_id' => $request->input('entidad_id'),
-                'municipio_id' => $request->input('municipio_id'),
-            ];
+            // $params = [
+            //     'ENTIDADFEDERATIVAID' => $request->input('ENTIDADFEDERATIVAID'),
+            //     'MUNICIPIOID' => $request->input('MUNICIPIOID'),
+            // ];
             
-            $localidades = DB::select('SELECT * FROM localidades WHERE entidad_id = :entidad_id AND municipio_id = :municipio_id', ['entidad_id' => $request->input('entidad_id'), 'municipio_id' => $request->input('municipio_id')]);
+            $localidades = DB::select('SELECT * FROM localidades WHERE ENTIDADFEDERATIVAID = :ENTIDADFEDERATIVAID AND MUNICIPIOID = :MUNICIPIOID', ['ENTIDADFEDERATIVAID' => $request->input('ENTIDADFEDERATIVAID'), 'MUNICIPIOID' => $request->input('MUNICIPIOID')]);
             $datos = array(); 
 
             foreach ($localidades as $i => $value) {

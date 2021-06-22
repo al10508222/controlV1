@@ -2,7 +2,7 @@
   <div>
     <br/>
     <q-table
-      :data="data"
+      :data="filteredOneLocalidad"
       :columns="columns"
       separator="vertical"
       :pagination.sync="pagination"
@@ -10,39 +10,46 @@
       @request="onRequest"
       :filter="search"
     >
-      <template v-slot:top-right>
-        <q-input borderless dense debounce="400" v-model="search" placeholder="Buscar">
-          <template v-slot:append>
-            <q-icon name="search"/>
-          </template>
-        </q-input>
+      <template v-slot:top>
+          <q-card style="width: 100%">
+            <q-separator />
+            <div class="q-pa-sm">
+              <q-card-section>
+                <div class="row q-col-gutter-sm">
+                  <div class="col-xs-4 col-sm-4 col-md-4 q-mb-md">
+                    <q-select v-model="form.ENTIDADFEDERATIVAID" option-value="ENTIDADFEDERATIVAID" option-label="ENTIDADFEDERATIVANOMBRE" label="Entidad Federativa" map-options emit-value :options="catalogs.entidades" @input="change" :rules="[$rules.required($t('requiredInput'))]" />
+                  </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 q-mb-md">
+                    <q-select v-model="form.MUNICIPIOID" option-value="MUNICIPIOID" option-label="MUNICIPIONOMBRE" :options="filteredMunicipios" label="Municipio" map-options emit-value @input="change_all_localidades" :rules="[$rules.required($t('requiredInput'))]" />
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 q-mb-md">
+                    <q-select v-model="form.ID" option-value="ID" option-label="LOCALIDADNOMBRE" :options="filteredAllLocalidades" label="Localidad" map-options emit-value @input="change_one_localidad" :rules="[$rules.required($t('requiredInput'))]" />
+                  </div>
+                </div>
+              </q-card-section>
+            </div>
+          </q-card>
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td key="id" :props="props">
-            {{ props.row.id }}
+          <q-td key="LOCALIDADID" :props="props">
+            {{ props.row.LOCALIDADID }}
           </q-td>
-          <q-td key="entidad_nombre" :props="props">
-            {{ props.row.entidad_nombre }}
-          </q-td>
-          <q-td key="municipio_nombre" :props="props">
-            {{ props.row.municipio_nombre }}
-          </q-td>
-          <q-td key="localidad_nombre" :props="props">
-            {{ props.row.localidad_nombre }}
+          <q-td key="MUNICIPIONOMBRE" :props="props">
+            {{ props.row.MUNICIPIONOMBRE }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="edit(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-              <q-btn round size="sm" @click="edit(props.row.id)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
-              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.id" color="negative" icon="fas fa-trash" v-if="canDelete"/>
+              <q-btn round size="sm" @click="editLocalidad(props.row.LOCALIDADID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="editLocalidad(props.row.LOCALIDADID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.LOCALIDADID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
         </q-tr>
       </template>
       <template v-slot:no-data="{ }">
         <div class="full-width row flex-center q-gutter-sm">
-          <q-icon size="2em" name="sentiment_dissatisfied"/>
+          <q-icon size="2em" name="sentiment_dissatisfied" />
           <span>
             No se encontraron resultados
           </span>
@@ -52,23 +59,24 @@
     <q-dialog v-model="confirmDelete" persistent>
       <q-card>
         <q-card-section class="row items-center">
-          <span class="q-ml-sm">¿Seguro que desea eliminar este registro?</span>
-        </q-card-section>
-        <q-card-actions align="right">
-          <q-btn flat label="Cancel" color="primary" v-close-popup @click="confirmDelete = false"/>
-          <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteLocalidades(deleteOption);"/>
-        </q-card-actions>
+            <span class="q-ml-sm">¿Seguro que desea eliminar este registro?</span>
+            </q-card-section>
+            <q-card-actions align="right">
+            <q-btn flat label="Cancel" color="primary" v-close-popup/>
+            <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteLocalidad(deleteOption);"/>
+            </q-card-actions>
       </q-card>
     </q-dialog>
   </div>
 </template>
 
 <script>
-import * as LocalidadesService from 'src/services/LocalidadesServices';
 import { notifyError, notifySuccess } from 'src/utils/notify';
+import * as LocalidadesService from 'src/services/MunicipiosServices';
 
 export default {
-  components: {},
+  components: {
+  },
   mounted() {
     // get initial data from server (1st page)
     this.onRequest({
@@ -79,51 +87,69 @@ export default {
   data() {
     return {
       data: [],
+      filteredMunicipios: [],
+      filteredAllLocalidades: [],
+      filteredOneLocalidad: [],
+      ENTIDADFEDERATIVAID: '',
       loading: false,
       deleteOption: '',
       confirmDelete: false,
       pagination: {
         page: 1,
-        rowsPerPage: 15,
+        rowsPerPage: 200,
         rowsNumber: ''
       },
       search: '',
       separator: 'vertical',
       columns: [
         {
-          name: 'id', align: 'center', label: 'ID', field: 'id'
+          name: 'ID', align: 'center', label: 'ID', field: 'ID'
         },
         {
-          name: 'entidad_nombre', align: 'center', label: 'Entidad Federativa', field: 'entidad_nombre'
+          name: 'MUNICIPIONOMBRE', align: 'center', label: 'Nombre Municipio', field: 'MUNICIPIONOMBRE'
         },
         {
-          name: 'municipio_nombre', align: 'center', label: 'Municipio', field: 'municipio_nombre'
-        },
-        {
-          name: 'localidad_nombre', align: 'center', label: 'Localidad', field: 'localidad_nombre'
-        },
-        {
-          name: 'actions', align: 'center', label: 'Acciones', field: 'id'
+          name: 'actions', align: 'center', label: 'Acciones', field: 'ID'
         },
       ],
+      form: {
+        ENTIDADFEDERATIVAID: '',
+        ENTIDADFEDERATIVANOMBRE: ''
+      },
+      LOCALIDADID: '',
     };
+  },
+  created() {
+    const catalogsConfiguration = { entidades: true, municipios: true, localidades: true };
+    this.$q.loading.show();
+    this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
+      this.$q.loading.hide();
+    });
   },
   computed: {
     canEdit: {
-      get() { return this.canShow('localidades-edit') }
+      get() { return this.canShow('municipios-edit') }
     },
     canView: {
-      get() { return this.canShow('localidades-view') }
+      get() { return this.canShow('municipios-view') }
     },
     canDelete: {
-      get() { return this.canShow('localidades-delete') }
+      get() { return this.canShow('municipios-delete') }
+    },
+    catalogs: {
+      get() {
+        return this.$store.state.catalogs;
+      },
+      set(val) {
+        this.$store.commit('catalogs/setCatalogs', val)
+      }
     },
   },
   methods: {
-    edit(id) {
-      this.$router.push(`/localidades/${id}/edit`)
+    editLocalidad(id) {
+      this.$router.push(`/municipios/${id}/edit`)
     },
-    deleteLocalidades(id) {
+    deleteLocalidad(id) {
       this.loading = true
       LocalidadesService.destroy({ params: { id } }).then((data) => {
         if (data.success) {
@@ -144,16 +170,25 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
-      LocalidadesService.index({ params: { page, rowsPerPage, search } }).then((results) => {
-        this.data = results.data
-        this.pagination.rowsPerPage = results.per_page
-        this.pagination.page = results.current_page
-        this.pagination.rowsNumber = results.total
+      LocalidadesService.index({ params: { page, rowsPerPage, search } }).then((localidades) => {
+        this.filteredOneLocalidad = localidades.data
+        this.pagination.rowsPerPage = localidades.per_page
+        this.pagination.page = localidades.current_page
+        this.pagination.rowsNumber = localidades.total
         this.loading = false
       }).catch(() => {
         this.loading = false
       })
     },
+    change(val) {
+      this.filteredMunicipios = this.catalogs.municipios.filter((e) => val === e.ENTIDADFEDERATIVAID)
+    },
+    change_all_localidades(val) {
+      this.filteredAllLocalidades = this.catalogs.localidades.filter((e) => val === e.MUNICIPIOID)
+    },
+    change_one_localidad(val) {
+      this.filteredOneLocalidad = this.catalogs.localidades.filter((e) => val === e.ID)
+    }
   },
 };
 </script>

@@ -54,6 +54,8 @@ use App\Models\Catalogs\CatPaymentStatuses;
 use App\Models\Catalogs\CatSpecificBudgetItem;
 use App\Models\entidades;
 use App\Models\municipios;
+use App\Models\localidades;
+
 
 
 class CatalogsController extends Controller
@@ -238,10 +240,13 @@ class CatalogsController extends Controller
 
             //[GMM]
             if($request->has('entidades') && $request->input('entidades') == true) {
-                $catalogs['entidades'] = entidades::select(['ENTIDADFEDERATIVAID', 'ENTIDADFEDERATIVANOMBRE', 'ENTIDADFEDERATIVAABREVIACION'])->get();
+                $catalogs['entidades'] = entidades::select(['ENTIDADFEDERATIVAID', 'ENTIDADFEDERATIVANOMBRE', 'ENTIDADFEDERATIVAABREVIACION'])->orderBy('ENTIDADFEDERATIVANOMBRE', 'asc')->get();
             }
             if($request->has('municipios') && $request->input('municipios') == true) {
-                $catalogs['municipios'] = municipios::select(['MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->get();
+                $catalogs['municipios'] = municipios::select(['MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->orderBy('MUNICIPIONOMBRE', 'asc')->get();
+            }
+            if($request->has('localidades') && $request->input('localidades') == true) {
+                $catalogs['localidades'] = localidades::select(['ID', 'LOCALIDADID', 'LOCALIDADNOMBRE'])->orderBy('LOCALIDADNOMBRE', 'asc')->get();
             }
 
 

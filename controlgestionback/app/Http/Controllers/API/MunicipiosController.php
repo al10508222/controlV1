@@ -23,7 +23,7 @@ class MunicipiosController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $Municipios = municipios::search($search)->orderBy('ENTIDADFEDERATIVAID', 'asc')->paginate($rowsPerPage);
+            $Municipios = municipios::search($search)->orderBy('MUNICIPIONOMBRE', 'asc')->paginate($rowsPerPage);
 
             return response()->json([
                 'success' => true,
@@ -112,10 +112,10 @@ class MunicipiosController extends Controller
             $datos[] = $Municipios; 
 
             foreach ($Municipios as $i => $value) {
-                $entidades = entidades::find($value->entidad_id);
+                $entidades = entidades::find($value->ENTIDADFEDERATIVAID);
                 $entidades->Entidad;
                 $datos['data'][$i] = $value; 
-                $datos['data'][$i]['entidad_nombre'] = $entidades->entidad_nombre; 
+                $datos['data'][$i]['ENTIDADFEDERATIVANOMBRE'] = $entidades->ENTIDADFEDERATIVANOMBRE; 
             }
 
             return response()->json([
