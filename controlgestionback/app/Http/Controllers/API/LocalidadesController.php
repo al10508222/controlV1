@@ -188,8 +188,8 @@ class LocalidadesController extends Controller
             //     'ENTIDADFEDERATIVAID' => $request->input('ENTIDADFEDERATIVAID'),
             //     'MUNICIPIOID' => $request->input('MUNICIPIOID'),
             // ];
-            
-            $localidades = DB::select('SELECT * FROM localidades WHERE ENTIDADFEDERATIVAID = :ENTIDADFEDERATIVAID AND MUNICIPIOID = :MUNICIPIOID', ['ENTIDADFEDERATIVAID' => $request->input('ENTIDADFEDERATIVAID'), 'MUNICIPIOID' => $request->input('MUNICIPIOID')]);
+            $sql = 'SELECT * FROM localidades WHERE "ENTIDADFEDERATIVAID" = '.$request->input('ENTIDADFEDERATIVAID').' AND "MUNICIPIOID" = '.$request->input('MUNICIPIOID').';';
+            $localidades = DB::select($sql);
             $datos = array(); 
 
             foreach ($localidades as $i => $value) {

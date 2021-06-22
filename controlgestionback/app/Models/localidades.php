@@ -11,7 +11,6 @@ class localidades extends Model
     // use HasFactory, SoftDeletes;
     
     protected $table="localidades";
-    protected $primaryKey = 'LOCALIDADID';
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +18,7 @@ class localidades extends Model
      * @var array
      */
     protected $fillable = [
+        'ID',
         'ENTIDADFEDERATIVAID',
         'MUNICIPIOID',
         'LOCALIDADID',
@@ -32,10 +32,6 @@ class localidades extends Model
         'LOCALIDADALTITUD'
     ];
 
-    public function entidades(){
-        return $this->hasOne('App\Models\entidades','id','entidad_id');
-    }
-    
     public function scopeSearch($query, $search)
     {
         return $query->when(! empty ($search), function ($query) use ($search) {

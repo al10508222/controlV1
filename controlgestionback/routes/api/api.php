@@ -124,6 +124,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('vacations-types', CatVacationsTypeController::class);
             Route::resource('entidades', EntidadesController::class);
             Route::resource('municipios', MunicipiosController::class);
+            Route::resource('localidades', LocalidadesController::class);
 
         });
 

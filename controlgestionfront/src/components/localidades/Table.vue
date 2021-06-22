@@ -2,7 +2,7 @@
   <div>
     <br/>
     <q-table
-      :data="filteredOneLocalidad"
+      :data="data"
       :columns="columns"
       separator="vertical"
       :pagination.sync="pagination"
@@ -23,7 +23,7 @@
                     <q-select v-model="form.MUNICIPIOID" option-value="MUNICIPIOID" option-label="MUNICIPIONOMBRE" :options="filteredMunicipios" label="Municipio" map-options emit-value @input="change_all_localidades" :rules="[$rules.required($t('requiredInput'))]" />
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-3 q-mb-md">
-                    <q-select v-model="form.ID" option-value="ID" option-label="LOCALIDADNOMBRE" :options="filteredAllLocalidades" label="Localidad" map-options emit-value @input="change_one_localidad" :rules="[$rules.required($t('requiredInput'))]" />
+                    <q-select v-model="form.ID" option-value="ID" option-label="LOCALIDADNOMBRE" :options="filteredAllLocalidades" label="Localidad" map-options emit-value :rules="[$rules.required($t('requiredInput'))]" />
                   </div>
                 </div>
               </q-card-section>
@@ -90,7 +90,6 @@ export default {
       filteredMunicipios: [],
       filteredAllLocalidades: [],
       filteredOneLocalidad: [],
-      ENTIDADFEDERATIVAID: '',
       loading: false,
       deleteOption: '',
       confirmDelete: false,
@@ -120,7 +119,7 @@ export default {
     };
   },
   created() {
-    const catalogsConfiguration = { entidades: true, municipios: true, localidades: true };
+    const catalogsConfiguration = { entidades: true, municipios: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();
@@ -128,13 +127,13 @@ export default {
   },
   computed: {
     canEdit: {
-      get() { return this.canShow('municipios-edit') }
+      get() { return this.canShow('localidades-edit') }
     },
     canView: {
-      get() { return this.canShow('municipios-view') }
+      get() { return this.canShow('localidades-view') }
     },
     canDelete: {
-      get() { return this.canShow('municipios-delete') }
+      get() { return this.canShow('localidades-delete') }
     },
     catalogs: {
       get() {
@@ -147,7 +146,7 @@ export default {
   },
   methods: {
     editLocalidad(id) {
-      this.$router.push(`/municipios/${id}/edit`)
+      this.$router.push(`/localidades/${id}/edit`)
     },
     deleteLocalidad(id) {
       this.loading = true
@@ -171,7 +170,6 @@ export default {
       const { search } = this
       this.loading = true
       LocalidadesService.index({ params: { page, rowsPerPage, search } }).then((localidades) => {
-        this.filteredOneLocalidad = localidades.data
         this.pagination.rowsPerPage = localidades.per_page
         this.pagination.page = localidades.current_page
         this.pagination.rowsNumber = localidades.total
@@ -180,14 +178,11 @@ export default {
         this.loading = false
       })
     },
-    change(val) {
-      this.filteredMunicipios = this.catalogs.municipios.filter((e) => val === e.ENTIDADFEDERATIVAID)
+    change(entidad) {
+      this.filteredMunicipios = this.catalogs.municipios.filter((e) => entidad === e.ENTIDADFEDERATIVAID)
     },
-    change_all_localidades(val) {
-      this.filteredAllLocalidades = this.catalogs.localidades.filter((e) => val === e.MUNICIPIOID)
-    },
-    change_one_localidad(val) {
-      this.filteredOneLocalidad = this.catalogs.localidades.filter((e) => val === e.ID)
+    change_all_localidades(municipio) {
+      this.filteredAllLocalidades = this.catalogs.localidades.filter((e) => municipio === e.MUNICIPIOID)
     }
   },
 };
