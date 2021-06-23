@@ -184,8 +184,6 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::resource('concepts', ConceptController::class);
     Route::resource('employees-document', EmployeeDocumentsController::class);
     
-    
-    
     Route::get('payment/order/export', [PaymentLayoutController::class, 'export']);
     Route::get('payment/order/{id}/export-txt', [PaymentLayoutController::class, 'exportTxtLayout']);
     Route::get('payment/order/{id}/export-txt-bbva', [PaymentLayoutController::class, 'exportTxtLayoutBbva']);
