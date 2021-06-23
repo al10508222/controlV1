@@ -112,7 +112,8 @@ class DatabaseSeeder extends Seeder
             /**
              * fin de clases pesadas
              */
-            EstatusAcreditacionTableSeeder::class
+            EstatusAcreditacionTableSeeder::class,
+            EstratoUnidadTableSeeder::class
         ]);
     }
 }

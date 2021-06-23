@@ -4,7 +4,7 @@
       <q-card-section>
         <div class="text-h6">
           <q-icon size="sm" name="fas fa-check"/> Catálogo vialidades
-          <q-btn class="float-right" round size="sm" @click="$router.push('/vialidades/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('vialidades-edit')"/>
+          <q-btn class="float-right" round size="sm" @click="$router.push('/vialidades/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('vialidades-create')"/>
         </div>
       </q-card-section>
     </q-card>

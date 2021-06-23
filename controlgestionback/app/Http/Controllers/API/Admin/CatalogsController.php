@@ -55,6 +55,7 @@ use App\Models\Catalogs\CatSpecificBudgetItem;
 use App\Models\entidades;
 use App\Models\municipios;
 use App\Models\localidades;
+use App\Models\Acreditacion;
 
 
 
@@ -250,6 +251,13 @@ class CatalogsController extends Controller
                                             ->where('ENTIDADFEDERATIVAID', $request->input('entidad_id'))
                                             ->where('MUNICIPIOID', $request->input('municipio_id'))
                                             ->orderBy('LOCALIDADNOMBRE','asc')->get();
+            }
+
+            if($request->has('acreditacion') && $request->input('acreditacion') == true) {
+                $catalogs['acreditacion'] = Acreditacion::max('ESTATUSACREDITACIONID') + 1;
+            }
+            if($request->has('estrato') && $request->input('estrato') == true) {
+                $catalogs['estrato'] = Acreditacion::max('ESTRATOUNIDADID') + 1;
             }
 
 

@@ -47,3 +47,9 @@ php artisan passport:install --force
 
 #ENTRAR A BASE DE DATOS 
 psql -U postgres -h 127.0.0.1 -p 15432
+
+
+*************FALTANTES**************
+
+php artisan migrate
+php artisan db:seed --class="EstratoUnidadTableSeeder"

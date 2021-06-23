@@ -20,10 +20,10 @@ class AcreditacionController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $Acreditacion = Acreditacion::search($search)->orderBy('ACREDITACIONID','asc')->paginate($rowsPerPage);
+            $Acreditacion = Acreditacion::search($search)->orderBy('ESTATUSACREDITACIONID','asc')->paginate($rowsPerPage);
             return response()->json([
                 'success' => true,
-                'Acreditacion' => $Acreditacion,
+                'acreditacion' => $Acreditacion,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -83,10 +83,10 @@ class AcreditacionController extends Controller
     public function show($id)
     {
         try {
-            $Acreditacion = Acreditacion::where('ACREDITACIONID',$id)->first();
+            $Acreditacion = Acreditacion::where('ESTATUSACREDITACIONID',$id)->first();
             return response()->json([
                 'success' => true,
-                'Acreditacion' => $Acreditacion,
+                'acreditacion' => $Acreditacion,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -106,10 +106,10 @@ class AcreditacionController extends Controller
     public function edit($id)
     {
         try {
-            $Acreditacion = Acreditacion::where('ACREDITACIONID',$id)->first();
+            $Acreditacion = Acreditacion::where('ESTATUSACREDITACIONID',$id)->first();
             return response()->json([
                 'success' => true,
-                'Acreditacion' => $Acreditacion,
+                'acreditacion' => $Acreditacion,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -191,7 +191,7 @@ class AcreditacionController extends Controller
 
             return response()->json([
                 'success' => true,
-                'Acreditacion_federativas' => $datos
+                'estatus_acreditacion' => $datos
 			]);
         }catch (\Exception $e) {
             DB::rollback();

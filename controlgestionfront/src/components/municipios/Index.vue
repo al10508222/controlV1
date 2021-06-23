@@ -4,7 +4,7 @@
       <q-card-section>
         <div class="text-h6">
           <q-icon size="sm" name="fas fa-check"/> Catálogo de Municipios
-          <q-btn class="float-right" round size="sm" @click="$router.push('/municipios/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('municipios-edit')"/>
+          <q-btn class="float-right" round size="sm" @click="$router.push('/municipios/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('municipios-create')"/>
         </div>
       </q-card-section>
     </q-card>

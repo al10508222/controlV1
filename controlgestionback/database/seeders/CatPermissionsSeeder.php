@@ -261,6 +261,5 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'estrato-edit',   'name' => 'Edita Catálogo estrato unidad',    'description' => 'Edición de Catálogo estrato unidad',           'module_id' => '39'],
             ['key' => 'estrato-delete', 'name' => 'Eliminar Catálogo estrato unidad', 'description' => 'Eliminación de Catálogo estrato unidad',       'module_id' => '39'],
         ]);
-
     }
 }

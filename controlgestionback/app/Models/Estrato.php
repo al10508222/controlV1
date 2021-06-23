@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Acreditacion extends Model
+class Estrato extends Model
 {
-    protected $table="estatus_acreditacion";
-    protected $primaryKey = 'ESTATUSACREDITACIONID';
+    // use HasFactory, SoftDeletes;
+    
+    protected $table="entidades";
+    protected $primaryKey = 'ESTRATOUNIDADID';
+
 
     /**
      * The attributes that are mass assignable.
@@ -16,8 +20,8 @@ class Acreditacion extends Model
      * @var array
      */
     protected $fillable = [
-        'ESTATUSACREDITACIONID',
-        'ESTATUSACREDITACIONNOMBRE'
+        'ESTRATOUNIDADID',
+        'ESTRATOUNIDADNOMBRE'
       ];
 
     public function scopeSearch($query, $search)
@@ -27,8 +31,8 @@ class Acreditacion extends Model
             return $query->where(function($q) use ($search)
             {
                 if (isset($search) && !empty($search)) {
-                    $q->where('ESTATUSACREDITACIONID', 'like', '%' . $search . '%');
-                    $q->orWhere('ESTATUSACREDITACIONID', 'like', '%' . $search . '%');
+                    $q->where('ESTRATOUNIDADID', 'like', '%' . $search . '%');
+                    $q->orWhere('ESTRATOUNIDADNOMBRE', 'like', '%' . $search . '%');
                 }
             });
         });

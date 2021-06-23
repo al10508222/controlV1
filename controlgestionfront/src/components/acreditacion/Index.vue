@@ -3,8 +3,8 @@
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          <q-icon size="sm" name="fas fa-check"/> Catálogo Clues
-          <q-btn class="float-right" round size="sm" @click="$router.push('/clues/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('clues-create')"/>
+          <q-icon size="sm" name="fas fa-check"/> Catálogo de Estatus de Acreditación
+          <q-btn class="float-right" round size="sm" @click="$router.push('/acreditacion/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('acreditacion-create')"/>
         </div>
       </q-card-section>
     </q-card>
@@ -36,11 +36,6 @@ export default {
         this.$store.commit('catalogs/setCatalogs', val)
       }
     },
-    // cluess: {
-    //   get() {
-    //     return this.$store.state.user.cluess;
-    //   },
-    // },
   },
 };
 </script>
