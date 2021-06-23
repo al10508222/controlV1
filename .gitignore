@@ -25,6 +25,7 @@ controlgestionback/yarn-error.log
 controlgestionback/.rnd
 controlgestionback/.docker
 controlgestionback/.idea
+controlgestionback/database/seeders/json/localidadesv.json
 #/src-cordova/www
 
 # Capacitor related directories and files

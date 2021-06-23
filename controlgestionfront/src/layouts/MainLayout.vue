@@ -164,6 +164,22 @@
                 </q-item-section>
                 <q-item-section id="irLocalidades">Catálogo de Localidades</q-item-section>
               </q-item>
+              <q-item v-if="canShow('acreditacion-view')" clickable v-ripple  @click.native="$router.push('/acreditacion').catch(err => {})">
+                <q-item-section avatar>
+                  <q-avatar>
+                    <q-icon right name="fas fa-passport q-icon notranslate" />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section id="irAcreditacion">Estatus de Acreditación</q-item-section>
+              </q-item>
+              <q-item v-if="canShow('estrato-view')" clickable v-ripple  @click.native="$router.push('/estrato').catch(err => {})">
+                <q-item-section avatar>
+                  <q-avatar>
+                    <q-icon right name="fas fa-passport q-icon notranslate" />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section id="irEstrato">Estrato Unidad</q-item-section>
+              </q-item>
             </q-expansion-item>
           </q-list>
           </q-expansion-item>

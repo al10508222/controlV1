@@ -13,11 +13,11 @@ class CreateEstatusAcreditacionTable extends Migration
      */
     public function up()
     {
-        // Schema::create('estatus_acreditacion', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->string('estatus_nombre');  
-        //     $table->timestamps();
-        // });
+        Schema::create('estatus_acreditacion', function (Blueprint $table) {
+            $table->increments('ESTATUSACREDITACIONID');
+            $table->string('ESTATUSACREDITACIONNOMBRE');  
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateEstatusAcreditacionTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('estatus_acreditacion');
+        Schema::dropIfExists('estatus_acreditacion');
     }
 }

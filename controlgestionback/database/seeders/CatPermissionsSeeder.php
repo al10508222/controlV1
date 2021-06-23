@@ -240,16 +240,26 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'entidades-create', 'name' => 'Crear Catálogo Entidades Federativas',    'description' => 'Creación de Catálogo Entidades Federativas',          'module_id' => '35'],
             ['key' => 'entidades-edit',   'name' => 'Edita Catálogo Entidades Federativas',    'description' => 'Edición de Catálogo Entidades Federativas',           'module_id' => '35'],
             ['key' => 'entidades-delete', 'name' => 'Eliminar Catálogo Entidades Federativas', 'description' => 'Eliminación de Catálogo Entidades Federativas',       'module_id' => '35'],
-            //====================== Catálogo entidades federativas =====================================
+            //====================== Catálogo Municipios =====================================
             ['key' => 'municipios-view',   'name' => 'Ver Catálogo Municipios',      'description' => 'Acceso al listado de Catálogo Municipios', 'module_id' => '36'],
             ['key' => 'municipios-create', 'name' => 'Crear Catálogo Municipios',    'description' => 'Creación de Catálogo Municipios',          'module_id' => '36'],
             ['key' => 'municipios-edit',   'name' => 'Edita Catálogo Municipios',    'description' => 'Edición de Catálogo Municipios',           'module_id' => '36'],
             ['key' => 'municipios-delete', 'name' => 'Eliminar Catálogo Municipios', 'description' => 'Eliminación de Catálogo Municipios',       'module_id' => '36'],
-            //====================== Catálogo entidades federativas =====================================
+            //====================== Catálogo Localidades =====================================
             ['key' => 'localidades-view',   'name' => 'Ver Catálogo Localidades',      'description' => 'Acceso al listado de Catálogo Localidades', 'module_id' => '37'],
             ['key' => 'localidades-create', 'name' => 'Crear Catálogo Localidades',    'description' => 'Creación de Catálogo Localidades',          'module_id' => '37'],
             ['key' => 'localidades-edit',   'name' => 'Edita Catálogo Localidades',    'description' => 'Edición de Catálogo Localidades',           'module_id' => '37'],
             ['key' => 'localidades-delete', 'name' => 'Eliminar Catálogo Localidades', 'description' => 'Eliminación de Catálogo Localidades',       'module_id' => '37'],
+            //====================== Catálogo estatus acreditacion =====================================
+            ['key' => 'acreditacion-view',   'name' => 'Ver Catálogo estatus acreditación',      'description' => 'Acceso al listado de Catálogo estatus acreditación', 'module_id' => '38'],
+            ['key' => 'acreditacion-create', 'name' => 'Crear Catálogo estatus acreditación',    'description' => 'Creación de Catálogo estatus acreditación',          'module_id' => '38'],
+            ['key' => 'acreditacion-edit',   'name' => 'Edita Catálogo estatus acreditación',    'description' => 'Edición de Catálogo estatus acreditación',           'module_id' => '38'],
+            ['key' => 'acreditacion-delete', 'name' => 'Eliminar Catálogo estatus acreditación', 'description' => 'Eliminación de Catálogo estatus acreditación',       'module_id' => '38'],
+            //====================== Catálogo estatus estrato unidad =====================================
+            ['key' => 'estrato-view',   'name' => 'Ver Catálogo estrato unidad',      'description' => 'Acceso al listado de Catálogo estrato unidad', 'module_id' => '39'],
+            ['key' => 'estrato-create', 'name' => 'Crear Catálogo estrato unidad',    'description' => 'Creación de Catálogo estrato unidad',          'module_id' => '39'],
+            ['key' => 'estrato-edit',   'name' => 'Edita Catálogo estrato unidad',    'description' => 'Edición de Catálogo estrato unidad',           'module_id' => '39'],
+            ['key' => 'estrato-delete', 'name' => 'Eliminar Catálogo estrato unidad', 'description' => 'Eliminación de Catálogo estrato unidad',       'module_id' => '39'],
         ]);
 
     }

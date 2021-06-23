@@ -2334,10 +2334,59 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'profile_id' => 1,
                 'permission_id' => 166,
             ),
+            385 => 
+            array (
+                'id' => 450,
+                'profile_id' => 1,
+                'permission_id' => 167,
+            ),
+            386 => 
+            array (
+                'id' => 451,
+                'profile_id' => 1,
+                'permission_id' => 168,
+            ),
+            387 => 
+            array (
+                'id' => 452,
+                'profile_id' => 1,
+                'permission_id' => 169,
+            ),
+            388 => 
+            array (
+                'id' => 453,
+                'profile_id' => 1,
+                'permission_id' => 170,
+            )
+            ,
+            389 => 
+            array (
+                'id' => 454,
+                'profile_id' => 1,
+                'permission_id' => 171,
+            ),
+            390 => 
+            array (
+                'id' => 455,
+                'profile_id' => 1,
+                'permission_id' => 172,
+            ),
+            391 => 
+            array (
+                'id' => 456,
+                'profile_id' => 1,
+                'permission_id' => 173,
+            ),
+            392 => 
+            array (
+                'id' => 457,
+                'profile_id' => 1,
+                'permission_id' => 174,
+            )
 
         ));
 
-        \DB::statement('ALTER SEQUENCE role_has_permissions_id_seq RESTART WITH 435');
+        \DB::statement('ALTER SEQUENCE role_has_permissions_id_seq RESTART WITH 1000');
         
         
     }

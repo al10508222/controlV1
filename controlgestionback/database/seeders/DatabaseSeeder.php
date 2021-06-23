@@ -101,11 +101,18 @@ class DatabaseSeeder extends Seeder
             LawVacationsConfigsTableSeeder::class,
             FiveYearBonusSeeder::class,
             FiveYearBonusConfigsTableSeeder::class,
+            /**
+             * clases pesadas omitir para pruebas
+             */
             CatCucopsTableSeeder::class,
             TipoVialidadSeeder::class,
             EntidadesFederativasTableSeeder::class,
             MunicipiosTableSeeder::class,
-            LocalidadesTableSeeder::class
+            LocalidadesTableSeeder::class,
+            /**
+             * fin de clases pesadas
+             */
+            EstatusAcreditacionTableSeeder::class
         ]);
     }
 }

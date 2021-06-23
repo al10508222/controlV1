@@ -199,5 +199,15 @@ class CatModulesSeeder extends Seeder
             'name'     => 'Módulo Catálogo Localidades',
             'code'     => 'module_localidades'
         ]);
+        CatModule::create([
+            'id'       => 38,
+            'name'     => 'Módulo Catálogo estatus acreditación',
+            'code'     => 'module_acreditacion'
+        ]);
+        CatModule::create([
+            'id'       => 39,
+            'name'     => 'Módulo Catálogo estrato unidad',
+            'code'     => 'module_estrato_unidad'
+        ]);
     }
 }
