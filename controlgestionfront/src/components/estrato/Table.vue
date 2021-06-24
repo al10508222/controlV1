@@ -19,17 +19,17 @@
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">
-          <q-td key="ESTATUSACREDITACIONID" :props="props">
-            {{ props.row.ESTATUSACREDITACIONID }}
+          <q-td key="ESTRATOUNIDADID" :props="props">
+            {{ props.row.ESTRATOUNIDADID }}
           </q-td>
-          <q-td key="ESTATUSACREDITACIONNOMBRE" :props="props">
-            {{ props.row.ESTATUSACREDITACIONNOMBRE }}
+          <q-td key="ESTRATOUNIDADNOMBRE" :props="props">
+            {{ props.row.ESTRATOUNIDADNOMBRE }}
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="veracreditacion(props.row.ESTATUSACREDITACIONID)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
-              <q-btn round size="sm" @click="editacreditacion(props.row.ESTATUSACREDITACIONID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
-              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.ESTATUSACREDITACIONID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
+              <q-btn round size="sm" @click="verestrato(props.row.ESTRATOUNIDADID)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
+              <q-btn round size="sm" @click="editestrato(props.row.ESTRATOUNIDADID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.ESTRATOUNIDADID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
         </q-tr>
@@ -50,7 +50,7 @@
             </q-card-section>
             <q-card-actions align="right">
             <q-btn flat label="Cancel" color="primary" v-close-popup/>
-            <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteacreditacion(deleteOption);"/>
+            <q-btn flat label="Eliminar" color="red"  v-close-popup @click="deleteestrato(deleteOption);"/>
             </q-card-actions>
       </q-card>
     </q-dialog>
@@ -59,7 +59,7 @@
 
 <script>
 import { notifyError, notifySuccess } from 'src/utils/notify';
-import * as AcreditacionServices from 'src/services/AcreditacionServices';
+import * as EstratosServices from 'src/services/EstratosServices';
 
 export default {
   components: {
@@ -86,38 +86,38 @@ export default {
       separator: 'vertical',
       columns: [
         {
-          name: 'ESTATUSACREDITACIONID', align: 'center', label: 'ID', field: 'ESTATUSACREDITACIONID'
+          name: 'ESTRATOUNIDADID', align: 'center', label: 'ID', field: 'ESTRATOUNIDADID'
         },
         {
-          name: 'ESTATUSACREDITACIONNOMBRE', align: 'center', label: 'Nombre Entidad', field: 'ESTATUSACREDITACIONNOMBRE'
+          name: 'ESTRATOUNIDADNOMBRE', align: 'center', label: 'Nombre Estrato', field: 'ESTRATOUNIDADNOMBRE'
         },
         {
-          name: 'actions', align: 'center', label: 'Acciones', field: 'ESTATUSACREDITACIONID'
+          name: 'actions', align: 'center', label: 'Acciones', field: 'ESTRATOUNIDADID'
         },
       ],
     };
   },
   computed: {
     canEdit: {
-      get() { return this.canShow('acreditacion-edit') }
+      get() { return this.canShow('estrato-edit') }
     },
     canView: {
-      get() { return this.canShow('acreditacion-view') }
+      get() { return this.canShow('estrato-view') }
     },
     canDelete: {
-      get() { return this.canShow('acreditacion-delete') }
+      get() { return this.canShow('estrato-delete') }
     },
   },
   methods: {
-    editacreditacion(id) {
-      this.$router.push(`/acreditacion/${id}/edit`)
+    editestrato(id) {
+      this.$router.push(`/estrato/${id}/edit`)
     },
-    veracreditacion(id) {
-      this.$router.push(`/acreditacion/${id}/show`)
+    verestrato(id) {
+      this.$router.push(`/estrato/${id}/show`)
     },
-    deleteacreditacion(id) {
+    deleteestrato(id) {
       this.loading = true
-      AcreditacionServices.destroy({ params: { id } }).then((data) => {
+      EstratosServices.destroy({ params: { id } }).then((data) => {
         if (data.success) {
           notifySuccess()
           this.onRequest({
@@ -136,12 +136,12 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
-      AcreditacionServices.index({ params: { page, rowsPerPage, search } }).then((acreditacion) => {
-        console.log(acreditacion)
-        this.data = acreditacion.data
-        this.pagination.rowsPerPage = acreditacion.per_page
-        this.pagination.page = acreditacion.current_page
-        this.pagination.rowsNumber = acreditacion.total
+      EstratosServices.index({ params: { page, rowsPerPage, search } }).then((estrato) => {
+        console.log(estrato)
+        this.data = estrato.data
+        this.pagination.rowsPerPage = estrato.per_page
+        this.pagination.page = estrato.current_page
+        this.pagination.rowsNumber = estrato.total
         this.loading = false
       }).catch(() => {
         this.loading = false

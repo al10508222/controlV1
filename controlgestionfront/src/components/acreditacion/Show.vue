@@ -7,7 +7,7 @@
             <q-icon size="md" name="fas fa-briefcase"/>
         </q-item-section>
         <q-item-section>
-          <q-item-label>Editar Estatus</q-item-label>
+          <q-item-label>Ver Estatus</q-item-label>
         </q-item-section>
       </q-item>
       <q-separator />

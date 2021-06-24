@@ -10,7 +10,7 @@ class Estrato extends Model
 {
     // use HasFactory, SoftDeletes;
     
-    protected $table="entidades";
+    protected $table="estratos_unidad";
     protected $primaryKey = 'ESTRATOUNIDADID';
 
 

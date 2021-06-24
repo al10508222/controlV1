@@ -3,8 +3,8 @@
     <q-card>
       <q-card-section>
         <div class="text-h6">
-          <q-icon size="sm" name="fas fa-check"/> Catálogo de Estatus de Acreditación
-          <q-btn class="float-right" round size="sm" @click="$router.push('/acreditacion/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('acreditacion-create')"/>
+          <q-icon size="sm" name="fas fa-check"/> Catálogo de Estratos de Unidad
+          <q-btn class="float-right" round size="sm" @click="$router.push('/estrato/create')"  outline color="primary" icon="fas fa-plus"  v-if="canShow('estrato-create')"/>
         </div>
       </q-card-section>
     </q-card>

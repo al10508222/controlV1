@@ -56,6 +56,8 @@ use App\Models\entidades;
 use App\Models\municipios;
 use App\Models\localidades;
 use App\Models\Acreditacion;
+use App\Models\Estrato;
+
 
 
 
@@ -253,11 +255,12 @@ class CatalogsController extends Controller
                                             ->orderBy('LOCALIDADNOMBRE','asc')->get();
             }
 
+            //maximos ids
             if($request->has('acreditacion') && $request->input('acreditacion') == true) {
                 $catalogs['acreditacion'] = Acreditacion::max('ESTATUSACREDITACIONID') + 1;
             }
             if($request->has('estrato') && $request->input('estrato') == true) {
-                $catalogs['estrato'] = Acreditacion::max('ESTRATOUNIDADID') + 1;
+                $catalogs['estrato'] = Estrato::max('ESTRATOUNIDADID') + 1;
             }
 
 

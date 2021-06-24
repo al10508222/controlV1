@@ -19,7 +19,7 @@
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="catalogs.acreditacion"
+              v-model="catalogs.estrato"
               square
               outlined
               :disable="true"
@@ -28,7 +28,7 @@
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
-              v-model="form.ESTATUSACREDITACIONNOMBRE"
+              v-model="form.ESTRATOUNIDADNOMBRE"
               square
               outlined
               label="Nombre" type="text"/>
@@ -46,18 +46,18 @@
 
 <script>
 import { notifySuccess } from 'src/utils/notify';
-import * as AcreditacionService from 'src/services/AcreditacionServices';
+import * as EstratosService from 'src/services/EstratosServices';
 
 export default {
   data() {
     return {
       form: {
-        ESTATUSACREDITACIONNOMBRE: '',
+        ESTRATOUNIDADNOMBRE: '',
       },
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true, acreditacion: true };
+    const catalogsConfiguration = { profiles: true, estrato: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       console.log(this.catalogs)
@@ -69,9 +69,9 @@ export default {
       this.$refs.form.validate().then((valid) => {
         if (valid) {
           const form = { ...this.form };
-          AcreditacionService.store(form).then(() => {
+          EstratosService.store(form).then(() => {
             notifySuccess();
-            this.$router.push('/acreditacion');
+            this.$router.push('/estrato');
           }).catch((err) => {
             console.log(err)
           })
