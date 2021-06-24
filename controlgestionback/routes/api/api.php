@@ -210,18 +210,15 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/psp/dashboard/serviceProject', [DashboardController::class, 'serviceProject']);
     Route::get('/psp/dashboard/serviceFilters', [DashboardController::class, 'serviceFilters']);
 
-
+    /**SERVICES REST */
     Route::post('municipiosAll', [MunicipiosController::class, 'ShowMunicipiosAll']);
-
     Route::post('vialidadesAll', [VialidadesController::class, 'ShowVialidadesAll']);
-
     Route::post('entidadesAll', [EntidadesController::class, 'ShowEntidadesAll']);
-
     Route::post('localidadesByFilter', [LocalidadesController::class, 'ShowLocalidadesByFilter']);
-
     Route::post('cucopsAll', [CucopController::class, 'ShowCucopsAll']);
-
     Route::post('AcreditacionAll', [AcreditacionController::class, 'ShowAcreditacionAll']);
+    Route::post('EstratosUnidad', [EstratoController::class, 'ShowEstratoAll']);
+    
 
     
 

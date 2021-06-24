@@ -1,19 +1,12 @@
-echo 'running database initialization script'
-
-echo 'putting laravel into maintenance mode'
-php artisan down
-
-echo ' ******** migrating all core tables and seeding all tables with initial data values ******** '
-php artisan migrate:fresh --seed
-
-echo ' ******** creating passport clients and keys ... please wait ***** '
-php artisan passport:install
-
-echo ' ******** taking laravel out of maintenance mode ******** '
-php artisan up
-
-echo ' ******** dumping any previous autoload configs *********** '
-composer dumpautoload
+********************SERVIVIOS******************
+[GET]   -       http://localhost:8000/api/tokenGenerate
+[POST]  -       http://localhost:8000/api/EstratosUnidad
+[POST]  -       http://localhost:8000/api/AcreditacionAll
+[POST]  -       http://localhost:8000/api/cucopsAll
+[POST]  -       http://localhost:8000/api/entidadesAll
+[POST]  -       http://localhost:8000/api/vialidadesAll
+[POST]  -       http://localhost:8000/api/municipiosAll
+[POST]  -       http://localhost:8000/api/localidadesByFilter
 
 
 #pasos
