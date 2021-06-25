@@ -4,7 +4,7 @@
 [POST]  -       http://localhost:8000/api/vialidadesAll
 [POST]  -       http://localhost:8000/api/entidadesAll
 [POST]  -       http://localhost:8000/api/municipiosAll
-[POST]  -       http://localhost:8000/api/localidadesByFilter
+[POST]  -       http://localhost:8000/api/localidadesByFilter  ---------> utiliza parametros
 [POST]  -       http://localhost:8000/api/AcreditacionAll
 [POST]  -       http://localhost:8000/api/EstratosUnidad
 [POST]  -       http://localhost:8000/api/TiposAsentamientos
