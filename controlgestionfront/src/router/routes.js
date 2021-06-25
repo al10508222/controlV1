@@ -12,6 +12,7 @@ import Municipios from './partials/municipios';
 import Localidades from './partials/localidades';
 import acreditacion from './partials/acreditacion';
 import estrato from './partials/estrato';
+import asentamientos from './partials/asentamientos';
 
 const routes = [
   {
@@ -32,7 +33,8 @@ const routes = [
       ...Municipios,
       ...Localidades,
       ...acreditacion,
-      ...estrato
+      ...estrato,
+      ...asentamientos
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {

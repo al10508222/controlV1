@@ -260,6 +260,11 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'estrato-create', 'name' => 'Crear Catálogo estrato unidad',    'description' => 'Creación de Catálogo estrato unidad',          'module_id' => '39'],
             ['key' => 'estrato-edit',   'name' => 'Edita Catálogo estrato unidad',    'description' => 'Edición de Catálogo estrato unidad',           'module_id' => '39'],
             ['key' => 'estrato-delete', 'name' => 'Eliminar Catálogo estrato unidad', 'description' => 'Eliminación de Catálogo estrato unidad',       'module_id' => '39'],
+            //====================== Catálogo Tipos asentamientos =====================================
+            ['key' => 'asentamientos-view',   'name' => 'Ver Catálogo asentamientos',      'description' => 'Acceso al listado de Catálogo asentamientos', 'module_id' => '40'],
+            ['key' => 'asentamientos-create', 'name' => 'Crear Catálogo asentamientos',    'description' => 'Creación de Catálogo asentamientos',          'module_id' => '40'],
+            ['key' => 'asentamientos-edit',   'name' => 'Edita Catálogo asentamientos',    'description' => 'Edición de Catálogo asentamientos',           'module_id' => '40'],
+            ['key' => 'asentamientos-delete', 'name' => 'Eliminar Catálogo asentamientos', 'description' => 'Eliminación de Catálogo asentamientos',       'module_id' => '40'],
         ]);
     }
 }

@@ -104,16 +104,18 @@ class DatabaseSeeder extends Seeder
             /**
              * clases pesadas omitir para pruebas
              */
-            CatCucopsTableSeeder::class,
-            TipoVialidadSeeder::class,
-            EntidadesFederativasTableSeeder::class,
-            MunicipiosTableSeeder::class,
-            LocalidadesTableSeeder::class,
+            // CatCucopsTableSeeder::class,
+            // TipoVialidadSeeder::class,
+            // EntidadesFederativasTableSeeder::class,
+            // MunicipiosTableSeeder::class,
+            // LocalidadesTableSeeder::class,
             /**
              * fin de clases pesadas
              */
             EstatusAcreditacionTableSeeder::class,
-            EstratoUnidadTableSeeder::class
+            EstratoUnidadTableSeeder::class,
+            TipoAsentamientosTableSeeder::class
+
         ]);
     }
 }

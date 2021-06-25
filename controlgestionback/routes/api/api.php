@@ -60,6 +60,8 @@ use App\Http\Controllers\API\MunicipiosController;
 use App\Http\Controllers\API\LocalidadesController;
 use App\Http\Controllers\API\AcreditacionController;
 use App\Http\Controllers\API\EstratoController;
+use App\Http\Controllers\API\AsentamientosController;
+
 
 
 
@@ -131,6 +133,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('localidades', LocalidadesController::class);
             Route::resource('acreditacion', AcreditacionController::class);
             Route::resource('estrato', EstratoController::class);
+            Route::resource('asentamientos', AsentamientosController::class);
 
         });
 
@@ -151,6 +154,7 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('localidades', LocalidadesController::class);
         Route::resource('acreditacion', AcreditacionController::class);
         Route::resource('estrato', EstratoController::class);
+        Route::resource('asentamientos', AsentamientosController::class);
 
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
         Route::resource('employment-subsidies-config', EmploymentSubsidiesConfigController::class);

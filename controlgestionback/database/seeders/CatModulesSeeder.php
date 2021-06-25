@@ -209,5 +209,10 @@ class CatModulesSeeder extends Seeder
             'name'     => 'Módulo Catálogo estrato unidad',
             'code'     => 'module_estrato_unidad'
         ]);
+        CatModule::create([
+            'id'       => 40,
+            'name'     => 'Módulo Catálogo tipos de asentamientos',
+            'code'     => 'module_asentamientos'
+        ]);
     }
 }

@@ -57,6 +57,7 @@ use App\Models\municipios;
 use App\Models\localidades;
 use App\Models\Acreditacion;
 use App\Models\Estrato;
+use App\Models\Asentamientos;
 
 
 
@@ -261,6 +262,9 @@ class CatalogsController extends Controller
             }
             if($request->has('estrato') && $request->input('estrato') == true) {
                 $catalogs['estrato'] = Estrato::max('ESTRATOUNIDADID') + 1;
+            }
+            if($request->has('asentamientos') && $request->input('asentamientos') == true) {
+                $catalogs['asentamientos'] = Asentamientos::max('TIPOASENTAMIENTOID') + 1;
             }
 
 

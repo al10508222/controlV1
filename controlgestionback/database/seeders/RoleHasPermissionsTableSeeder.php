@@ -2382,6 +2382,28 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'id' => 457,
                 'profile_id' => 1,
                 'permission_id' => 174,
+            ),
+
+            //tipos asentamientos
+            393 => array (
+                'id' => 458,
+                'profile_id' => 1,
+                'permission_id' => 175,
+            ),
+            394 => array (
+                'id' => 459,
+                'profile_id' => 1,
+                'permission_id' => 176,
+            ),
+            395 => array (
+                'id' => 460,
+                'profile_id' => 1,
+                'permission_id' => 177,
+            ),
+            396 => array (
+                'id' => 461,
+                'profile_id' => 1,
+                'permission_id' => 178,
             )
 
         ));

@@ -180,6 +180,14 @@
                 </q-item-section>
                 <q-item-section id="irEstrato">Estrato Unidad</q-item-section>
               </q-item>
+              <q-item v-if="canShow('asentamientos-view')" clickable v-ripple  @click.native="$router.push('/asentamientos').catch(err => {})">
+                <q-item-section avatar>
+                  <q-avatar>
+                    <q-icon right name="fas fa-passport q-icon notranslate" />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section id="asentamientos">Tipos Asentamientos</q-item-section>
+              </q-item>
             </q-expansion-item>
           </q-list>
           </q-expansion-item>
