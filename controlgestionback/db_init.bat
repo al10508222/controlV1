@@ -1,5 +1,5 @@
-********************SERVIVIOS******************
-[GET]   -       http://localhost:8000/api/tokenGenerate
+******************** SERVIVIOS ******************
+[GET]   -       http://localhost:8000/api/tokenGenerate       ----------> utiliza parametros
 [POST]  -       http://localhost:8000/api/cucopsAll
 [POST]  -       http://localhost:8000/api/vialidadesAll
 [POST]  -       http://localhost:8000/api/entidadesAll
@@ -9,11 +9,18 @@
 [POST]  -       http://localhost:8000/api/EstratosUnidad
 [POST]  -       http://localhost:8000/api/TiposAsentamientos
 
-*************ULTIMOS CAMBIOS***********
+************* CATALOGOS COMPLETOS ***********
+----> catalogo estatus_acreditacion completo
+----> catalogo estratos_unidad completo
+----> catalogo tipo_asentamientos completo
+----> catalogo cucop completo
+----> catalogo de vialidades completo
+
+************* ULTIMOS CAMBIOS ***********
 * se agrega id en creacion de cucop
-* pantalla ver cucop sin modificar -------> catalogo cucop completo
+* pantalla ver cucop sin modificar
 * se agrega id en creacion de vialidad
-* pantalla ver vialidad sin modificar ---------> catalogo de vialidades completo
+* pantalla ver vialidad sin modificar
 
 
 #pasos
@@ -25,12 +32,12 @@ php artisan migrate:fresh --seed
 php artisan passport:install --force
 
 
-#pasos para corregir limite de memoria ************************************************************************************
-docker exec -ti --user root bd_control-app /bin/bash
+#pasos para corregir limite de memoria **************
+
 echo 'memory_limit=2G' > /usr/local/etc/php/conf.d/memory-limit.ini
 
 #ENTRAR A BASE DE DATOS 
 psql -U postgres -h 127.0.0.1 -p 15432
 
 
-*************FALTANTES**************
+************* FALTANTES **************
