@@ -30,7 +30,8 @@
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editCucop(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView"/>
+              <q-btn round size="sm" @click="vercucop(props.row.id)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
+              <q-btn round size="sm" @click="editCucop(props.row.id)" color="primary" icon="fas fa-edit" v-if="canView"/>
               <q-btn round size="sm" @click="confirmDelete = true; deleteOption=props.row.id" color="negative" icon="fas fa-trash" v-if="!props.row.deleted_at && canDelete"/>
             </q-btn-group>
           </q-td>
@@ -116,6 +117,9 @@ export default {
   methods: {
     editCucop(id) {
       this.$router.push(`/cucop/${id}/edit`)
+    },
+    vercucop(id) {
+      this.$router.push(`/cucop/${id}/show`)
     },
     deleteCucop(id) {
       this.loading = true

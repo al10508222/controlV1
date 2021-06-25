@@ -16,6 +16,15 @@
     <q-card-section>
       <q-form ref="form" @submit.prevent="() => {}">
         <div class="row q-col-gutter-sm">
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <q-input
+              :rules="[$rules.required($i18n.t('requiredInput'))]"
+              v-model="catalogs.vialidad"
+              square
+              outlined
+              :disable="true"
+              label="ID" type="text"/>
+          </div>
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
@@ -48,7 +57,7 @@ export default {
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true, vialidades_projects: true };
+    const catalogsConfiguration = { profiles: true, vialidad: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();

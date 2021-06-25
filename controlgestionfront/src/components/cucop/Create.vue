@@ -16,7 +16,16 @@
     <q-card-section>
       <q-form ref="form" @submit.prevent="() => {}">
         <div class="row q-col-gutter-sm">
-          <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <q-input
+              :rules="[$rules.required($i18n.t('requiredInput'))]"
+              v-model="catalogs.cucops"
+              square
+              outlined
+              :disable="true"
+              label="ID" type="text"/>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
               v-model="form.tipo"
@@ -24,7 +33,7 @@
               outlined
               label="Tipo" type="number"/>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="col-xs-2 col-sm-2 col-md-2">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
               v-model="form.clave_cucop"
@@ -32,7 +41,7 @@
               outlined
               label="Clave CUCoP" type="number"/>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="col-xs-2 col-sm-2 col-md-2">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
               v-model="form.clave_cucop2"
@@ -120,7 +129,7 @@ export default {
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true, Cucop_projects: true };
+    const catalogsConfiguration = { profiles: true, cucops: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();

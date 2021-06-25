@@ -1,177 +1,177 @@
 [
   {
-    "id": 1,
-    "entidad_nombre": "AGUASCALIENTES",
-    "entidad_nombre_corto": "AS"
+    "ENTIDADFEDERATIVAID": "00",
+    "ENTIDADFEDERATIVANOMBRE": "NO ESPECIFICADO",
+    "ENTIDADFEDERATIVAABREVIACION": "NE"
   },
   {
-    "id": 2,
-    "entidad_nombre": "BAJA CALIFORNIA",
-    "entidad_nombre_corto": "BC"
+    "ENTIDADFEDERATIVAID": "01",
+    "ENTIDADFEDERATIVANOMBRE": "AGUASCALIENTES",
+    "ENTIDADFEDERATIVAABREVIACION": "AS"
   },
   {
-    "id": 3,
-    "entidad_nombre": "BAJA CALIFORNIA SUR",
-    "entidad_nombre_corto": "BS"
+    "ENTIDADFEDERATIVAID": "02",
+    "ENTIDADFEDERATIVANOMBRE": "BAJA CALIFORNIA",
+    "ENTIDADFEDERATIVAABREVIACION": "BC"
   },
   {
-    "id": 4,
-    "entidad_nombre": "CAMPECHE",
-    "entidad_nombre_corto": "CC"
+    "ENTIDADFEDERATIVAID": "03",
+    "ENTIDADFEDERATIVANOMBRE": "BAJA CALIFORNIA SUR",
+    "ENTIDADFEDERATIVAABREVIACION": "BS"
   },
   {
-    "id": 7,
-    "entidad_nombre": "CHIAPAS",
-    "entidad_nombre_corto": "CS"
+    "ENTIDADFEDERATIVAID": "04",
+    "ENTIDADFEDERATIVANOMBRE": "CAMPECHE",
+    "ENTIDADFEDERATIVAABREVIACION": "CC"
   },
   {
-    "id": 8,
-    "entidad_nombre": "CHIHUAHUA",
-    "entidad_nombre_corto": "CH"
+    "ENTIDADFEDERATIVAID": "05",
+    "ENTIDADFEDERATIVANOMBRE": "COAHUILA DE ZARAGOZA",
+    "ENTIDADFEDERATIVAABREVIACION": "CL"
   },
   {
-    "id": 5,
-    "entidad_nombre": "COAHUILA DE ZARAGOZA",
-    "entidad_nombre_corto": "CL"
+    "ENTIDADFEDERATIVAID": "06",
+    "ENTIDADFEDERATIVANOMBRE": "COLIMA",
+    "ENTIDADFEDERATIVAABREVIACION": "CM"
   },
   {
-    "id": 6,
-    "entidad_nombre": "COLIMA",
-    "entidad_nombre_corto": "CM"
+    "ENTIDADFEDERATIVAID": "07",
+    "ENTIDADFEDERATIVANOMBRE": "CHIAPAS",
+    "ENTIDADFEDERATIVAABREVIACION": "CS"
   },
   {
-    "id": 9,
-    "entidad_nombre": "DISTRITO FEDERAL",
-    "entidad_nombre_corto": "DF"
+    "ENTIDADFEDERATIVAID": "08",
+    "ENTIDADFEDERATIVANOMBRE": "CHIHUAHUA",
+    "ENTIDADFEDERATIVAABREVIACION": "CH"
   },
   {
-    "id": 10,
-    "entidad_nombre": "DURANGO",
-    "entidad_nombre_corto": "DG"
+    "ENTIDADFEDERATIVAID": "09",
+    "ENTIDADFEDERATIVANOMBRE": "CIUDAD DE MÉXICO",
+    "ENTIDADFEDERATIVAABREVIACION": "DF"
   },
   {
-    "id": 15,
-    "entidad_nombre": "ESTADO DE MEXICO",
-    "entidad_nombre_corto": "MC"
+    "ENTIDADFEDERATIVAID": 10,
+    "ENTIDADFEDERATIVANOMBRE": "DURANGO",
+    "ENTIDADFEDERATIVAABREVIACION": "DG"
   },
   {
-    "id": 11,
-    "entidad_nombre": "GUANAJUATO",
-    "entidad_nombre_corto": "GT"
+    "ENTIDADFEDERATIVAID": 11,
+    "ENTIDADFEDERATIVANOMBRE": "GUANAJUATO",
+    "ENTIDADFEDERATIVAABREVIACION": "GT"
   },
   {
-    "id": 12,
-    "entidad_nombre": "GUERRERO",
-    "entidad_nombre_corto": "GR"
+    "ENTIDADFEDERATIVAID": 12,
+    "ENTIDADFEDERATIVANOMBRE": "GUERRERO",
+    "ENTIDADFEDERATIVAABREVIACION": "GR"
   },
   {
-    "id": 13,
-    "entidad_nombre": "HIDALGO",
-    "entidad_nombre_corto": "HG"
+    "ENTIDADFEDERATIVAID": 13,
+    "ENTIDADFEDERATIVANOMBRE": "HIDALGO",
+    "ENTIDADFEDERATIVAABREVIACION": "HG"
   },
   {
-    "id": 14,
-    "entidad_nombre": "JALISCO",
-    "entidad_nombre_corto": "JC"
+    "ENTIDADFEDERATIVAID": 14,
+    "ENTIDADFEDERATIVANOMBRE": "JALISCO",
+    "ENTIDADFEDERATIVAABREVIACION": "JC"
   },
   {
-    "id": 16,
-    "entidad_nombre": "MICHOACAN DE OCAMPO",
-    "entidad_nombre_corto": "MN"
+    "ENTIDADFEDERATIVAID": 15,
+    "ENTIDADFEDERATIVANOMBRE": "MÉXICO",
+    "ENTIDADFEDERATIVAABREVIACION": "MC"
   },
   {
-    "id": 17,
-    "entidad_nombre": "MORELOS",
-    "entidad_nombre_corto": "MS"
+    "ENTIDADFEDERATIVAID": 16,
+    "ENTIDADFEDERATIVANOMBRE": "MICHOACÁN DE OCAMPO",
+    "ENTIDADFEDERATIVAABREVIACION": "MN"
   },
   {
-    "id": 18,
-    "entidad_nombre": "NAYARIT",
-    "entidad_nombre_corto": "NT"
+    "ENTIDADFEDERATIVAID": 17,
+    "ENTIDADFEDERATIVANOMBRE": "MORELOS",
+    "ENTIDADFEDERATIVAABREVIACION": "MS"
   },
   {
-    "id": 19,
-    "entidad_nombre": "NUEVO LEON",
-    "entidad_nombre_corto": "NL"
+    "ENTIDADFEDERATIVAID": 18,
+    "ENTIDADFEDERATIVANOMBRE": "NAYARIT",
+    "ENTIDADFEDERATIVAABREVIACION": "NT"
   },
   {
-    "id": 20,
-    "entidad_nombre": "OAXACA",
-    "entidad_nombre_corto": "OC"
+    "ENTIDADFEDERATIVAID": 19,
+    "ENTIDADFEDERATIVANOMBRE": "NUEVO LEÓN",
+    "ENTIDADFEDERATIVAABREVIACION": "NL"
   },
   {
-    "id": 21,
-    "entidad_nombre": "PUEBLA",
-    "entidad_nombre_corto": "PL"
+    "ENTIDADFEDERATIVAID": 20,
+    "ENTIDADFEDERATIVANOMBRE": "OAXACA",
+    "ENTIDADFEDERATIVAABREVIACION": "OC"
   },
   {
-    "id": 22,
-    "entidad_nombre": "QUERETARO",
-    "entidad_nombre_corto": "QT"
+    "ENTIDADFEDERATIVAID": 21,
+    "ENTIDADFEDERATIVANOMBRE": "PUEBLA",
+    "ENTIDADFEDERATIVAABREVIACION": "PL"
   },
   {
-    "id": 23,
-    "entidad_nombre": "QUINTANA ROO",
-    "entidad_nombre_corto": "QR"
+    "ENTIDADFEDERATIVAID": 22,
+    "ENTIDADFEDERATIVANOMBRE": "QUERÉTARO",
+    "ENTIDADFEDERATIVAABREVIACION": "QT"
   },
   {
-    "id": 24,
-    "entidad_nombre": "SAN LUIS POTOSI",
-    "entidad_nombre_corto": "SP"
+    "ENTIDADFEDERATIVAID": 23,
+    "ENTIDADFEDERATIVANOMBRE": "QUINTANA ROO",
+    "ENTIDADFEDERATIVAABREVIACION": "QR"
   },
   {
-    "id": 25,
-    "entidad_nombre": "SINALOA",
-    "entidad_nombre_corto": "SL"
+    "ENTIDADFEDERATIVAID": 24,
+    "ENTIDADFEDERATIVANOMBRE": "SAN LUIS POTOSÍ",
+    "ENTIDADFEDERATIVAABREVIACION": "SP"
   },
   {
-    "id": 26,
-    "entidad_nombre": "SONORA",
-    "entidad_nombre_corto": "SR"
+    "ENTIDADFEDERATIVAID": 25,
+    "ENTIDADFEDERATIVANOMBRE": "SINALOA",
+    "ENTIDADFEDERATIVAABREVIACION": "SL"
   },
   {
-    "id": 27,
-    "entidad_nombre": "TABASCO",
-    "entidad_nombre_corto": "TC"
+    "ENTIDADFEDERATIVAID": 26,
+    "ENTIDADFEDERATIVANOMBRE": "SONORA",
+    "ENTIDADFEDERATIVAABREVIACION": "SR"
   },
   {
-    "id": 28,
-    "entidad_nombre": "TAMAULIPAS",
-    "entidad_nombre_corto": "TS"
+    "ENTIDADFEDERATIVAID": 27,
+    "ENTIDADFEDERATIVANOMBRE": "TABASCO",
+    "ENTIDADFEDERATIVAABREVIACION": "TC"
   },
   {
-    "id": 29,
-    "entidad_nombre": "TLAXCALA",
-    "entidad_nombre_corto": "TL"
+    "ENTIDADFEDERATIVAID": 28,
+    "ENTIDADFEDERATIVANOMBRE": "TAMAULIPAS",
+    "ENTIDADFEDERATIVAABREVIACION": "TS"
   },
   {
-    "id": 30,
-    "entidad_nombre": "VERACRUZ DE IGNACIO DE LA LLAVE",
-    "entidad_nombre_corto": "VZ"
+    "ENTIDADFEDERATIVAID": 29,
+    "ENTIDADFEDERATIVANOMBRE": "TLAXCALA",
+    "ENTIDADFEDERATIVAABREVIACION": "TL"
   },
   {
-    "id": 31,
-    "entidad_nombre": "YUCATAN",
-    "entidad_nombre_corto": "YN"
+    "ENTIDADFEDERATIVAID": 30,
+    "ENTIDADFEDERATIVANOMBRE": "VERACRUZ DE IGNACIO DE LA LLAVE",
+    "ENTIDADFEDERATIVAABREVIACION": "VZ"
   },
   {
-    "id": 32,
-    "entidad_nombre": "ZACATECAS",
-    "entidad_nombre_corto": "ZS"
+    "ENTIDADFEDERATIVAID": 31,
+    "ENTIDADFEDERATIVANOMBRE": "YUCATÁN",
+    "ENTIDADFEDERATIVAABREVIACION": "YN"
   },
   {
-    "id": 33,
-    "entidad_nombre": "NACIDO EN EL EXTRANJERO",
-    "entidad_nombre_corto": "NE"
+    "ENTIDADFEDERATIVAID": 32,
+    "ENTIDADFEDERATIVANOMBRE": "ZACATECAS",
+    "ENTIDADFEDERATIVAABREVIACION": "ZS"
   },
   {
-    "id": 34,
-    "entidad_nombre": "ERROR",
-    "entidad_nombre_corto": "ER"
+    "ENTIDADFEDERATIVAID": 88,
+    "ENTIDADFEDERATIVANOMBRE": "NO APLICA",
+    "ENTIDADFEDERATIVAABREVIACION": "NA"
   },
   {
-    "id": 0,
-    "entidad_nombre": "SIN ESPECIFICAR",
-    "entidad_nombre_corto": "SE"
+    "ENTIDADFEDERATIVAID": 99,
+    "ENTIDADFEDERATIVANOMBRE": "SE IGNORA",
+    "ENTIDADFEDERATIVAABREVIACION": "SI"
   }
 ]

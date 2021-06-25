@@ -27,7 +27,7 @@
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editVialidades(props.row.id)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="verVialidades(props.row.id)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
               <q-btn round size="sm" @click="editVialidades(props.row.id)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
               <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.id" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
@@ -111,6 +111,9 @@ export default {
   methods: {
     editVialidades(id) {
       this.$router.push(`/vialidades/${id}/edit`)
+    },
+    verVialidades(id) {
+      this.$router.push(`/vialidades/${id}/show`)
     },
     deleteVialidades(id) {
       this.loading = true

@@ -222,6 +222,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('cucopsAll', [CucopController::class, 'ShowCucopsAll']);
     Route::post('AcreditacionAll', [AcreditacionController::class, 'ShowAcreditacionAll']);
     Route::post('EstratosUnidad', [EstratoController::class, 'ShowEstratoAll']);
+    Route::post('TiposAsentamientos', [AsentamientosController::class, 'ShowAsentamientosAll']);
+    
     
 
     

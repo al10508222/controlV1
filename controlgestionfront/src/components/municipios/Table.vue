@@ -11,14 +11,25 @@
       :filter="search"
     >
       <template v-slot:top>
-        <q-input borderless dense debounce="400" v-model="search" placeholder="Buscar">
-          <template v-slot:append>
-            <q-icon name="search" />
-          </template>
-        </q-input>
-        <q-select v-model="form.ENTIDADFEDERATIVAID" option-value="ENTIDADFEDERATIVAID" option-label="ENTIDADFEDERATIVANOMBRE" map-options emit-value :options="catalogs.entidades" @input="change" :rules="[$rules.required($t('requiredInput'))]">
-          <span>Entidad Federativa</span>
-        </q-select>
+        <q-card style="width: 100%">
+              <q-separator />
+              <div class="q-pa-sm">
+                <q-card-section>
+                  <div class="row q-col-gutter-sm">
+                    <div class="col-xs-4 col-sm-4 col-md-4 q-mb-md">
+                      <q-select v-model="form.ENTIDADFEDERATIVAID" option-value="ENTIDADFEDERATIVAID" option-label="ENTIDADFEDERATIVANOMBRE" label="Entidad Federativa" map-options emit-value :options="catalogs.entidades" @input="change" id="entidad_federativa" />
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 q-mb-md">
+                      <q-input borderless dense debounce="400" v-model="search" placeholder="Buscar">
+                        <template v-slot:append>
+                          <q-icon name="search" />
+                        </template>
+                      </q-input>
+                    </div>
+                  </div>
+                </q-card-section>
+              </div>
+            </q-card>
       </template>
       <template v-slot:body="props">
         <q-tr :props="props">

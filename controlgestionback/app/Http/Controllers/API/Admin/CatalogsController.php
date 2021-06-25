@@ -58,6 +58,8 @@ use App\Models\localidades;
 use App\Models\Acreditacion;
 use App\Models\Estrato;
 use App\Models\Asentamientos;
+use App\Models\CucopModel;
+use App\Models\VialidadesModel;
 
 
 
@@ -66,7 +68,7 @@ class CatalogsController extends Controller
 {
     use GeneralResponse, ProfileVerify;
     public function index(Request $request) {
-        // if($error = $this->can(['catalogs-view'])){return $error;}
+        
 
         try {
             $catalogs = [];
@@ -257,6 +259,15 @@ class CatalogsController extends Controller
             }
 
             //maximos ids
+            if($request->has('cucops') && $request->input('cucops') == true) {
+                $catalogs['cucops'] = CucopModel::max('id') + 1;
+            }
+            if($request->has('vialidad') && $request->input('vialidad') == true) {
+                $catalogs['vialidad'] = VialidadesModel::max('id') + 1;
+            }
+            if($request->has('entidad') && $request->input('entidad') == true) {
+                $catalogs['entidad'] = entidades::max('ENTIDADFEDERATIVA') + 1;
+            }
             if($request->has('acreditacion') && $request->input('acreditacion') == true) {
                 $catalogs['acreditacion'] = Acreditacion::max('ESTATUSACREDITACIONID') + 1;
             }
