@@ -89,7 +89,7 @@ class MunicipiosController extends Controller
     public function show($id)
     {
         try {
-            $Municipios = municipios::where('MUNICIPIOID',$id)->first();
+            $Municipios = municipios::where('ID',$id)->first();
             return response()->json([
                 'success' => true,
                 'municipios' => $Municipios,
@@ -141,7 +141,7 @@ class MunicipiosController extends Controller
     public function edit($id)
     {
         try {
-            $Municipios = municipios::where('MUNICIPIOID',$id)->first();
+            $Municipios = municipios::where('ID',$id)->first();
 
             return response()->json([
                 'success' => true,

@@ -118,78 +118,95 @@
               <q-item-section id="irCalendario">Calendario de pagos</q-item-section>
             </q-item>
             <q-list padding class="menu-list">
-            <q-expansion-item
-              expand-separator
-              icon="perm_identity"
-              label="Catálogos"
-              caption="Otros"
-            >
-              <q-item v-if="canShow('cucop-view')" clickable v-ripple  @click.native="$router.push('/cucop').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
-              </q-item>
-              <q-item v-if="canShow('vialidades-view')" clickable v-ripple  @click.native="$router.push('/vialidades').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="irVialidades">Tipo Vialidad</q-item-section>
-              </q-item>
-              <q-item v-if="canShow('entidades-view')" clickable v-ripple  @click.native="$router.push('/entidades').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="irEntidades">Entidades Federativas</q-item-section>
-              </q-item>
-              <q-item v-if="canShow('municipios-view')" clickable v-ripple  @click.native="$router.push('/municipios').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="irMunicipios">Catálogo de Municipios</q-item-section>
-              </q-item>
-              <q-item v-if="canShow('localidades-view')" clickable v-ripple  @click.native="$router.push('/localidades').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="irLocalidades">Catálogo de Localidades</q-item-section>
-              </q-item>
-              <q-item v-if="canShow('acreditacion-view')" clickable v-ripple  @click.native="$router.push('/acreditacion').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="irAcreditacion">Estatus de Acreditación</q-item-section>
-              </q-item>
-              <q-item v-if="canShow('estrato-view')" clickable v-ripple  @click.native="$router.push('/estrato').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="irEstrato">Estrato Unidad</q-item-section>
-              </q-item>
-              <q-item v-if="canShow('asentamientos-view')" clickable v-ripple  @click.native="$router.push('/asentamientos').catch(err => {})">
-                <q-item-section avatar>
-                  <q-avatar>
-                    <q-icon right name="fas fa-passport q-icon notranslate" />
-                  </q-avatar>
-                </q-item-section>
-                <q-item-section id="asentamientos">Tipos Asentamientos</q-item-section>
-              </q-item>
-            </q-expansion-item>
-          </q-list>
+              <q-expansion-item
+                expand-separator
+                icon="perm_identity"
+                label="Catálogos 1"
+                caption="Otros"
+              >
+                <q-item v-if="canShow('cucop-view')" clickable v-ripple  @click.native="$router.push('/cucop').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('vialidades-view')" clickable v-ripple  @click.native="$router.push('/vialidades').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irVialidades">Tipo Vialidad</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('entidades-view')" clickable v-ripple  @click.native="$router.push('/entidades').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irEntidades">Entidades Federativas</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('municipios-view')" clickable v-ripple  @click.native="$router.push('/municipios').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irMunicipios">Catálogo de Municipios</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('localidades-view')" clickable v-ripple  @click.native="$router.push('/localidades').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irLocalidades">Catálogo de Localidades</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('acreditacion-view')" clickable v-ripple  @click.native="$router.push('/acreditacion').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irAcreditacion">Estatus de Acreditación</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('estrato-view')" clickable v-ripple  @click.native="$router.push('/estrato').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irEstrato">Estrato Unidad</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('asentamientos-view')" clickable v-ripple  @click.native="$router.push('/asentamientos').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="asentamientos">Tipos Asentamientos</q-item-section>
+                </q-item>
+              </q-expansion-item>
+            </q-list>
+            <q-list padding class="menu-list">
+              <q-expansion-item
+                expand-separator
+                icon="perm_identity"
+                label="Catálogos 2"
+                caption="Otros"
+              >
+                <q-item v-if="canShow('cucop-view')" clickable v-ripple  @click.native="$router.push('/cucop').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
+                </q-item>
+              </q-expansion-item>
+            </q-list>
           </q-expansion-item>
         </q-list>
       </q-scroll-area>

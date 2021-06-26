@@ -15,26 +15,25 @@
 ----> catalogo tipo_asentamientos completo
 ----> catalogo cucop completo
 ----> catalogo de vialidades completo
+----> catalogo de entidades completo
+----> catalogo de municipios completo
 
 ************* ULTIMOS CAMBIOS ***********
-* se agrega id en creacion de cucop
-* pantalla ver cucop sin modificar
-* se agrega id en creacion de vialidad
-* pantalla ver vialidad sin modificar
-
+* se agrega id en creacion de entidad
+* pantalla ver entidad sin modificar
+* se agrega id en creacion de municipios
+* pantalla ver municipios sin modificar
+* se arreglan combos y se empatan con sus relaciones en localdades
 
 #pasos
 
 docker exec -ti --user root bd_control-app /bin/bash
 
+echo 'memory_limit=2G' > /usr/local/etc/php/conf.d/memory-limit.ini
 php artisan migrate
 php artisan migrate:fresh --seed
 php artisan passport:install --force
 
-
-#pasos para corregir limite de memoria **************
-
-echo 'memory_limit=2G' > /usr/local/etc/php/conf.d/memory-limit.ini
 
 #ENTRAR A BASE DE DATOS 
 psql -U postgres -h 127.0.0.1 -p 15432

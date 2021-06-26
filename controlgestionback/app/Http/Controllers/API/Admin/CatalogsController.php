@@ -252,10 +252,7 @@ class CatalogsController extends Controller
                 $catalogs['municipios'] = municipios::select(['ID', 'MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->orderBy('MUNICIPIONOMBRE', 'asc')->get();
             }
             if($request->has('localidades') && $request->input('localidades') == true) {
-                $catalogs['localidades'] = localidades::select(['ID', 'LOCALIDADID', 'LOCALIDADNOMBRE', 'MUNICIPIOID', 'ENTIDADFEDERATIVAID'])
-                                            ->where('ENTIDADFEDERATIVAID', $request->input('entidad_id'))
-                                            ->where('MUNICIPIOID', $request->input('municipio_id'))
-                                            ->orderBy('LOCALIDADNOMBRE','asc')->get();
+                $catalogs['localidades'] = localidades::select(['ID', 'LOCALIDADID', 'LOCALIDADNOMBRE', 'MUNICIPIOID', 'ENTIDADFEDERATIVAID'])->orderBy('LOCALIDADNOMBRE','asc')->get();
             }
 
             //maximos ids
@@ -266,7 +263,13 @@ class CatalogsController extends Controller
                 $catalogs['vialidad'] = VialidadesModel::max('id') + 1;
             }
             if($request->has('entidad') && $request->input('entidad') == true) {
-                $catalogs['entidad'] = entidades::max('ENTIDADFEDERATIVA') + 1;
+                $catalogs['entidad'] = entidades::max('ENTIDADFEDERATIVAID') + 1;
+            }
+            if($request->has('municipio') && $request->input('municipio') == true) {
+                $catalogs['municipio'] = municipios::max('MUNICIPIOID') + 1;
+            }
+            if($request->has('localidad') && $request->input('localidad') == true) {
+                $catalogs['localidad'] = localidades::max('LOCALIDADID') + 1;
             }
             if($request->has('acreditacion') && $request->input('acreditacion') == true) {
                 $catalogs['acreditacion'] = Acreditacion::max('ESTATUSACREDITACIONID') + 1;

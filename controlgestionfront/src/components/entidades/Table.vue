@@ -30,7 +30,7 @@
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+              <q-btn round size="sm" @click="verEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
               <q-btn round size="sm" @click="editEntidades(props.row.ENTIDADFEDERATIVAID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
               <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.ENTIDADFEDERATIVAID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
@@ -117,6 +117,9 @@ export default {
   methods: {
     editEntidades(id) {
       this.$router.push(`/entidades/${id}/edit`)
+    },
+    verEntidades(id) {
+      this.$router.push(`/entidades/${id}/show`)
     },
     deleteEntidades(id) {
       this.loading = true

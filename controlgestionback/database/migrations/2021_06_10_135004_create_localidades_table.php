@@ -26,7 +26,6 @@ class CreateLocalidadesTable extends Migration
             $table->string('LOCALIDADLATITUDDEC');  
             $table->string('LOCALIDADLOINGITUDDEC');  
             $table->string('LOCALIDADALTITUD');  
-            $table->foreign('ENTIDADFEDERATIVAID')->references('ENTIDADFEDERATIVAID')->on('entidades')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -19,6 +19,14 @@
           <div class="col-xs-12 col-sm-12 col-md-4">
             <q-input
               :rules="[$rules.required($i18n.t('requiredInput'))]"
+              v-model="catalogs.municipio"
+              square
+              outlined
+              label="ID" type="text"/>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <q-input
+              :rules="[$rules.required($i18n.t('requiredInput'))]"
               v-model="form.entidad_nombre"
               square
               outlined
@@ -57,7 +65,7 @@ export default {
     };
   },
   created() {
-    const catalogsConfiguration = { profiles: true, entidades_projects: true };
+    const catalogsConfiguration = { profiles: true, entidades: true, municipio: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();

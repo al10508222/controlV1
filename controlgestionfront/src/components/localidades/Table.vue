@@ -3,7 +3,7 @@
     <q-form ref="localidadesForm" @submit.prevent="() => {}">
       <br/>
       <q-table
-        :data="filteredOneLocalidad"
+        :data="filteredAllLocalidades"
         :columns="columns"
         separator="vertical"
         :pagination.sync="pagination"
@@ -23,9 +23,6 @@
                     <div class="col-xs-4 col-sm-4 col-md-4 q-mb-md">
                       <q-select v-model="form.MUNICIPIOID" option-value="MUNICIPIOID" option-label="MUNICIPIONOMBRE" :options="filteredMunicipios" label="Municipio" map-options emit-value @input="change_all_localidades" />
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-3 q-mb-md">
-                      <q-select v-model="form.LOCALIDADID" option-value="LOCALIDADID" option-label="LOCALIDADNOMBRE" :options="filteredAllLocalidades" label="Municipio" map-options emit-value @input="change_one_localidades" />
-                    </div>
                   </div>
                 </q-card-section>
               </div>
@@ -41,8 +38,8 @@
             </q-td>
             <q-td key="actions" :props="props">
               <q-btn-group>
-                <q-btn round size="sm" @click="editLocalidad(props.row.LOCALIDADID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-                <q-btn round size="sm" @click="editLocalidad(props.row.LOCALIDADID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+                <q-btn round size="sm" @click="verLocalidad(props.row.ID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+                <q-btn round size="sm" @click="editLocalidad(props.row.ID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
                 <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.LOCALIDADID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
               </q-btn-group>
             </q-td>
@@ -91,7 +88,6 @@ export default {
       data: [],
       filteredMunicipios: [],
       filteredAllLocalidades: [],
-      filteredOneLocalidad: [],
       loading: true,
       deleteOption: '',
       confirmDelete: false,
@@ -122,7 +118,7 @@ export default {
   },
   created() {
     this.ENTIDADID = 0
-    const catalogsConfiguration = { entidades: true, municipios: true };
+    const catalogsConfiguration = { entidades: true, municipios: true, localidades: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();
@@ -149,6 +145,9 @@ export default {
   },
   methods: {
     editLocalidad(id) {
+      this.$router.push(`/localidades/${id}/edit`)
+    },
+    verLocalidad(id) {
       this.$router.push(`/localidades/${id}/edit`)
     },
     deleteLocalidad(id) {
@@ -188,14 +187,8 @@ export default {
       this.filteredMunicipios = this.catalogs.municipios.filter((e) => entidad === e.ENTIDADFEDERATIVAID)
     },
     change_all_localidades(municipio) {
-      const parametros = { localidades: true, entidad_id: this.ENTIDADID, municipio_id: municipio };
-      this.$store.dispatch('catalogs/setCatalogs', { params: parametros }).then(() => {
-        this.form.LOCALIDADID = ''
-        this.filteredAllLocalidades = this.catalogs.localidades
-      });
-    },
-    change_one_localidades(localidad) {
-      this.filteredOneLocalidad = this.catalogs.localidades.filter((e) => localidad === e.LOCALIDADID)
+      console.log(this.ENTIDADID)
+      this.filteredAllLocalidades = this.catalogs.localidades.filter((e) => municipio === e.MUNICIPIOID && this.ENTIDADID === e.ENTIDADFEDERATIVAID)
     }
   },
 };

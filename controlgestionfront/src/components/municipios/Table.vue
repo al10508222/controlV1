@@ -41,8 +41,8 @@
           </q-td>
           <q-td key="actions" :props="props">
             <q-btn-group>
-              <q-btn round size="sm" @click="editMunicipios(props.row.MUNICIPIOID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
-              <q-btn round size="sm" @click="editMunicipios(props.row.MUNICIPIOID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+              <q-btn round size="sm" @click="verMunicipios(props.row.ID)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
+              <q-btn round size="sm" @click="editMunicipios(props.row.ID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
               <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.MUNICIPIOID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
             </q-btn-group>
           </q-td>
@@ -117,7 +117,7 @@ export default {
     };
   },
   created() {
-    const catalogsConfiguration = { entidades: true, municipios: true };
+    const catalogsConfiguration = { entidades: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();
@@ -143,8 +143,12 @@ export default {
     },
   },
   methods: {
-    editMunicipios(MUNICIPIOID) {
-      this.$router.push(`/municipios/${MUNICIPIOID}/edit`)
+    editMunicipios(id) {
+      this.$router.push(`/municipios/${id}/edit`)
+    },
+    verMunicipios(id) {
+      this.$router.push(`/municipios/${id}/show`)
+      console.log(this.$router.push)
     },
     deleteMunicipios(id) {
       this.loading = true
@@ -168,7 +172,6 @@ export default {
       const { search } = this
       this.loading = true
       MunicipiosService.index({ params: { page, rowsPerPage, search } }).then((municipios) => {
-        this.filteredMunicipios = municipios.data
         this.pagination.rowsPerPage = municipios.per_page
         this.pagination.page = municipios.current_page
         this.pagination.rowsNumber = municipios.total
@@ -178,6 +181,11 @@ export default {
       })
     },
     change(val) {
+      const catalogsConfiguration = { municipios: true };
+      this.$q.loading.show();
+      this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
+        this.$q.loading.hide();
+      });
       this.filteredMunicipios = this.catalogs.municipios.filter((e) => val === e.ENTIDADFEDERATIVAID)
     },
   },
