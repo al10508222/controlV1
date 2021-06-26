@@ -14,8 +14,8 @@
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
-            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.id" square outlined label="id"/>
+            <div class="col-xs-3 col-sm-3 col-md-3" >
+              <q-input v-model="form.id" square outlined label="id" :disable="true"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
               <q-input v-model="form.tipo" square outlined label="Tipo"/>

@@ -121,7 +121,7 @@
               <q-expansion-item
                 expand-separator
                 icon="perm_identity"
-                label="Catálogos 1"
+                label="Catálogos"
                 caption="Otros"
               >
                 <q-item v-if="canShow('cucop-view')" clickable v-ripple  @click.native="$router.push('/cucop').catch(err => {})">
@@ -188,22 +188,13 @@
                   </q-item-section>
                   <q-item-section id="asentamientos">Tipos Asentamientos</q-item-section>
                 </q-item>
-              </q-expansion-item>
-            </q-list>
-            <q-list padding class="menu-list">
-              <q-expansion-item
-                expand-separator
-                icon="perm_identity"
-                label="Catálogos 2"
-                caption="Otros"
-              >
-                <q-item v-if="canShow('cucop-view')" clickable v-ripple  @click.native="$router.push('/cucop').catch(err => {})">
+                <q-item v-if="canShow('establecimientos-view')" clickable v-ripple  @click.native="$router.push('/establecimientos').catch(err => {})">
                   <q-item-section avatar>
                     <q-avatar>
                       <q-icon right name="fas fa-passport q-icon notranslate" />
                     </q-avatar>
                   </q-item-section>
-                  <q-item-section id="irCucop">Catálogo CuCop</q-item-section>
+                  <q-item-section id="establecimientos">Establecimientos</q-item-section>
                 </q-item>
               </q-expansion-item>
             </q-list>

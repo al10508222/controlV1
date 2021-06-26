@@ -14,23 +14,29 @@
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
-            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.id" square outlined label="id"/>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <q-input v-model="form.entidad_nombre" square outlined :disable="true" label="Nombre Entidad Federativa (No modificable)"/>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <q-input v-model="form.municipio_nombre" square outlined :disable="true" label="Nombre Municipio (No modificable)"/>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.ID" square outlined label="ID" :disable="true"/>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2">
-              <q-input v-model="form.localidad_id" square outlined label="# Localidad"/>
+              <q-input v-model="form.LOCALIDADID" square outlined label="# Localidad"/>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
-              <q-input v-model="form.localidad_nombre" square outlined label="Nombre Localidad"/>
+              <q-input v-model="form.LOCALIDADNOMBRE" square outlined label="Nombre Localidad"/>
             </div>
-            <div class="col-xs-5 col-sm-5 col-md-5">
-              <q-input v-model="form.cp" square outlined :disable="true" label="Código Postal"/>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+              <q-input v-model="form.LOCALIDADAMBITO" square outlined label="AMBITO" />
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.CP" square outlined label="Código Postal" />
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.LOCALIDADLATITUD" square outlined label="Latitud" />
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.LOCALIDADLOINGITUD" square outlined label="Longitud"/>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.LOCALIDADALTITUD" square outlined label="Altitud" />
             </div>
           </div>
         </q-card-section>

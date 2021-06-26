@@ -7,36 +7,41 @@
             <q-icon size="md" name="fas fa-briefcase"/>
         </q-item-section>
         <q-item-section>
-          <q-item-label>Editar Localidad</q-item-label>
+          <q-item-label>Ver Localidad</q-item-label>
         </q-item-section>
       </q-item>
       <q-separator />
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
-            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.id" square outlined label="id"/>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <q-input v-model="form.entidad_nombre" square outlined :disable="true" label="Nombre Entidad Federativa (No modificable)"/>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-              <q-input v-model="form.municipio_nombre" square outlined :disable="true" label="Nombre Municipio (No modificable)"/>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.ID" square outlined label="ID" :disable="true"/>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2">
-              <q-input v-model="form.localidad_id" square outlined label="# Localidad"/>
+              <q-input v-model="form.LOCALIDADID" square outlined label="# Localidad" :disable="true"/>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
-              <q-input v-model="form.localidad_nombre" square outlined label="Nombre Localidad"/>
+              <q-input v-model="form.LOCALIDADNOMBRE" square outlined label="Nombre Localidad" :disable="true"/>
             </div>
-            <div class="col-xs-5 col-sm-5 col-md-5">
-              <q-input v-model="form.cp" square outlined :disable="true" label="Código Postal"/>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+              <q-input v-model="form.LOCALIDADAMBITO" square outlined label="AMBITO" :disable="true" />
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.CP" square outlined label="Código Postal" :disable="true" />
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.LOCALIDADLATITUD" square outlined label="Latitud" :disable="true" />
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.LOCALIDADLOINGITUD" square outlined label="Longitud" :disable="true" />
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-3">
+              <q-input v-model="form.LOCALIDADALTITUD" square outlined label="Altitud" :disable="true" />
             </div>
           </div>
         </q-card-section>
         <q-card-actions align="right">
           <q-btn flat @click="$router.back()" label="Regresar" color="primary" v-close-popup />
-          <q-btn flat @click="update()" label="Guardar" color="primary" v-if="disabled"/>
         </q-card-actions>
       </div>
     </q-card>

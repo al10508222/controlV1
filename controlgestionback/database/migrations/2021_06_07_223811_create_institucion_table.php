@@ -13,12 +13,12 @@ class CreateInstitucionTable extends Migration
      */
     public function up()
     {
-        // Schema::create('institucion', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->string('instutucion_nombre');  
-        //     $table->bigInteger('instutucion_id_corto');  
-        //     $table->timestamps();
-        // });
+        Schema::create('institucion', function (Blueprint $table) {
+            // $table->increments('id'); //NOTA: no se puede colocar un id tipo caracter en postgresql, ademas de que la el nombre corto
+            // $table->string('INSTITUCIONNOMBRE');  
+            // $table->bigInteger('INSTITUCIONIDCORTO');  
+            // $table->timestamps();
+        });
     }
 
     /**

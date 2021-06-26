@@ -14,8 +14,8 @@
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
-            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.MUNICIPIOID" square outlined label="MUNICIPIOID"/>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.ID" square outlined label="MUNICIPIOID" :disable="true"/>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5">
               <q-input v-model="form.MUNICIPIONOMBRE" square outlined label="Nombre Municipio"/>

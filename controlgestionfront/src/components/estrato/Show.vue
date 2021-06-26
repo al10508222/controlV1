@@ -14,8 +14,8 @@
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
-            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.ESTRATOUNIDADID" square outlined label="ID"/>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.ESTRATOUNIDADID" square outlined label="ID" :disable="true"/>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
               <q-input v-model="form.ESTRATOUNIDADNOMBRE" square :disable="true" outlined label="Nombre Entidad"/>

@@ -38,7 +38,7 @@
             </q-td>
             <q-td key="actions" :props="props">
               <q-btn-group>
-                <q-btn round size="sm" @click="verLocalidad(props.row.ID)" color="primary" icon="fas fa-eye" v-if="canView && !canEdit"/>
+                <q-btn round size="sm" @click="verLocalidad(props.row.ID)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
                 <q-btn round size="sm" @click="editLocalidad(props.row.ID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
                 <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.LOCALIDADID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
               </q-btn-group>
@@ -148,7 +148,7 @@ export default {
       this.$router.push(`/localidades/${id}/edit`)
     },
     verLocalidad(id) {
-      this.$router.push(`/localidades/${id}/edit`)
+      this.$router.push(`/localidades/${id}/show`)
     },
     deleteLocalidad(id) {
       this.loading = true

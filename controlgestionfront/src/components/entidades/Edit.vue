@@ -14,8 +14,8 @@
       <div class="q-pa-sm">
         <q-card-section>
           <div class="row q-col-gutter-sm">
-            <div class="col-xs-3 col-sm-3 col-md-3" hidden>
-              <q-input v-model="form.ENTIDADFEDERATIVAID" square outlined label="ID"/>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.ENTIDADFEDERATIVAID" square outlined label="ID" :disable="true"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3">
               <q-input v-model="form.ENTIDADFEDERATIVANOMBRE" square outlined label="Nombre Entidad"/>

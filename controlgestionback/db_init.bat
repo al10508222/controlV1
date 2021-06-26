@@ -19,13 +19,11 @@
 ----> catalogo de municipios completo
 
 ************* ULTIMOS CAMBIOS ***********
-* se agrega id en creacion de entidad
-* pantalla ver entidad sin modificar
-* se agrega id en creacion de municipios
-* pantalla ver municipios sin modificar
-* se arreglan combos y se empatan con sus relaciones en localdades
+* se agrega id en creacion de localidades
+* pantalla ver localides sin modificar
 
-#pasos
+
+#pasos y entrar a docker
 
 docker exec -ti --user root bd_control-app /bin/bash
 
@@ -35,8 +33,16 @@ php artisan migrate:fresh --seed
 php artisan passport:install --force
 
 
-#ENTRAR A BASE DE DATOS 
+************* ENTRAR A BASE DE DATOS ************
 psql -U postgres -h 127.0.0.1 -p 15432
 
+\c control_db
+delete from migrations where id = 154;
 
-************* FALTANTES **************
+************* OTROS COMANDOS **************
+---> pasar a docker y ejecutar:
+
+php artisan migrate
+php artisan db:seed --class=EstablecimientoTableSeeder
+
+
