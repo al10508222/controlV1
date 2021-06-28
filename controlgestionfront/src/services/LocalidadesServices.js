@@ -14,6 +14,11 @@ export const index = (payload) => {
   return axiosInstance.get(URL, payload).then((res) => res.data.localidades);
 };
 
+export const indexFilter = (payload) => {
+  const URL = '/api/admin/localidades';
+  return axiosInstance.get(URL, payload).then((res) => res.data.localidades);
+};
+
 export const edit = (id) => {
   const URL = `/api/admin/localidades/${id}/edit`;
   return axiosInstance.get(URL).then((res) => res.data.localidades);

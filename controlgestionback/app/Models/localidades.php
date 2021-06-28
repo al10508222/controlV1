@@ -39,10 +39,8 @@ class localidades extends Model
             return $query->where(function($q) use ($search)
             {
                 if (isset($search) && !empty($search)) {
-                    $q->where('LOCALIDADNOMBRE', 'like', '%' . $search . '%');
-                    $q->orWhere('LOCALIDADCODIGOPOSTAL', 'like', '%' . $search . '%');
-                    $q->orWhere('LOCALIDADAMBITO', 'like', '%' . $search . '%');
-                    $q->orWhere('LOCALIDADID', 'like', '%' . $search . '%');
+                    $q->Where('MUNICIPIOID', $search  );
+                    $q->orWhere('ENTIDADFEDERATIVAID', $search  );
                 }
             });
         });

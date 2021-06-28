@@ -17,10 +17,34 @@ class LocalidadesController extends Controller
      */
     public function index(Request $request)
     {
+        // try {
+        //     $rowsPerPage = $request->rowsPerPage;
+        //     $search = $request->input('search');
+        //     $localidades = localidades::search($search)->orderBy('ID','asc')->paginate($rowsPerPage);
+        //     return response()->json([
+        //         'success' => true,
+        //         'localidades' => $localidades,
+		// 	]);
+        // }catch (\Exception $e) {
+        //     DB::rollback();
+		// 	return response()->json([
+		// 		'success' => false,
+		// 		'message' => $e->getMessage()
+		// 	]);
+        // }
         try {
+            // $localidades = localidades::search($municipio)->orderBy('ID','asc')->get();
             $rowsPerPage = $request->rowsPerPage;
-            $search = $request->input('search');
-            $localidades = localidades::search($search)->orderBy('ID','asc')->paginate($rowsPerPage);
+            if($request->input('municipio') > 0){
+                $localidades = localidades::where('ENTIDADFEDERATIVAID', $request->input('entidad'))
+                                                            ->where('MUNICIPIOID', $request->input('municipio'))
+                                                            ->orderBy('LOCALIDADNOMBRE','asc')->paginate($rowsPerPage);
+            }
+            else{
+                
+                // $search = $request->input('search');
+                // $localidades = localidades::search($search)->orderBy('ID','asc')->paginate($rowsPerPage);
+            }
             return response()->json([
                 'success' => true,
                 'localidades' => $localidades,
@@ -198,6 +222,28 @@ class LocalidadesController extends Controller
             return response()->json([
                 'success' => true,
                 'localidades' => $datos
+			]);
+        }catch (\Exception $e) {
+            DB::rollback();
+			return response()->json([
+				'success' => false,
+				'message' => $e->getMessage()
+			]);
+        }
+    }
+
+    public function indexFilter(Request $request)
+    {
+        try {
+            $municipio = $request->input('municipio');
+            // $localidades = localidades::search($municipio)->orderBy('ID','asc')->get();
+            
+            $localidades = localidades::where('ENTIDADFEDERATIVAID', $request->input('entidad'))
+                                                        ->where('MUNICIPIOID', $request->input('municipio'))
+                                                        ->orderBy('LOCALIDADNOMBRE','asc')->get();
+            return response()->json([
+                'success' => true,
+                'localidades' => $localidades,
 			]);
         }catch (\Exception $e) {
             DB::rollback();

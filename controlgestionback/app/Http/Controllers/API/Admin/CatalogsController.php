@@ -252,7 +252,10 @@ class CatalogsController extends Controller
                 $catalogs['municipios'] = municipios::select(['ID', 'MUNICIPIOID', 'MUNICIPIONOMBRE', 'ENTIDADFEDERATIVAID'])->orderBy('MUNICIPIONOMBRE', 'asc')->get();
             }
             if($request->has('localidades') && $request->input('localidades') == true) {
-                $catalogs['localidades'] = localidades::select(['ID', 'LOCALIDADID', 'LOCALIDADNOMBRE', 'MUNICIPIOID', 'ENTIDADFEDERATIVAID'])->orderBy('LOCALIDADNOMBRE','asc')->get();
+                $catalogs['localidades'] = localidades::select(['ID', 'LOCALIDADID', 'LOCALIDADNOMBRE', 'MUNICIPIOID', 'ENTIDADFEDERATIVAID'])
+                                                        ->where('ENTIDADFEDERATIVAID', $request->input('entidad_id'))
+                                                        ->where('MUNICIPIOID', $request->input('municipio_id'))
+                                                        ->orderBy('LOCALIDADNOMBRE','asc')->get();
             }
 
             //maximos ids

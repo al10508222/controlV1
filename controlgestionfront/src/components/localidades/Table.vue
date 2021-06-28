@@ -3,7 +3,7 @@
     <q-form ref="localidadesForm" @submit.prevent="() => {}">
       <br/>
       <q-table
-        :data="filteredAllLocalidades"
+        :data="data"
         :columns="columns"
         separator="vertical"
         :pagination.sync="pagination"
@@ -28,19 +28,19 @@
               </div>
             </q-card>
         </template>
-        <template v-slot:body="props">
-          <q-tr :props="props">
-            <q-td key="ID" :props="props">
-              {{ props.row.ID }}
+        <template v-slot:body="data">
+          <q-tr :data="data">
+            <q-td key="ID" :data="data">
+              {{ data.row.ID }}
             </q-td>
-            <q-td key="LOCALIDADNOMBRE" :props="props">
-              {{ props.row.LOCALIDADNOMBRE }}
+            <q-td key="LOCALIDADNOMBRE" :data="data">
+              {{ data.row.LOCALIDADNOMBRE }}
             </q-td>
-            <q-td key="actions" :props="props">
+            <q-td key="actions" :data="data">
               <q-btn-group>
-                <q-btn round size="sm" @click="verLocalidad(props.row.ID)" color="primary" icon="fas fa-eye" v-if="!props.row.deleted_at && canView"/>
-                <q-btn round size="sm" @click="editLocalidad(props.row.ID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
-                <q-btn round size="sm" @click="confirmDelete = true; deleteOption = props.row.LOCALIDADID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
+                <q-btn round size="sm" @click="verLocalidad(data.row.ID)" color="primary" icon="fas fa-eye" v-if="!data.row.deleted_at && canView"/>
+                <q-btn round size="sm" @click="editLocalidad(data.row.ID)" color="primary" icon="fas fa-edit" v-if="canEdit"/>
+                <q-btn round size="sm" @click="confirmDelete = true; deleteOption = data.row.LOCALIDADID" color="negative" icon="fas fa-trash" v-if="canDelete"/>
               </q-btn-group>
             </q-td>
           </q-tr>
@@ -117,8 +117,8 @@ export default {
     };
   },
   created() {
-    this.ENTIDADID = 0
-    const catalogsConfiguration = { entidades: true, municipios: true, localidades: true };
+    this.entidad = 0
+    const catalogsConfiguration = { entidades: true, municipios: true };
     this.$q.loading.show();
     this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
       this.$q.loading.hide();
@@ -171,8 +171,8 @@ export default {
       const { page, rowsPerPage } = props.pagination
       const { search } = this
       this.loading = true
+      this.propss = props
       LocalidadesService.index({ params: { page, rowsPerPage, search } }).then((localidades) => {
-        this.data = localidades.data
         this.pagination.rowsPerPage = localidades.per_page
         this.pagination.page = localidades.current_page
         this.pagination.rowsNumber = localidades.total
@@ -182,13 +182,22 @@ export default {
       })
     },
     change(entidad) {
-      this.ENTIDADID = entidad
-      this.form.MUNICIPIOID = ''
+      this.entidad = entidad
+      this.form.MUNICIPIOID = null
       this.filteredMunicipios = this.catalogs.municipios.filter((e) => entidad === e.ENTIDADFEDERATIVAID)
     },
-    change_all_localidades(municipio) {
-      console.log(this.ENTIDADID)
-      this.filteredAllLocalidades = this.catalogs.localidades.filter((e) => municipio === e.MUNICIPIOID && this.ENTIDADID === e.ENTIDADFEDERATIVAID)
+    change_all_localidades(municipio, entidad = this.entidad) {
+      const { page, rowsPerPage } = this.propss.pagination
+      this.loading = true
+      LocalidadesService.index({ params: { municipio, entidad, rowsPerPage, page } }).then((localidades) => {
+        this.data = localidades.data
+        this.pagination.rowsPerPage = localidades.per_page
+        this.pagination.page = localidades.current_page
+        this.pagination.rowsNumber = localidades.total
+        this.loading = false
+      }).catch(() => {
+        this.loading = false
+      })
     }
   },
 };
