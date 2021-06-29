@@ -15,7 +15,7 @@ class CreateEstatusOperacionTable extends Migration
     {
         Schema::create('estatus_operacion', function (Blueprint $table) {
             $table->increments('ESTATUSOPERACIONID');
-            $table->string('ESTATUSOPERACIONIDNOMBRE');  
+            $table->string('ESTATUSOPERACIONNOMBRE');  
             $table->timestamps();
         });
     }

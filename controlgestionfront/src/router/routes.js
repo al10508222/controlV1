@@ -13,6 +13,7 @@ import Localidades from './partials/localidades';
 import acreditacion from './partials/acreditacion';
 import estrato from './partials/estrato';
 import asentamientos from './partials/asentamientos';
+import establecimientos from './partials/establecimientos';
 
 const routes = [
   {
@@ -34,7 +35,8 @@ const routes = [
       ...Localidades,
       ...acreditacion,
       ...estrato,
-      ...asentamientos
+      ...asentamientos,
+      ...establecimientos
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {

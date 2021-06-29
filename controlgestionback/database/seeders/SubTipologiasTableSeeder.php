@@ -23,7 +23,7 @@ class SubTipologiasTableSeeder extends Seeder
                 [
                     [
                         'TIPOLOGIAID'   => $item->TIPOLOGIAID,
-                        'MUNICIPIOID'   => $item->SUBTIPOLOGIAID,
+                        'SUBTIPOLOGIAID'   => $item->SUBTIPOLOGIAID,
                         'SUBTIPOLOGIANOMBRE'   => $item->SUBTIPOLOGIANOMBRE
                     ]
                 ]

@@ -60,7 +60,7 @@ use App\Models\Estrato;
 use App\Models\Asentamientos;
 use App\Models\CucopModel;
 use App\Models\VialidadesModel;
-
+use App\Models\establecimientos;
 
 
 
@@ -283,6 +283,10 @@ class CatalogsController extends Controller
             if($request->has('asentamientos') && $request->input('asentamientos') == true) {
                 $catalogs['asentamientos'] = Asentamientos::max('TIPOASENTAMIENTOID') + 1;
             }
+            if($request->has('establecimientos') && $request->input('establecimientos') == true) {
+                $catalogs['establecimientos'] = establecimientos::max('TIPOESTABLECIMIENTOID') + 1;
+            }
+            
 
 
             return $this->genResponse(200,  ['catalogs' => $catalogs] );

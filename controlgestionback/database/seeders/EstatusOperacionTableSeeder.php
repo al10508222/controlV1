@@ -21,7 +21,7 @@ class EstatusOperacionTableSeeder extends Seeder
                    'ESTATUSOPERACIONNOMBRE'  => 'EN OPERACON'
                ],
                [
-                   'ESTATUSOPERACIONID'       => 1,
+                   'ESTATUSOPERACIONID'       => 2,
                    'ESTATUSOPERACIONNOMBRE'  => 'FUERA DE OPERACON'
                ]
            ]

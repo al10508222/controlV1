@@ -15,7 +15,7 @@ class CreateTipologiasTable extends Migration
     {
         Schema::create('tipologias', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('TIPOLOGIAID');
+            $table->string('TIPOLOGIAID');
             $table->string('TIPOLOGIANOMBRE');
             $table->timestamps();
         });

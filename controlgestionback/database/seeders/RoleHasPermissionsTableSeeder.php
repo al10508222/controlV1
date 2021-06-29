@@ -2404,8 +2404,113 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'id' => 461,
                 'profile_id' => 1,
                 'permission_id' => 178,
-            )
+            ),
 
+            //establecimientos
+            397 => array (
+                'id' => 462,
+                'profile_id' => 1,
+                'permission_id' => 179,
+            ),
+            398 => array (
+                'id' => 463,
+                'profile_id' => 1,
+                'permission_id' => 180,
+            ),
+            399 => array (
+                'id' => 464,
+                'profile_id' => 1,
+                'permission_id' => 181,
+            ),
+            400 => array (
+                'id' => 465,
+                'profile_id' => 1,
+                'permission_id' => 182,
+            ),
+            //estatus operacion
+            401 => array (
+                'id' => 466,
+                'profile_id' => 1,
+                'permission_id' => 183,
+            ),
+            402 => array (
+                'id' => 467,
+                'profile_id' => 1,
+                'permission_id' => 184,
+            ),
+            403 => array (
+                'id' => 468,
+                'profile_id' => 1,
+                'permission_id' => 185,
+            ),
+            404 => array (
+                'id' => 469,
+                'profile_id' => 1,
+                'permission_id' => 186,
+            ),
+            //nivel atencion
+            405 => array (
+                'id' => 470,
+                'profile_id' => 1,
+                'permission_id' => 187,
+            ),
+            406 => array (
+                'id' => 471,
+                'profile_id' => 1,
+                'permission_id' => 188,
+            ),
+            407 => array (
+                'id' => 472,
+                'profile_id' => 1,
+                'permission_id' => 189,
+            ),
+            408 => array (
+                'id' => 473,
+                'profile_id' => 1,
+                'permission_id' => 190,
+            ),
+            //tipologia
+            409 => array (
+                'id' => 474,
+                'profile_id' => 1,
+                'permission_id' => 191,
+            ),
+            410 => array (
+                'id' => 475,
+                'profile_id' => 1,
+                'permission_id' => 192,
+            ),
+            411 => array (
+                'id' => 476,
+                'profile_id' => 1,
+                'permission_id' => 193,
+            ),
+            412 => array (
+                'id' => 477,
+                'profile_id' => 1,
+                'permission_id' => 194,
+            ),
+            //subtipologias
+            413 => array (
+                'id' => 478,
+                'profile_id' => 1,
+                'permission_id' => 195,
+            ),
+            414 => array (
+                'id' => 479,
+                'profile_id' => 1,
+                'permission_id' => 196,
+            ),
+            415 => array (
+                'id' => 480,
+                'profile_id' => 1,
+                'permission_id' => 197,
+            ),
+            416 => array (
+                'id' => 481,
+                'profile_id' => 1,
+                'permission_id' => 198,
+            )
         ));
 
         \DB::statement('ALTER SEQUENCE role_has_permissions_id_seq RESTART WITH 1000');
