@@ -214,5 +214,30 @@ class CatModulesSeeder extends Seeder
             'name'     => 'Módulo Catálogo tipos de asentamientos',
             'code'     => 'module_asentamientos'
         ]);
+        CatModule::create([
+            'id'       => 41,
+            'name'     => 'Módulo Catálogo Establecimientos',
+            'code'     => 'module_establecimientos'
+        ]);
+        CatModule::create([
+            'id'       => 42,
+            'name'     => 'Módulo Catálogo estatus operación',
+            'code'     => 'module_estatus_operacion'
+        ]);
+        CatModule::create([
+            'id'       => 43,
+            'name'     => 'Módulo Catálogo Nivel atención',
+            'code'     => 'module_nivel_atencion'
+        ]);
+        CatModule::create([
+            'id'       => 44,
+            'name'     => 'Módulo Catálogo Tipologia',
+            'code'     => 'module_tipologia'
+        ]);
+        CatModule::create([
+            'id'       => 45,
+            'name'     => 'Módulo Catálogo Subtipología',
+            'code'     => 'module_subtipologia'
+        ]);
     }
 }

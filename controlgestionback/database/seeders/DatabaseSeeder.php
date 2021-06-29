@@ -114,7 +114,13 @@ class DatabaseSeeder extends Seeder
              */
             EstatusAcreditacionTableSeeder::class,
             EstratoUnidadTableSeeder::class,
-            TipoAsentamientosTableSeeder::class
+            TipoAsentamientosTableSeeder::class,
+            
+            EstablecimientoTableSeeder::class,
+            EstatusOperacionTableSeeder::class,
+            NivelAtencionTableSeeder::class,
+            TipologiasTableSeeder::class,
+            SubTipologiasTableSeeder::class
 
         ]);
     }

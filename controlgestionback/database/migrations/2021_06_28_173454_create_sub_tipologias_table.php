@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNivelAtencionTable extends Migration
+class CreateSubTipologiasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateNivelAtencionTable extends Migration
      */
     public function up()
     {
-        Schema::create('nivel_atencion', function (Blueprint $table) {
-            $table->increments('NIVELATENCIONID');
-            $table->string('NIVELATENCIONNOMBRE');  
+        Schema::create('sub_tipologias', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('TIPOLOGIAID');
+            $table->string('SUBTIPOLOGIAID');
+            $table->string('SUBTIPOLOGIANOMBRE');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateNivelAtencionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nivel_atencion');
+        Schema::dropIfExists('sub_tipologias');
     }
 }

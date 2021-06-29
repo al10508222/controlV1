@@ -265,6 +265,31 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'asentamientos-create', 'name' => 'Crear Catálogo asentamientos',    'description' => 'Creación de Catálogo asentamientos',          'module_id' => '40'],
             ['key' => 'asentamientos-edit',   'name' => 'Edita Catálogo asentamientos',    'description' => 'Edición de Catálogo asentamientos',           'module_id' => '40'],
             ['key' => 'asentamientos-delete', 'name' => 'Eliminar Catálogo asentamientos', 'description' => 'Eliminación de Catálogo asentamientos',       'module_id' => '40'],
+            //====================== Catálogo Tipos establecimientos =====================================
+            ['key' => 'establecimientos-view',   'name' => 'Ver Catálogo establecimientos',      'description' => 'Acceso al listado de Catálogo establecimientos', 'module_id' => '41'],
+            ['key' => 'establecimientos-create', 'name' => 'Crear Catálogo establecimientos',    'description' => 'Creación de Catálogo establecimientos',          'module_id' => '41'],
+            ['key' => 'establecimientos-edit',   'name' => 'Edita Catálogo establecimientos',    'description' => 'Edición de Catálogo establecimientos',           'module_id' => '41'],
+            ['key' => 'establecimientos-delete', 'name' => 'Eliminar Catálogo establecimientos', 'description' => 'Eliminación de Catálogo establecimientos',       'module_id' => '41'],
+            //====================== Catálogo estatus operación =====================================
+            ['key' => 'operacion-view',   'name' => 'Ver Catálogo estatus operación',      'description' => 'Acceso al listado de Catálogo estatus operación', 'module_id' => '42'],
+            ['key' => 'operacion-create', 'name' => 'Crear Catálogo estatus operación',    'description' => 'Creación de Catálogo estatus operación',          'module_id' => '42'],
+            ['key' => 'operacion-edit',   'name' => 'Edita Catálogo estatus operación',    'description' => 'Edición de Catálogo estatus operación',           'module_id' => '42'],
+            ['key' => 'operacion-delete', 'name' => 'Eliminar Catálogo estatus operación', 'description' => 'Eliminación de Catálogo estatus operación',       'module_id' => '42'],
+            //====================== Catálogo Nivel atencion =====================================
+            ['key' => 'nivel_atencion-view',   'name' => 'Ver Catálogo Nivel atención',      'description' => 'Acceso al listado de Catálogo Nivel atención', 'module_id' => '43'],
+            ['key' => 'nivel_atencion-create', 'name' => 'Crear Catálogo Nivel atención',    'description' => 'Creación de Catálogo Nivel atención',          'module_id' => '43'],
+            ['key' => 'nivel_atencion-edit',   'name' => 'Edita Catálogo Nivel atención',    'description' => 'Edición de Catálogo Nivel atención',           'module_id' => '43'],
+            ['key' => 'nivel_atencion-delete', 'name' => 'Eliminar Catálogo Nivel atención', 'description' => 'Eliminación de Catálogo Nivel atención',       'module_id' => '43'],
+            //====================== Catálogo Tipologia =====================================
+            ['key' => 'tipologia-view',   'name' => 'Ver Catálogo tipología',      'description' => 'Acceso al listado de Catálogo tipología', 'module_id' => '44'],
+            ['key' => 'tipologia-create', 'name' => 'Crear Catálogo tipología',    'description' => 'Creación de Catálogo tipología',          'module_id' => '44'],
+            ['key' => 'tipologia-edit',   'name' => 'Edita Catálogo tipología',    'description' => 'Edición de Catálogo tipología',           'module_id' => '44'],
+            ['key' => 'tipologia-delete', 'name' => 'Eliminar Catálogo tipología', 'description' => 'Eliminación de Catálogo tipología',       'module_id' => '44'],
+            //====================== Catálogo Subtipología =====================================
+            ['key' => 'subtipologia-view',   'name' => 'Ver Catálogo Subtipología',      'description' => 'Acceso al listado de Catálogo Subtipología', 'module_id' => '45'],
+            ['key' => 'subtipologia-create', 'name' => 'Crear Catálogo Subtipología',    'description' => 'Creación de Catálogo Subtipología',          'module_id' => '45'],
+            ['key' => 'subtipologia-edit',   'name' => 'Edita Catálogo Subtipología',    'description' => 'Edición de Catálogo Subtipología',           'module_id' => '45'],
+            ['key' => 'subtipologia-delete', 'name' => 'Eliminar Catálogo Subtipología', 'description' => 'Eliminación de Catálogo Subtipología',       'module_id' => '45'],
         ]);
     }
 }
