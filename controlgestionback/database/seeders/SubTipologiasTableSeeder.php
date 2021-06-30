@@ -29,5 +29,7 @@ class SubTipologiasTableSeeder extends Seeder
                 ]
             );
         }
+
+        \DB::statement('ALTER SEQUENCE sub_tipologias_id_seq RESTART WITH 123');
     }
 }

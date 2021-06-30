@@ -463,5 +463,7 @@ class TipologiasTableSeeder extends Seeder
                ]
             ]
        );
+
+       \DB::statement('ALTER SEQUENCE tipologias_id_seq RESTART WITH 123');
     }
 }

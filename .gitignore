@@ -1,6 +1,6 @@
 .DS_Store
 .thumbs.db
-controlgestionfront/node_modules
+/node_modules
 
 # Quasar core related directories
 controlgestionfront/.quasar
@@ -25,7 +25,6 @@ controlgestionback/yarn-error.log
 controlgestionback/.rnd
 controlgestionback/.docker
 controlgestionback/.idea
-controlgestionback/database/seeders/json/localidades.json
 controlgestionback/database/seeders/json/localidadesv.json
 #/src-cordova/www
 

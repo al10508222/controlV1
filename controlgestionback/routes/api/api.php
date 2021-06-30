@@ -65,6 +65,7 @@ use App\Http\Controllers\API\EstablecimientoController;
 use App\Http\Controllers\API\OperacionController;
 use App\Http\Controllers\API\NivelAtencionController;
 use App\Http\Controllers\API\TipologiaController;
+use App\Http\Controllers\API\SubtipologiaController;
 
 
 
@@ -142,6 +143,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('operacion', OperacionController::class);
             Route::resource('nivel_atencion', NivelAtencionController::class);
             Route::resource('tipologia', TipologiaController::class);
+            Route::resource('subtipologia', SubtipologiaController::class);
 
         });
 
@@ -167,6 +169,7 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('operacion', OperacionController::class);
         Route::resource('nivel_atencion', NivelAtencionController::class);
         Route::resource('tipologia', TipologiaController::class);
+        Route::resource('subtipologia', SubtipologiaController::class);
 
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
         Route::resource('employment-subsidies-config', EmploymentSubsidiesConfigController::class);
@@ -239,12 +242,10 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('StatusOperaciones', [OperacionController::class, 'ShowOperacionAll']);
     Route::post('NivelesAtencion', [NivelAtencionController::class, 'ShowNivelAtencionAll']);
     Route::post('Tipologias', [TipologiaController::class, 'ShowTipologiaAll']);
+    Route::post('SubTipologias', [SubtipologiaController::class, 'ShowSubTipologiaAll']);
     
     
     
-    
-
-
 });
 Route::group(['prefix' => 'files'], function () {
     Route::post('upload', [FileUploadController::class, 'upload']);

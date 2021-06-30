@@ -64,6 +64,8 @@ use App\Models\establecimientos;
 use App\Models\operacion;
 use App\Models\nivel_atencion;
 use App\Models\tipologia;
+use App\Models\subtipologia;
+
 
 
 class CatalogsController extends Controller
@@ -296,6 +298,9 @@ class CatalogsController extends Controller
             }
             if($request->has('tipologia') && $request->input('tipologia') == true) {
                 $catalogs['tipologia'] = tipologia::max('id') + 1;
+            }
+            if($request->has('subtipologia') && $request->input('subtipologia') == true) {
+                $catalogs['subtipologia'] = subtipologia::max('id') + 1;
             }
             
 
