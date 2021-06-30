@@ -61,6 +61,8 @@ use App\Models\Asentamientos;
 use App\Models\CucopModel;
 use App\Models\VialidadesModel;
 use App\Models\establecimientos;
+use App\Models\operacion;
+
 
 
 
@@ -285,6 +287,9 @@ class CatalogsController extends Controller
             }
             if($request->has('establecimientos') && $request->input('establecimientos') == true) {
                 $catalogs['establecimientos'] = establecimientos::max('TIPOESTABLECIMIENTOID') + 1;
+            }
+            if($request->has('operacion') && $request->input('operacion') == true) {
+                $catalogs['operacion'] = operacion::max('ESTATUSOPERACIONID') + 1;
             }
             
 

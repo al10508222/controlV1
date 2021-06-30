@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\establecimientosFieldRequest;
+use App\Http\Requests\operacionFieldRequest;
 use Illuminate\Http\Request;
-use App\Models\establecimientos;
+use App\Models\operacion;
 use App\Models\entidades;
 
 use App\Models\Catalogs\CatTabulator;
 use Illuminate\Support\Facades\DB;
 
-class EstablecimientoController extends Controller
+class OperacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,11 +23,11 @@ class EstablecimientoController extends Controller
         try {
             $rowsPerPage = $request->rowsPerPage;
             $search = $request->input('search');
-            $establecimientos = establecimientos::search($search)->orderBy('TIPOESTABLECIMIENTONOMBRE', 'asc')->paginate($rowsPerPage);
+            $operacion = operacion::search($search)->orderBy('ESTATUSOPERACIONNOMBRE', 'asc')->paginate($rowsPerPage);
 
             return response()->json([
                 'success' => true,
-                'establecimientos' => $establecimientos
+                'operacion' => $operacion
 			]);
 
 
@@ -39,17 +39,6 @@ class EstablecimientoController extends Controller
 			]);
         }
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -61,9 +50,9 @@ class EstablecimientoController extends Controller
         try {
 
             DB::beginTransaction();
-            $establecimientos = new establecimientos();
-            $establecimientos->fill($request->all());
-            $establecimientos->save();
+            $operacion = new operacion();
+            $operacion->fill($request->all());
+            $operacion->save();
             DB::commit();
 
             return response()->json([
@@ -89,10 +78,10 @@ class EstablecimientoController extends Controller
     public function show($id)
     {
         try {
-            $establecimientos = establecimientos::where('TIPOESTABLECIMIENTOID',$id)->first();
+            $operacion = operacion::where('ESTATUSOPERACIONID',$id)->first();
             return response()->json([
                 'success' => true,
-                'establecimientos' => $establecimientos,
+                'operacion' => $operacion,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -112,11 +101,11 @@ class EstablecimientoController extends Controller
     public function edit($id)
     {
         try {
-            $establecimientos = establecimientos::where('TIPOESTABLECIMIENTOID',$id)->first();
+            $operacion = operacion::where('ESTATUSOPERACIONID',$id)->first();
 
             return response()->json([
                 'success' => true,
-                'establecimientos' => $establecimientos,
+                'operacion' => $operacion,
 			]);
         }catch (\Exception $e) {
             DB::rollback();
@@ -139,9 +128,9 @@ class EstablecimientoController extends Controller
         try {
 
             DB::beginTransaction();
-            $establecimientos = establecimientos::find($id);
-            $establecimientos->fill($request->all());
-            $establecimientos->save();
+            $operacion = operacion::find($id);
+            $operacion->fill($request->all());
+            $operacion->save();
             DB::commit();
 
             return response()->json([
@@ -167,7 +156,7 @@ class EstablecimientoController extends Controller
     public function destroy($id)
     {
         try {
-            establecimientos::destroy($id);
+            operacion::destroy($id);
             return response()->json([
                 'success' => true,
                 'message' => 'OK' 
@@ -182,20 +171,14 @@ class EstablecimientoController extends Controller
         
     }
 
-    public function ShowEstablecimientosAll(Request $request)
+    public function ShowOperacionAll(Request $request)
     {
         try {
-            $establecimientos = establecimientos::all(); 
-
-            $datos = array(); 
-
-            foreach ($establecimientos as $i => $value) {
-                $datos['data'][$i] = $value; 
-            }
+            $operacion = operacion::all(); 
 
             return response()->json([
                 'success' => true,
-                'establecimientos' => $datos
+                'operacion' => $operacion
 			]);
         }catch (\Exception $e) {
             DB::rollback();

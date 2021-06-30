@@ -7,7 +7,10 @@
 [POST]  -       http://localhost:8000/api/localidadesByFilter  ---------> utiliza parametros
 [POST]  -       http://localhost:8000/api/AcreditacionAll
 [POST]  -       http://localhost:8000/api/EstratosUnidad
-[POST]  -       http://localhost:8000/api/TiposAsentamientos
+[POST]  -       http://localhost:8000/api/TiposAsentamientos 
+[POST]  -       http://localhost:8000/api/TiposEstablecimientos
+[POST]  -       http://localhost:8000/api/StatusOperaciones
+
 
 ************* CATALOGOS COMPLETOS ***********
 ----> catalogo estatus_acreditacion completo
@@ -17,10 +20,8 @@
 ----> catalogo de vialidades completo
 ----> catalogo de entidades completo
 ----> catalogo de municipios completo
-
-************* ULTIMOS CAMBIOS ***********
-* se agrega id en creacion de localidades
-* pantalla ver localides sin modificar
+----> catalogo de tipo_asentamientos completo
+----> catalogo de establecimientos completo
 
 
 #pasos y entrar a docker

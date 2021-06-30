@@ -196,6 +196,38 @@
                   </q-item-section>
                   <q-item-section id="establecimientos">Establecimientos</q-item-section>
                 </q-item>
+                <q-item v-if="canShow('operacion-view')" clickable v-ripple  @click.native="$router.push('/operacion').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="operacion">Estado Operaciones</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('nivel_atencion-view')" clickable v-ripple  @click.native="$router.push('/nivel_atencion').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="nivel_atencion">Nivel de Atención</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('tipologia-view')" clickable v-ripple  @click.native="$router.push('/tipologia').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="tipologia">Tipologías</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('subtipologia-view')" clickable v-ripple  @click.native="$router.push('/subtipologia').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="subtipologia">Subtipologías</q-item-section>
+                </q-item>
               </q-expansion-item>
             </q-list>
           </q-expansion-item>

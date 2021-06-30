@@ -62,6 +62,7 @@ use App\Http\Controllers\API\AcreditacionController;
 use App\Http\Controllers\API\EstratoController;
 use App\Http\Controllers\API\AsentamientosController;
 use App\Http\Controllers\API\EstablecimientoController;
+use App\Http\Controllers\API\OperacionController;
 
 
 
@@ -136,6 +137,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('estrato', EstratoController::class);
             Route::resource('asentamientos', AsentamientosController::class);
             Route::resource('establecimientos', EstablecimientoController::class);
+            Route::resource('operacion', OperacionController::class);
 
         });
 
@@ -158,6 +160,7 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('estrato', EstratoController::class);
         Route::resource('asentamientos', AsentamientosController::class);
         Route::resource('establecimientos', EstablecimientoController::class);
+        Route::resource('operacion', OperacionController::class);
         
 
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
@@ -227,9 +230,10 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('AcreditacionAll', [AcreditacionController::class, 'ShowAcreditacionAll']);
     Route::post('EstratosUnidad', [EstratoController::class, 'ShowEstratoAll']);
     Route::post('TiposAsentamientos', [AsentamientosController::class, 'ShowAsentamientosAll']);
+    Route::post('TiposEstablecimientos', [EstablecimientoController::class, 'ShowEstablecimientosAll']);
+    Route::post('StatusOperaciones', [OperacionController::class, 'ShowOperacionAll']);
     
     
-
     
 
 
