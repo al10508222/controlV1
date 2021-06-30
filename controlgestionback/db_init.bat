@@ -10,6 +10,7 @@
 [POST]  -       http://localhost:8000/api/TiposAsentamientos 
 [POST]  -       http://localhost:8000/api/TiposEstablecimientos
 [POST]  -       http://localhost:8000/api/StatusOperaciones
+[POST]  -       http://localhost:8000/api/NivelesAtencion
 
 
 ************* CATALOGOS COMPLETOS ***********
@@ -22,6 +23,7 @@
 ----> catalogo de municipios completo
 ----> catalogo de tipo_asentamientos completo
 ----> catalogo de establecimientos completo
+----> catalogo de nivel_atencion completo
 
 
 #pasos y entrar a docker

@@ -63,6 +63,7 @@ use App\Http\Controllers\API\EstratoController;
 use App\Http\Controllers\API\AsentamientosController;
 use App\Http\Controllers\API\EstablecimientoController;
 use App\Http\Controllers\API\OperacionController;
+use App\Http\Controllers\API\NivelAtencionController;
 
 
 
@@ -138,6 +139,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('asentamientos', AsentamientosController::class);
             Route::resource('establecimientos', EstablecimientoController::class);
             Route::resource('operacion', OperacionController::class);
+            Route::resource('nivel_atencion', NivelAtencionController::class);
 
         });
 
@@ -161,6 +163,7 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('asentamientos', AsentamientosController::class);
         Route::resource('establecimientos', EstablecimientoController::class);
         Route::resource('operacion', OperacionController::class);
+        Route::resource('nivel_atencion', NivelAtencionController::class);
         
 
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
@@ -232,6 +235,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('TiposAsentamientos', [AsentamientosController::class, 'ShowAsentamientosAll']);
     Route::post('TiposEstablecimientos', [EstablecimientoController::class, 'ShowEstablecimientosAll']);
     Route::post('StatusOperaciones', [OperacionController::class, 'ShowOperacionAll']);
+    Route::post('NivelesAtencion', [NivelAtencionController::class, 'ShowNivelAtencionAll']);
     
     
     

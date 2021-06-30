@@ -62,7 +62,7 @@ use App\Models\CucopModel;
 use App\Models\VialidadesModel;
 use App\Models\establecimientos;
 use App\Models\operacion;
-
+use App\Models\nivel_atencion;
 
 
 
@@ -290,6 +290,9 @@ class CatalogsController extends Controller
             }
             if($request->has('operacion') && $request->input('operacion') == true) {
                 $catalogs['operacion'] = operacion::max('ESTATUSOPERACIONID') + 1;
+            }
+            if($request->has('nivel_atencion') && $request->input('nivel_atencion') == true) {
+                $catalogs['nivel_atencion'] = nivel_atencion::max('NIVELATENCIONID') + 1;
             }
             
 

@@ -34,5 +34,7 @@ class NivelAtencionTableSeeder extends Seeder
                ]
             ]
        );
+
+       \DB::statement('ALTER SEQUENCE "nivel_atencion_NIVELATENCIONID_seq" RESTART WITH 5');
     }
 }

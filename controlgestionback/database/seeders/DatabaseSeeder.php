@@ -116,9 +116,9 @@ class DatabaseSeeder extends Seeder
             EstratoUnidadTableSeeder::class,
             TipoAsentamientosTableSeeder::class,
             EstablecimientoTableSeeder::class,
-            
             EstatusOperacionTableSeeder::class,
             NivelAtencionTableSeeder::class,
+            
             TipologiasTableSeeder::class,
             SubTipologiasTableSeeder::class
 
