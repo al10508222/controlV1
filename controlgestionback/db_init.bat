@@ -11,6 +11,7 @@
 [POST]  -       http://localhost:8000/api/TiposEstablecimientos
 [POST]  -       http://localhost:8000/api/StatusOperaciones
 [POST]  -       http://localhost:8000/api/NivelesAtencion
+[POST]  -       http://localhost:8000/api/Tipologias
 
 
 ************* CATALOGOS COMPLETOS ***********

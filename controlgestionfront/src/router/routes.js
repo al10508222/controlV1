@@ -16,6 +16,8 @@ import asentamientos from './partials/asentamientos';
 import establecimientos from './partials/establecimientos';
 import operacion from './partials/operacion';
 import nivelAtencion from './partials/nivelAtencion';
+import tipologia from './partials/tipologias';
+
 
 const routes = [
   {
@@ -40,7 +42,8 @@ const routes = [
       ...asentamientos,
       ...establecimientos,
       ...operacion,
-      ...nivelAtencion
+      ...nivelAtencion,
+      ...tipologia
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {

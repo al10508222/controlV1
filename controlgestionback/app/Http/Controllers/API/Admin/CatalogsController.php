@@ -63,7 +63,7 @@ use App\Models\VialidadesModel;
 use App\Models\establecimientos;
 use App\Models\operacion;
 use App\Models\nivel_atencion;
-
+use App\Models\tipologia;
 
 
 class CatalogsController extends Controller
@@ -293,6 +293,9 @@ class CatalogsController extends Controller
             }
             if($request->has('nivel_atencion') && $request->input('nivel_atencion') == true) {
                 $catalogs['nivel_atencion'] = nivel_atencion::max('NIVELATENCIONID') + 1;
+            }
+            if($request->has('tipologia') && $request->input('tipologia') == true) {
+                $catalogs['tipologia'] = tipologia::max('id') + 1;
             }
             
 

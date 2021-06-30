@@ -64,6 +64,7 @@ use App\Http\Controllers\API\AsentamientosController;
 use App\Http\Controllers\API\EstablecimientoController;
 use App\Http\Controllers\API\OperacionController;
 use App\Http\Controllers\API\NivelAtencionController;
+use App\Http\Controllers\API\TipologiaController;
 
 
 
@@ -140,6 +141,7 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('establecimientos', EstablecimientoController::class);
             Route::resource('operacion', OperacionController::class);
             Route::resource('nivel_atencion', NivelAtencionController::class);
+            Route::resource('tipologia', TipologiaController::class);
 
         });
 
@@ -164,7 +166,7 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('establecimientos', EstablecimientoController::class);
         Route::resource('operacion', OperacionController::class);
         Route::resource('nivel_atencion', NivelAtencionController::class);
-        
+        Route::resource('tipologia', TipologiaController::class);
 
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
         Route::resource('employment-subsidies-config', EmploymentSubsidiesConfigController::class);
@@ -236,6 +238,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('TiposEstablecimientos', [EstablecimientoController::class, 'ShowEstablecimientosAll']);
     Route::post('StatusOperaciones', [OperacionController::class, 'ShowOperacionAll']);
     Route::post('NivelesAtencion', [NivelAtencionController::class, 'ShowNivelAtencionAll']);
+    Route::post('Tipologias', [TipologiaController::class, 'ShowTipologiaAll']);
+    
     
     
     

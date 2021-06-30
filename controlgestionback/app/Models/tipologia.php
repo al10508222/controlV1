@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tipologia extends Model
+class tipologia extends Model
 {
     protected $table="tipologias";
-    protected $primaryKey = 'TIPOLOGIAID';
 
     /**
      * The attributes that are mass assignable.
@@ -16,8 +15,9 @@ class Tipologia extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'TIPOLOGIAID',
-        'TIPOLOGIAID'
+        'TIPOLOGIANOMBRE'
       ];
 
     public function scopeSearch($query, $search)
