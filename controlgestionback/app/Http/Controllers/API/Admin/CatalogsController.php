@@ -65,6 +65,10 @@ use App\Models\operacion;
 use App\Models\nivel_atencion;
 use App\Models\tipologia;
 use App\Models\subtipologia;
+use App\Models\instituciones;
+use App\Models\instituciones_admor;
+use App\Models\scians;
+use App\Models\jurisdicciones;
 
 
 
@@ -302,6 +306,19 @@ class CatalogsController extends Controller
             if($request->has('subtipologia') && $request->input('subtipologia') == true) {
                 $catalogs['subtipologia'] = subtipologia::max('id') + 1;
             }
+            if($request->has('institucion') && $request->input('institucion') == true) {
+                $catalogs['institucion'] = instituciones::max('id') + 1;
+            }
+            if($request->has('institucion_admor') && $request->input('institucion_admor') == true) {
+                $catalogs['institucion_admor'] = instituciones_admor::max('id') + 1;
+            }
+            if($request->has('scians') && $request->input('scians') == true) {
+                $catalogs['scians'] = scians::max('id') + 1;
+            }
+            if($request->has('jurisdiccion') && $request->input('jurisdiccion') == true) {
+                $catalogs['jurisdiccion'] = jurisdicciones::max('id') + 1;
+            }
+
             
 
 

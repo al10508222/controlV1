@@ -18,6 +18,7 @@ import operacion from './partials/operacion';
 import nivelAtencion from './partials/nivelAtencion';
 import tipologia from './partials/tipologia';
 import subtipologia from './partials/subtipologia';
+import instituciones from './partials/instituciones';
 
 const routes = [
   {
@@ -44,7 +45,8 @@ const routes = [
       ...operacion,
       ...nivelAtencion,
       ...tipologia,
-      ...subtipologia
+      ...subtipologia,
+      ...instituciones
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {

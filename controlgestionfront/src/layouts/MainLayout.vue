@@ -226,7 +226,39 @@
                       <q-icon right name="fas fa-passport q-icon notranslate" />
                     </q-avatar>
                   </q-item-section>
-                  <q-item-section id="subtipologia">Subtipologías</q-item-section>
+                  <q-item-section id="subtipologías">SubTipologías</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('instituciones-view')" clickable v-ripple  @click.native="$router.push('/instituciones').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="instituciones">Instituciones</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('instituciones_admor-view')" clickable v-ripple  @click.native="$router.push('/instituciones_admor').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="instituciones_admor">Instituciones ADM OR</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('scians-view')" clickable v-ripple  @click.native="$router.push('/scians').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="scians">Scians</q-item-section>
+                </q-item>
+                <q-item v-if="canShow('jurisdicciones-view')" clickable v-ripple  @click.native="$router.push('/jurisdicciones').catch(err => {})">
+                  <q-item-section avatar>
+                    <q-avatar>
+                      <q-icon right name="fas fa-passport q-icon notranslate" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section id="jurisdicciones">Jurisdicciones</q-item-section>
                 </q-item>
               </q-expansion-item>
             </q-list>

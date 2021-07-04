@@ -66,6 +66,10 @@ use App\Http\Controllers\API\OperacionController;
 use App\Http\Controllers\API\NivelAtencionController;
 use App\Http\Controllers\API\TipologiaController;
 use App\Http\Controllers\API\SubtipologiaController;
+use App\Http\Controllers\API\InstitucionesController;
+use App\Http\Controllers\API\InstitucionesAdmorController;
+use App\Http\Controllers\API\SciansController;
+use App\Http\Controllers\API\JurisdiccionesController;
 
 
 
@@ -144,6 +148,11 @@ Route::group(['middleware' => ['auth:api']], function () {
             Route::resource('nivel_atencion', NivelAtencionController::class);
             Route::resource('tipologia', TipologiaController::class);
             Route::resource('subtipologia', SubtipologiaController::class);
+            Route::resource('instituciones', InstitucionesController::class);
+            Route::resource('instituciones_admor', InstitucionesAdmorController::class);
+            Route::resource('scians', SciansController::class);
+            Route::resource('jurisdicciones', JurisdiccionesController::class);
+
 
         });
 
@@ -171,6 +180,11 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::resource('tipologia', TipologiaController::class);
         Route::resource('subtipologia', SubtipologiaController::class);
 
+        Route::resource('instituciones', InstitucionesController::class);
+        Route::resource('instituciones_admor', InstitucionesAdmorController::class);
+        Route::resource('scians', SciansController::class);
+        Route::resource('jurisdicciones', JurisdiccionesController::class);
+        
         Route::get('calculate-isr', [IsrConfigController::class, 'calculate']);
         Route::resource('employment-subsidies-config', EmploymentSubsidiesConfigController::class);
         Route::resource('imss-deductions', ImssDeductionsController::class);
@@ -243,6 +257,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('NivelesAtencion', [NivelAtencionController::class, 'ShowNivelAtencionAll']);
     Route::post('Tipologias', [TipologiaController::class, 'ShowTipologiaAll']);
     Route::post('SubTipologias', [SubtipologiaController::class, 'ShowSubTipologiaAll']);
+
+    Route::post('instituciones', [InstitucionesController::class, 'InstitucionesAll']);
     
     
     

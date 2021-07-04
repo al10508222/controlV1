@@ -31,7 +31,6 @@
 #pasos y entrar a docker
 
 docker exec -ti --user root bd_control-app /bin/bash
-
 echo 'memory_limit=2G' > /usr/local/etc/php/conf.d/memory-limit.ini
 php artisan migrate
 php artisan migrate:fresh --seed
@@ -40,14 +39,3 @@ php artisan passport:install --force
 
 ************* ENTRAR A BASE DE DATOS ************
 psql -U postgres -h 127.0.0.1 -p 15432
-
-\c control_db
-delete from migrations where id = 154;
-
-************* OTROS COMANDOS **************
----> pasar a docker y ejecutar:
-
-php artisan migrate
-php artisan db:seed --class=EstablecimientoTableSeeder
-
-
