@@ -1,7 +1,7 @@
 export default [
-  { path: 'instituciones', component: () => import('components/instituciones/Index.vue') },
-  { path: 'instituciones/create', component: () => import('components/instituciones/Create.vue') },
-  { path: 'instituciones/:id/edit', component: () => import('components/instituciones/Edit.vue') },
-  { path: 'instituciones/:id/show', component: () => import('components/instituciones/Show.vue') },
+  { path: 'instituciones_admor', component: () => import('components/instituciones_admor/Index.vue') },
+  { path: 'instituciones_admor/create', component: () => import('components/instituciones_admor/Create.vue') },
+  { path: 'instituciones_admor/:id/edit', component: () => import('components/instituciones_admor/Edit.vue') },
+  { path: 'instituciones_admor/:id/show', component: () => import('components/instituciones_admor/Show.vue') },
 
 ];

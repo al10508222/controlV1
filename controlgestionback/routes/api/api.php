@@ -259,6 +259,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('SubTipologias', [SubtipologiaController::class, 'ShowSubTipologiaAll']);
 
     Route::post('instituciones', [InstitucionesController::class, 'InstitucionesAll']);
+    Route::post('institucionesAdmor', [InstitucionesAdmorController::class, 'InstitucionesAdmorAll']);
     
     
     

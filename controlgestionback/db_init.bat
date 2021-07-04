@@ -13,6 +13,8 @@
 [POST]  -       http://localhost:8000/api/NivelesAtencion
 [POST]  -       http://localhost:8000/api/Tipologias
 [POST]  -       http://localhost:8000/api/SubTipologias
+[POST]  -       http://localhost:8000/api/instituciones
+[POST]  -       http://localhost:8000/api/institucionesAdmor
 
 
 ************* CATALOGOS COMPLETOS ***********
@@ -26,6 +28,8 @@
 ----> catalogo de tipo_asentamientos completo
 ----> catalogo de establecimientos completo
 ----> catalogo de nivel_atencion completo
+----> catalogo de instituciones completo
+----> catalogo de instituciones_admor completo
 
 
 #pasos y entrar a docker

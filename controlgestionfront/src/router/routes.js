@@ -19,6 +19,7 @@ import nivelAtencion from './partials/nivelAtencion';
 import tipologia from './partials/tipologia';
 import subtipologia from './partials/subtipologia';
 import instituciones from './partials/instituciones';
+import institucionesAdmor from './partials/instituciones_admor';
 
 const routes = [
   {
@@ -46,7 +47,8 @@ const routes = [
       ...nivelAtencion,
       ...tipologia,
       ...subtipologia,
-      ...instituciones
+      ...instituciones,
+      ...institucionesAdmor
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {
