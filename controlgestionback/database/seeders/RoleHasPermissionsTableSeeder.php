@@ -2510,6 +2510,91 @@ class RoleHasPermissionsTableSeeder extends Seeder
                 'id' => 481,
                 'profile_id' => 1,
                 'permission_id' => 198,
+            ),
+
+            //institucion
+            417 => array (
+                'id' => 482,
+                'profile_id' => 1,
+                'permission_id' => 199,
+            ),
+            418 => array (
+                'id' => 483,
+                'profile_id' => 1,
+                'permission_id' => 200,
+            ),
+            419 => array (
+                'id' => 484,
+                'profile_id' => 1,
+                'permission_id' => 201,
+            ),
+            420 => array (
+                'id' => 485,
+                'profile_id' => 1,
+                'permission_id' => 202,
+            ),
+            //institucion_admor
+            421 => array (
+                'id' => 486,
+                'profile_id' => 1,
+                'permission_id' => 203,
+            ),
+            422 => array (
+                'id' => 487,
+                'profile_id' => 1,
+                'permission_id' => 204,
+            ),
+            423 => array (
+                'id' => 488,
+                'profile_id' => 1,
+                'permission_id' => 205,
+            ),
+            424 => array (
+                'id' => 489,
+                'profile_id' => 1,
+                'permission_id' => 206,
+            ),
+            //scians
+            425 => array (
+                'id' => 490,
+                'profile_id' => 1,
+                'permission_id' => 207,
+            ),
+            426 => array (
+                'id' => 491,
+                'profile_id' => 1,
+                'permission_id' => 208,
+            ),
+            427 => array (
+                'id' => 492,
+                'profile_id' => 1,
+                'permission_id' => 209,
+            ),
+            428 => array (
+                'id' => 493,
+                'profile_id' => 1,
+                'permission_id' => 210,
+            ),
+            //jurisdicciones}
+            429 => array (
+                'id' => 494,
+                'profile_id' => 1,
+                'permission_id' => 211,
+            ),
+            430 => array (
+                'id' => 495,
+                'profile_id' => 1,
+                'permission_id' => 212,
+            ),
+            431 => array (
+                'id' => 496,
+                'profile_id' => 1,
+                'permission_id' => 213,
+            ),
+            432 => array (
+                'id' => 497,
+                'profile_id' => 1,
+                'permission_id' => 214,
             )
         ));
 

@@ -13,11 +13,12 @@ class CreateInstitucionTable extends Migration
      */
     public function up()
     {
-        Schema::create('institucion', function (Blueprint $table) {
-            // $table->increments('id'); //NOTA: no se puede colocar un id tipo caracter en postgresql, ademas de que la el nombre corto
-            // $table->string('INSTITUCIONNOMBRE');  
-            // $table->bigInteger('INSTITUCIONIDCORTO');  
-            // $table->timestamps();
+        Schema::create('institucions', function (Blueprint $table) {
+            $table->increments('id'); //NOTA: no se puede colocar un id tipo caracter en postgresql
+            $table->string('INSTITUCIONID');  
+            $table->string('INSTITUCIONNOMBRE');  
+            $table->string('INSTITUCIONIDCORTO');  
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateInstitucionTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('institucion');
+        Schema::dropIfExists('institucions');
     }
 }

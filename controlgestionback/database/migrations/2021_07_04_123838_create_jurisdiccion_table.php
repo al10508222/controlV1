@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstitucionAdmOrTable extends Migration
+class CreateJurisdiccionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateInstitucionAdmOrTable extends Migration
      */
     public function up()
     {
-        Schema::create('institucion_adm_or', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('INSTITUCIONADMORID');  
-            $table->string('INSTITUCIONADMORNOMBRE');  
+        Schema::create('jurisdiccion', function (Blueprint $table) {
+            $table->id('id');
+            $table->Integer('ENTIDADFEDERATIVAID');
+            $table->Integer('JURISDICCIONID');   
+            $table->string('JURISDICCIONNOMBRE');  
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateInstitucionAdmOrTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('institucion_adm_or');
+        Schema::dropIfExists('jurisdiccion');
     }
 }

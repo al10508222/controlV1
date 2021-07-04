@@ -239,5 +239,25 @@ class CatModulesSeeder extends Seeder
             'name'     => 'Módulo Catálogo Subtipología',
             'code'     => 'module_subtipologia'
         ]);
+        CatModule::create([
+            'id'       => 46,
+            'name'     => 'Módulo Catálogo Institucion',
+            'code'     => 'module_institucion'
+        ]);
+        CatModule::create([
+            'id'       => 47,
+            'name'     => 'Módulo Catálogo Institucion ADMOR',
+            'code'     => 'module_institucion_admor'
+        ]);
+        CatModule::create([
+            'id'       => 48,
+            'name'     => 'Módulo Catálogo Scians',
+            'code'     => 'module_scians'
+        ]);
+        CatModule::create([
+            'id'       => 49,
+            'name'     => 'Módulo Catálogo Jurisdicciones',
+            'code'     => 'module_jurisdicciones'
+        ]);
     }
 }

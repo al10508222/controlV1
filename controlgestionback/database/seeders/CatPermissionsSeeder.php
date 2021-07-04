@@ -290,6 +290,26 @@ class CatPermissionsSeeder extends Seeder
             ['key' => 'subtipologia-create', 'name' => 'Crear Catálogo Subtipología',    'description' => 'Creación de Catálogo Subtipología',          'module_id' => '45'],
             ['key' => 'subtipologia-edit',   'name' => 'Edita Catálogo Subtipología',    'description' => 'Edición de Catálogo Subtipología',           'module_id' => '45'],
             ['key' => 'subtipologia-delete', 'name' => 'Eliminar Catálogo Subtipología', 'description' => 'Eliminación de Catálogo Subtipología',       'module_id' => '45'],
+            //====================== Catálogo Instituciones =====================================
+            ['key' => 'instituciones-view',   'name' => 'Ver Catálogo Instituciones',      'description' => 'Acceso al listado de Catálogo Instituciones', 'module_id' => '46'],
+            ['key' => 'instituciones-create', 'name' => 'Crear Catálogo Instituciones',    'description' => 'Creación de Catálogo Instituciones',          'module_id' => '46'],
+            ['key' => 'instituciones-edit',   'name' => 'Edita Catálogo Instituciones',    'description' => 'Edición de Catálogo Instituciones',           'module_id' => '46'],
+            ['key' => 'instituciones-delete', 'name' => 'Eliminar Catálogo Instituciones', 'description' => 'Eliminación de Catálogo Instituciones',       'module_id' => '46'],
+            //====================== Catálogo Instituciones_admor =====================================
+            ['key' => 'instituciones_admor-view',   'name' => 'Ver Catálogo Instituciones',      'description' => 'Acceso al listado de Catálogo Instituciones ADM OR', 'module_id' => '47'],
+            ['key' => 'instituciones_admor-create', 'name' => 'Crear Catálogo Instituciones',    'description' => 'Creación de Catálogo Instituciones AMD OR',          'module_id' => '47'],
+            ['key' => 'instituciones_admor-edit',   'name' => 'Edita Catálogo Instituciones',    'description' => 'Edición de Catálogo Instituciones ADM OR',           'module_id' => '47'],
+            ['key' => 'instituciones_admor-delete', 'name' => 'Eliminar Catálogo Instituciones', 'description' => 'Eliminación de Catálogo Instituciones ADM OR',       'module_id' => '47'],
+            //====================== Catálogo Scians =====================================
+            ['key' => 'scians-view',   'name' => 'Ver Catálogo Scians',      'description' => 'Acceso al listado de Catálogo Scians', 'module_id' => '48'],
+            ['key' => 'scians-create', 'name' => 'Crear Catálogo Scians',    'description' => 'Creación de Catálogo Scians',          'module_id' => '48'],
+            ['key' => 'scians-edit',   'name' => 'Edita Catálogo Scians',    'description' => 'Edición de Catálogo Scians',           'module_id' => '48'],
+            ['key' => 'scians-delete', 'name' => 'Eliminar Catálogo Scians', 'description' => 'Eliminación de Catálogo Scians',       'module_id' => '48'],
+            //====================== Catálogo Jurisdicciones =====================================
+            ['key' => 'jurisdicciones-view',   'name' => 'Ver Catálogo Jurisdicciones',      'description' => 'Acceso al listado de Catálogo Jurisdicciones', 'module_id' => '49'],
+            ['key' => 'jurisdicciones-create', 'name' => 'Crear Catálogo Jurisdicciones',    'description' => 'Creación de Catálogo Jurisdicciones',          'module_id' => '49'],
+            ['key' => 'jurisdicciones-edit',   'name' => 'Edita Catálogo Jurisdicciones',    'description' => 'Edición de Catálogo Jurisdicciones',           'module_id' => '49'],
+            ['key' => 'jurisdicciones-delete', 'name' => 'Eliminar Catálogo Jurisdicciones', 'description' => 'Eliminación de Catálogo Jurisdicciones',       'module_id' => '49'],
         ]);
     }
 }

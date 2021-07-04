@@ -120,7 +120,11 @@ class DatabaseSeeder extends Seeder
             NivelAtencionTableSeeder::class,
             
             TipologiasTableSeeder::class,
-            SubTipologiasTableSeeder::class
+            SubTipologiasTableSeeder::class,
+            InstitucionSeeder::class,
+            InstitucionAdmorSeeder::class,
+            ScianSeeder::class,
+            JurisdiccionSeeder::class
 
         ]);
     }
