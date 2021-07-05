@@ -1,7 +1,7 @@
 export default [
-  { path: 'instituciones', component: () => import('components/instituciones/Index.vue') },
-  { path: 'instituciones/create', component: () => import('components/instituciones/Create.vue') },
-  { path: 'instituciones/:id/edit', component: () => import('components/instituciones/Edit.vue') },
-  { path: 'instituciones/:id/show', component: () => import('components/instituciones/Show.vue') },
+  { path: 'scians', component: () => import('components/scians/Index.vue') },
+  { path: 'scians/create', component: () => import('components/scians/Create.vue') },
+  { path: 'scians/:id/edit', component: () => import('components/scians/Edit.vue') },
+  { path: 'scians/:id/show', component: () => import('components/scians/Show.vue') },
 
 ];

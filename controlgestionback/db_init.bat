@@ -15,6 +15,7 @@
 [POST]  -       http://localhost:8000/api/SubTipologias
 [POST]  -       http://localhost:8000/api/instituciones
 [POST]  -       http://localhost:8000/api/institucionesAdmor
+[POST]  -       http://localhost:8000/api/scians
 
 
 ************* CATALOGOS COMPLETOS ***********

@@ -24,7 +24,7 @@ class ScianSeeder extends Seeder
                     'SCIANNOMBRE'     => 'CONSULTORIOS DE PSICOLOGIA DEL SECTOR PRIVADO',
                 ],
                 [
-                    'SCIANID'         => 999999,
+                    'SCIANID'         => 99999,
                     'SCIANNOMBRE'     => 'NO APLICA',
                 ],
                 [
@@ -53,5 +53,7 @@ class ScianSeeder extends Seeder
                 ]
            ]
         );
+        
+        \DB::statement('ALTER SEQUENCE "scians_SCIANID_seq" RESTART WITH 624413');
     }
 }

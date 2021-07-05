@@ -313,7 +313,7 @@ class CatalogsController extends Controller
                 $catalogs['institucion_admor'] = instituciones_admor::max('id') + 1;
             }
             if($request->has('scians') && $request->input('scians') == true) {
-                $catalogs['scians'] = scians::max('id') + 1;
+                $catalogs['scians'] = scians::max('SCIANID') + 1;
             }
             if($request->has('jurisdiccion') && $request->input('jurisdiccion') == true) {
                 $catalogs['jurisdiccion'] = jurisdicciones::max('id') + 1;
