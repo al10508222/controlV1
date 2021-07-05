@@ -21,6 +21,7 @@ import subtipologia from './partials/subtipologia';
 import instituciones from './partials/instituciones';
 import institucionesAdmor from './partials/instituciones_admor';
 import scians from './partials/scians';
+import jurisdicciones from './partials/jurisdicciones';
 
 const routes = [
   {
@@ -50,7 +51,8 @@ const routes = [
       ...subtipologia,
       ...instituciones,
       ...institucionesAdmor,
-      ...scians
+      ...scians,
+      ...jurisdicciones
     ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('grp_token')) {

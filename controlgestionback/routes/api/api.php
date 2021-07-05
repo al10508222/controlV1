@@ -261,7 +261,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('instituciones', [InstitucionesController::class, 'InstitucionesAll']);
     Route::post('institucionesAdmor', [InstitucionesAdmorController::class, 'InstitucionesAdmorAll']);
     Route::post('scians', [SciansController::class, 'SciansAll']);
-    
+    Route::post('jurisdicciones', [JurisdiccionesController::class, 'ShowJurisdiccionesAll']);
     
     
 });

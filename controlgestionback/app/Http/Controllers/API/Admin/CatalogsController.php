@@ -266,6 +266,10 @@ class CatalogsController extends Controller
                                                         ->orderBy('LOCALIDADNOMBRE','asc')->get();
             }
 
+            if($request->has('jurisdicciones') && $request->input('jurisdicciones') == true) {
+                $catalogs['jurisdicciones'] = jurisdicciones::select(['id', 'JURISDICCIONID', 'JURISDICCIONNOMBRE', 'ENTIDADFEDERATIVAID'])->orderBy('id', 'asc')->get();
+            }
+
             //maximos ids
             if($request->has('cucops') && $request->input('cucops') == true) {
                 $catalogs['cucops'] = CucopModel::max('id') + 1;

@@ -16,6 +16,7 @@
 [POST]  -       http://localhost:8000/api/instituciones
 [POST]  -       http://localhost:8000/api/institucionesAdmor
 [POST]  -       http://localhost:8000/api/scians
+[POST]  -       http://localhost:8000/api/jurisdicciones
 
 
 ************* CATALOGOS COMPLETOS ***********

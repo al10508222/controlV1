@@ -1392,6 +1392,6 @@ class JurisdiccionSeeder extends Seeder
                 ]
             ]
         );
-        \DB::statement('ALTER SEQUENCE public.jurisdiccion_id_seq RESTART WITH 200');
+        \DB::statement('ALTER SEQUENCE public.jurisdiccion_id_seq RESTART WITH 300');
     }
 }

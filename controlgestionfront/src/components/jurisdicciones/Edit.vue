@@ -1,0 +1,90 @@
+<template>
+<div>
+  <q-form ref="jurisdiccionesForm" @submit.prevent="() => {}">
+    <q-card style="width: 100%">
+      <q-item>
+        <q-item-section avatar>
+            <q-icon size="md" name="fas fa-briefcase"/>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>Editar jurisdiccion</q-item-label>
+        </q-item-section>
+      </q-item>
+      <q-separator />
+      <div class="q-pa-sm">
+        <q-card-section>
+          <div class="row q-col-gutter-sm">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.id" square outlined label="ID INTERNO" :disable="true"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+              <q-input v-model="form.JURISDICCIONID" square outlined label="ID JURISDICCION" :disable="true"/>
+            </div>
+            <div class="col-xs-5 col-sm-5 col-md-5">
+              <q-input v-model="form.JURISDICCIONNOMBRE" square outlined label="JURISDICCION NOMBRE"/>
+            </div>
+          </div>
+        </q-card-section>
+        <q-card-actions align="right">
+          <q-btn flat @click="$router.back()" label="Regresar" color="primary" v-close-popup />
+          <q-btn flat @click="update()" label="Guardar" color="primary" v-if="disabled"/>
+        </q-card-actions>
+      </div>
+    </q-card>
+  </q-form>
+</div>
+</template>
+
+<script>
+import * as JurisdiccionesService from 'src/services/JurisdiccionesServices';
+import { notifySuccess, notifyError } from 'src/utils/notify';
+
+export default {
+  data() {
+    return {
+      disabled: true,
+      form: {
+        JURISDICCIONID: '',
+        JURISDICCIONNOMBRE: ''
+      }
+    };
+  },
+  created() {
+    const catalogsConfiguration = { profiles: true };
+    const { id } = this.$route.params
+    this.$q.loading.show();
+    this.$store.dispatch('catalogs/setCatalogs', { params: catalogsConfiguration }).then(() => {
+      this.disabled = !this.canShow('jurisdicciones')
+      JurisdiccionesService.edit(id).then((data) => {
+        this.form = data
+        this.form.id = this.form.id.map((obj) => obj.id, []);
+        this.$q.loading.hide();
+      }).catch(() => {
+        this.$q.loading.hide();
+      })
+    });
+  },
+  methods: {
+    update() {
+      const form = { ...this.form };
+      const { id } = this.$route.params
+      JurisdiccionesService.update(form, id).then(() => {
+        notifySuccess();
+        this.$router.push('../../jurisdicciones');
+      }).catch((err) => {
+        notifyError(err)
+      })
+    },
+  },
+  computed: {
+    catalogs: {
+      get() {
+        return this.$store.state.catalogs;
+      },
+      set(val) {
+        this.$store.commit('catalogs/setCatalogs', val)
+      }
+    },
+  },
+};
+</script>
